@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://c031plirb1ah3"]
+[gd_scene load_steps=4 format=3 uid="uid://c031plirb1ah3"]
 
 [ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="1_13uwu"]
+[ext_resource type="Script" path="res://scripts/pushable.gd" id="1_ysqq2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3m7fl"]
 
 [node name="pushable" type="RigidBody2D"]
 gravity_scale = 0.0
+script = ExtResource("1_ysqq2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
