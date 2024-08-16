@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn7k6rw16fb4s"]
+
+[ext_resource type="PackedScene" uid="uid://1kokyfy61hk8" path="res://scenes/hippo.tscn" id="1_o61d3"]
+[ext_resource type="PackedScene" uid="uid://c031plirb1ah3" path="res://pushable.tscn" id="2_3k7rk"]
+
+[node name="map" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="hippo" parent="." instance=ExtResource("1_o61d3")]
+position = Vector2(35, 32)
+
+[node name="pushable" parent="." instance=ExtResource("2_3k7rk")]
+position = Vector2(99, 32)
