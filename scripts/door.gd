@@ -1,24 +1,15 @@
-extends Node2D
+extends StaticBody2D
 class_name Door
 
-#TODO: check for correct code from the keypad, open if correct
-#if no keypad, door opens and closes freely
+@export var isLocked: bool = false
 
-@export var isOpen: bool = false
-@export var keypad: Node2D
+@export_group("Nodes")
+@export var collision: CollisionShape2D
 
-func _ready() -> void:
-	pass
+func open() -> void:
+	if isLocked == false:
+		collision.disabled = true
 
-func interact() -> void:
-	if keypad == null:
-		if isOpen == false:
-			isOpen = true
-		else:
-			isOpen = false
-	else:
-		if keypad.check_code() == true:
-			if isOpen == false:
-				isOpen = true
-			else:
-				isOpen = false
+func close() -> void:
+	if isLocked == false:
+		collision.disabled = false

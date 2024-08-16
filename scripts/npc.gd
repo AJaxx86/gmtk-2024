@@ -25,10 +25,10 @@ func hide_message() -> void:
 	message.hide()
 
 func interact() -> void:
-	if Inventory.check_item(requiredItem) == true:
+	if GlobalStuff.check_item(requiredItem) == true:
 		show_message(taskAccomplished)
 		if isTaskComplete == false:
 			isTaskComplete = true
-			Inventory.add_item(passcode)
+			GlobalStuff.add_item(passcode)
 	else:
 		show_message(greeting)

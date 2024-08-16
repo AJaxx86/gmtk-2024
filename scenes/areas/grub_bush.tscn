@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbjmhk482fovb"]
+
+[ext_resource type="Script" path="res://scripts/grub_bush.gd" id="1_3njou"]
+[ext_resource type="PackedScene" uid="uid://r04u58l2rc28" path="res://scenes/grub.tscn" id="1_31q7d"]
+[ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_yimtd"]
+[ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="3_3vqpw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikxmi"]
+size = Vector2(167, 101)
+
+[node name="grubBush" type="Node2D"]
+script = ExtResource("1_3njou")
+
+[node name="background" type="Sprite2D" parent="."]
+
+[node name="grub" parent="." instance=ExtResource("1_31q7d")]
+position = Vector2(316, 303)
+
+[node name="grubSpawner" type="Area2D" parent="." groups=["Grub_Spawners"]]
+position = Vector2(526, 172)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grubSpawner"]
+shape = SubResource("RectangleShape2D_ikxmi")
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_yimtd")
+target = NodePath("../bird")
+
+[node name="bird" parent="." instance=ExtResource("3_3vqpw")]
+position = Vector2(200, 140)
+
+[node name="grubSpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="grubSpawnTimer" to="." method="spawn_grub"]

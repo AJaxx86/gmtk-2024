@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=4 format=3 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="PackedScene" uid="uid://bp8oqhjoe2ic" path="res://scene_switcher.tscn" id="2_q84tn"]
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="2_v4x8t"]
+[ext_resource type="PackedScene" uid="uid://jyiuce8hpugh" path="res://scenes/door.tscn" id="3_ue55k"]
 
 [node name="map" type="Node2D"]
 
@@ -15,3 +16,6 @@ scenePath = "res://scenes/bird_test.tscn"
 
 [node name="bird" parent="." instance=ExtResource("2_v4x8t")]
 position = Vector2(38, 44)
+
+[node name="door" parent="." instance=ExtResource("3_ue55k")]
+position = Vector2(147, 46)

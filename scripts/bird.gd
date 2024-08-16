@@ -27,6 +27,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			target.interact()
 		if target is SceneSwitch:
 			target.change_scene()
+		if target is Door:
+			target.open()
+		if target is Grub:
+			target.catch()
 
 func interact_check(body: Node2D) -> void:
 	target = body

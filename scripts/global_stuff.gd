@@ -1,7 +1,8 @@
 extends Node
-class_name AnimalInventory
+class_name Globals
 
 var items: Array[String] = []
+var hippoPosition: Vector2 #update this before switching to bird scenes
 
 func add_item(item: String) -> void:
 	items.append(item)
