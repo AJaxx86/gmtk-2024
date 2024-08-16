@@ -5,8 +5,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q6xeg"]
 
-[node name="grub" type="CharacterBody2D"]
+[node name="grub" type="CharacterBody2D" node_paths=PackedStringArray("deathTimer") groups=["Grubs"]]
 script = ExtResource("1_ukjp3")
+deathTimer = NodePath("deathTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
@@ -14,3 +15,7 @@ texture = ExtResource("1_5wgtl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_q6xeg")
+
+[node name="deathTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="deathTimer" to="." method="die"]

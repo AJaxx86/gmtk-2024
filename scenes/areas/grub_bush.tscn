@@ -1,20 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbjmhk482fovb"]
+[gd_scene load_steps=5 format=3 uid="uid://cbjmhk482fovb"]
 
 [ext_resource type="Script" path="res://scripts/grub_bush.gd" id="1_3njou"]
-[ext_resource type="PackedScene" uid="uid://r04u58l2rc28" path="res://scenes/grub.tscn" id="1_31q7d"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_yimtd"]
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="3_3vqpw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikxmi"]
 size = Vector2(167, 101)
 
-[node name="grubBush" type="Node2D"]
+[node name="grubBush" type="Node2D" node_paths=PackedStringArray("grubSpawnTimer")]
 script = ExtResource("1_3njou")
+grubSpawnTimer = NodePath("grubSpawnTimer")
 
 [node name="background" type="Sprite2D" parent="."]
-
-[node name="grub" parent="." instance=ExtResource("1_31q7d")]
-position = Vector2(316, 303)
 
 [node name="grubSpawner" type="Area2D" parent="." groups=["Grub_Spawners"]]
 position = Vector2(526, 172)
@@ -31,6 +28,5 @@ target = NodePath("../bird")
 position = Vector2(200, 140)
 
 [node name="grubSpawnTimer" type="Timer" parent="."]
-autostart = true
 
 [connection signal="timeout" from="grubSpawnTimer" to="." method="spawn_grub"]
