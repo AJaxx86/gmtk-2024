@@ -7,6 +7,7 @@
 size = Vector2(16, 32)
 
 [node name="hippo" type="CharacterBody2D" node_paths=PackedStringArray("chargeTimer")]
+scale = Vector2(2.56, 2.56)
 script = ExtResource("1_0qske")
 chargeTimer = NodePath("chargeTimer")
 
