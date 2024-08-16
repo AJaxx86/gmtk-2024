@@ -8,9 +8,10 @@
 [sub_resource type="Theme" id="Theme_fqi2r"]
 default_font_size = 10
 
-[node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("message")]
+[node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("message", "messageTimer")]
 script = ExtResource("1_40vrs")
 message = NodePath("message")
+messageTimer = NodePath("messageTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
@@ -27,3 +28,7 @@ offset_bottom = -13.0
 theme = SubResource("Theme_fqi2r")
 bbcode_enabled = true
 text = "chirp"
+
+[node name="messageTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="messageTimer" to="." method="hide_message"]

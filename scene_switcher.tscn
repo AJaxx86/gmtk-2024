@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp8oqhjoe2ic"]
+
+[ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="1_fgpfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ditl0"]
+size = Vector2(40, 36)
+
+[node name="sceneSwitch" type="CharacterBody2D"]
+script = ExtResource("1_fgpfc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ditl0")

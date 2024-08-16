@@ -5,17 +5,21 @@ class_name NPC
 @export var taskAccomplished: String = "Lawdy lawd, you got some grub! Here, I'll trade you these symbols for that grub."
 @export var requiredItem: String
 @export var passcode: String
+@export var messageDisplayTime: float = 4.0
 @export_group("Nodes")
 @export var message: RichTextLabel
+@export var messageTimer: Timer
 
 var isTaskComplete: bool = false
 
 func _ready() -> void:
 	hide_message()
+	messageTimer.wait_time = messageDisplayTime
 
 func show_message(text: String) -> void:
 	message.text = text
 	message.show()
+	messageTimer.start()
 
 func hide_message() -> void:
 	message.hide()

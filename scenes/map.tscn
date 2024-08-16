@@ -1,17 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://dn7k6rw16fb4s"]
 
-[ext_resource type="PackedScene" uid="uid://1kokyfy61hk8" path="res://scenes/hippo.tscn" id="1_o61d3"]
-[ext_resource type="PackedScene" uid="uid://c031plirb1ah3" path="res://pushable.tscn" id="2_3k7rk"]
+[ext_resource type="PackedScene" uid="uid://bp8oqhjoe2ic" path="res://scene_switcher.tscn" id="2_q84tn"]
+[ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="2_v4x8t"]
 
 [node name="map" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
-[node name="hippo" parent="." instance=ExtResource("1_o61d3")]
-position = Vector2(35, 32)
-
-[node name="pushable" parent="." instance=ExtResource("2_3k7rk")]
-position = Vector2(99, 32)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
+
+[node name="sceneSwitch" parent="." instance=ExtResource("2_q84tn")]
+scenePath = "res://scenes/bird_test.tscn"
+
+[node name="bird" parent="." instance=ExtResource("2_v4x8t")]
+position = Vector2(38, 44)

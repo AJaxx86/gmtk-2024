@@ -25,12 +25,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
 		if target is NPC:
 			target.interact()
+		if target is SceneSwitch:
+			target.change_scene()
 
 func interact_check(body: Node2D) -> void:
 	target = body
 	interactPrompt.show()
 
 func interact_check_exit(body: Node2D) -> void:
-	target.hide_message()
 	target = null
 	interactPrompt.hide()

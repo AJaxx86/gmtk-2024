@@ -15,6 +15,7 @@ default_font_size = 12
 
 [node name="bird" type="CharacterBody2D" node_paths=PackedStringArray("interactPrompt")]
 script = ExtResource("1_w6nrb")
+speed = null
 interactPrompt = NodePath("interactPrompt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -30,6 +31,7 @@ shape = SubResource("CircleShape2D_irif5")
 shape = SubResource("CircleShape2D_auh2u")
 
 [node name="interactPrompt" type="RichTextLabel" parent="."]
+visible = false
 offset_left = -29.0
 offset_top = -32.0
 offset_right = 37.0

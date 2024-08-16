@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://vcv61liisscl"]
+[gd_scene load_steps=5 format=3 uid="uid://vcv61liisscl"]
 
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_17jgf"]
 [ext_resource type="Script" path="res://scripts/bird_test.gd" id="1_axiii"]
 [ext_resource type="PackedScene" uid="uid://y3q58nn2mg3u" path="res://scenes/npc.tscn" id="2_ani42"]
+[ext_resource type="PackedScene" uid="uid://bp8oqhjoe2ic" path="res://scene_switcher.tscn" id="4_uoseh"]
 
 [node name="bird test" type="Node2D"]
 script = ExtResource("1_axiii")
@@ -31,6 +32,10 @@ offset_top = 55.0
 offset_right = -26.0
 offset_bottom = 107.0
 text = "-GRUB"
+
+[node name="sceneSwitch" parent="." instance=ExtResource("4_uoseh")]
+position = Vector2(-262, -9)
+scenePath = "res://scenes/map.tscn"
 
 [connection signal="pressed" from="addgrub" to="." method="_on_addgrub_pressed"]
 [connection signal="pressed" from="removegrub" to="." method="_on_removegrub_pressed"]
