@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://1kokyfy61hk8"]
+[gd_scene load_steps=4 format=3 uid="uid://1kokyfy61hk8"]
 
 [ext_resource type="Script" path="res://scripts/hippo.gd" id="1_0qske"]
 [ext_resource type="Texture2D" uid="uid://r08alcqaa8jv" path="res://hippo_temp.png" id="2_4gkvs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r22xh"]
 size = Vector2(16, 32)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_l0g7s"]
-radius = 7.0
 
 [node name="hippo" type="CharacterBody2D" node_paths=PackedStringArray("chargeTimer")]
 script = ExtResource("1_0qske")
@@ -21,9 +18,3 @@ rotation = -1.5708
 shape = SubResource("RectangleShape2D_r22xh")
 
 [node name="chargeTimer" type="Timer" parent="."]
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(16, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_l0g7s")
