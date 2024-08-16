@@ -2,6 +2,8 @@ extends Node2D
 
 ##Time in seconds between grub spawns. Grubs are spawned randomly in any grub spawners in the Grub_Spawners group.
 @export_range(0.0, 10.0) var grubSpawnRate: float = 3.0
+##Time in seconds the grub is alive for.
+@export var grubLifeSpan: float = 10.0
 
 @export_group("Nodes")
 @export var grubSpawnTimer: Timer

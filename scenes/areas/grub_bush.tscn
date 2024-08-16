@@ -23,6 +23,7 @@ position = Vector2(526, 172)
 shape = SubResource("RectangleShape2D_ikxmi")
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+zoom = Vector2(1.5, 1.5)
 script = ExtResource("2_yimtd")
 target = NodePath("../bird")
 
