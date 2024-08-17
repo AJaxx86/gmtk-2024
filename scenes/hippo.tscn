@@ -1,7 +1,7 @@
 [gd_scene load_steps=72 format=3 uid="uid://1kokyfy61hk8"]
 
 [ext_resource type="Script" path="res://scripts/hippo.gd" id="1_0qske"]
-[ext_resource type="Texture2D" uid="uid://jnuch2n66a0c" path="res://art/characters/hippoSpriteSheet.png" id="2_l7ftx"]
+[ext_resource type="Texture2D" uid="uid://degxk5sc1ngp6" path="res://art/characters/hippoSpriteSheet.png" id="2_l7ftx"]
 [ext_resource type="FontFile" uid="uid://h2nbx4elr011" path="res://fonts/lemon_milk/LEMONMILK-Medium.otf" id="3_h7kgf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c0eit"]
@@ -496,7 +496,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r22xh"]
-size = Vector2(16, 32)
+size = Vector2(31.25, 19.9219)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfm2v"]
 radius = 35.323
@@ -512,12 +512,15 @@ chargeTimer = NodePath("chargeDuration")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nxlec")
-animation = &"Idle_Down"
+animation = &"Run_Right"
 autoplay = "Idle_Down"
-frame_progress = 0.499468
+frame = 6
+frame_progress = 0.715916
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.195315, -1.86265e-06)
 rotation = -1.5708
+scale = Vector2(1, 1.51563)
 shape = SubResource("RectangleShape2D_r22xh")
 
 [node name="chargeDuration" type="Timer" parent="."]
