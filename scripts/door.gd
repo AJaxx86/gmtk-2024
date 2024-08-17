@@ -1,6 +1,7 @@
 extends StaticBody2D
 class_name Door
 
+##Uses this to search GlobalStuff.doorCodes for a match before opening. If empty, the door opens freely.
 @export var requiredCode: String
 
 @export_group("Nodes")

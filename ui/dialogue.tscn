@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjspp0j2x2yju"]
+
+[ext_resource type="Script" path="res://ui/dialogue.gd" id="1_x235l"]
+
+[node name="dialogue" type="Control" node_paths=PackedStringArray("dialogueBox", "dialogueName", "dialogueText")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x235l")
+dialogueBox = NodePath("textBox")
+dialogueName = NodePath("textBox/name")
+dialogueText = NodePath("textBox/message")
+
+[node name="textBox" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 437.0
+offset_right = 1152.0
+offset_bottom = 647.0
+
+[node name="name" type="RichTextLabel" parent="textBox"]
+layout_mode = 0
+offset_right = 212.0
+offset_bottom = 39.0
+bbcode_enabled = true
+text = "NAME"
+
+[node name="message" type="RichTextLabel" parent="textBox"]
+layout_mode = 0
+offset_top = 39.0
+offset_right = 1152.0
+offset_bottom = 211.0
+bbcode_enabled = true
+text = "This is some text for testing things. This is some text for testing things. This is some text for testing things. 
+This is some text for testing things. This is some text for testing things. 
+
+This is some text for testing things. This is some text for testing things. This is some text for testing things. This is some text for testing things. "
