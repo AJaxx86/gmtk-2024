@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://tc8crhrwujvv"]
+
+[ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_osux2"]
+[ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_gh1d2"]
+[ext_resource type="PackedScene" uid="uid://7um422g8wmbx" path="res://doorUnlockButton.tscn" id="3_l36dj"]
+[ext_resource type="PackedScene" uid="uid://ds01jb8ccnww8" path="res://scenes/SceneSwapper.tscn" id="4_j4n5n"]
+
+[node name="insideTree" type="Node2D"]
+
+[node name="bird" parent="." instance=ExtResource("1_osux2")]
+position = Vector2(80, 82)
+
+[node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_gh1d2")
+target = NodePath("../bird")
+
+[node name="button" parent="." instance=ExtResource("3_l36dj")]
+position = Vector2(221, 92)
+doorCode = "2"
+
+[node name="SceneSwapper" parent="." instance=ExtResource("4_j4n5n")]
+position = Vector2(70, 210)
+scenePath = "res://scenes/map.tscn"

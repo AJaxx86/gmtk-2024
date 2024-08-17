@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://7um422g8wmbx"]
+
+[ext_resource type="Script" path="res://scripts/door_unlock_button.gd" id="1_lqdmn"]
+[ext_resource type="Texture2D" uid="uid://c4ep1m6kqt2ql" path="res://art/objects/tire.png" id="1_psm7k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45508"]
+size = Vector2(25, 23)
+
+[node name="button" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_lqdmn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_psm7k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_45508")

@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://y3q58nn2mg3u"]
+[gd_scene load_steps=6 format=3 uid="uid://y3q58nn2mg3u"]
 
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_40vrs"]
 [ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="1_qa2ku"]
+[ext_resource type="FontFile" uid="uid://bse52p76x4qba" path="res://fonts/pixeloid-font/PixeloidMono-d94EV.ttf" id="3_70hqo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_if7kp"]
 
 [sub_resource type="Theme" id="Theme_fqi2r"]
-default_font_size = 10
+default_font = ExtResource("3_70hqo")
+default_font_size = 16
 
 [node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("message", "messageTimer") groups=["Interactable"]]
 script = ExtResource("1_40vrs")

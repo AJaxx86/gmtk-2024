@@ -5,22 +5,27 @@ class_name Hippo
 @export_group("Nodes")
 @export var chargeTimer: Timer
 
-
+### Direction
 var direction: Vector2 = Vector2.ZERO
 
-var isPushing=false
-
 #Saves last direction the Hippo faced, useful for animations and for the charge ability
-var lastDirection = Vector2.ZERO
+var lastDirection = Vector2.DOWN
 
-#Charge Attack
+###Pushing
+var isPushing = false
+var canPush = true
+
+###Charge Attack
 var isCharging: bool = false
 var canCharge: bool = true
 @export var chargeSpeed: float = 1000
 
-#Wetness
+###Wetness
 var isWet: bool = false
 @export var wetDuration: float = 10.0
+
+###Interact
+var target: Node2D = null
 
 
 
@@ -53,13 +58,23 @@ func animationSelector():
 	#Idle animations-
 	if direction == Vector2.ZERO:
 		if lastDirection == Vector2.UP:
-			pass # Play Idle UP
+			$AnimatedSprite2D.play("Idle_Up")
 		elif lastDirection == Vector2.DOWN	:
-			pass # Play Idle Down
+			$AnimatedSprite2D.play("Idle_Down")
 		elif lastDirection == Vector2.LEFT	:
-			pass # Play Idle Left
+			$AnimatedSprite2D.play("Idle_Left")
 		elif lastDirection == Vector2.RIGHT	:
-			pass # Play Idle Right
+			$AnimatedSprite2D.play("Idle_Right")
+	#Running animations
+	elif direction != Vector2.ZERO and not isPushing:
+		if direction == Vector2.UP:
+			$AnimatedSprite2D.play("Run_Up")
+		elif direction == Vector2.DOWN	:
+			$AnimatedSprite2D.play("Run_Down")
+		elif direction == Vector2.LEFT	:
+			$AnimatedSprite2D.play("Run_Left")
+		elif direction == Vector2.RIGHT	:
+			$AnimatedSprite2D.play("Run_Right")
 	
 	#Pushing Animations
 	elif direction != Vector2.ZERO and isPushing:
@@ -108,3 +123,23 @@ func _on_charge_cooldown_timeout() -> void:
 
 func _on_wet_timer_timeout() -> void:
 	isWet = false
+
+
+func _on_interact_range_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Interactable"):
+		target = body
+		$interactPrompt.show()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("interact") and target != null:
+		if target is NPC:
+			target.interact()
+		if target is SceneSwitch:
+			target.change_scene()
+		if target is Door:
+			target.open()
+
+func _on_interact_range_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Interactable"):
+		target = null
+		$interactPrompt.hide()
