@@ -1,11 +1,11 @@
 extends StaticBody2D
 class_name Door
 
-@export var isLocked: bool = false
+@export var requiredCode: String
 
 @export_group("Nodes")
 @export var collision: CollisionShape2D
-@export var doorSprite: AnimatedSprite2D
+@export var doorSprites: Array[AnimatedSprite2D]
 
 var state: String = "closed"
 
@@ -13,11 +13,23 @@ func _ready() -> void:
 	pass
 
 func open() -> void:
-	if isLocked == false:
-		collision.disabled = true
-		doorSprite.play("opened")
+	if requiredCode != "":
+		if GlobalStuff.check_door_code(requiredCode) != true:
+			push_warning("Required code not found in inventory")
+			return
+
+	collision.disabled = true
+	play_animation("opened")
 
 func close() -> void:
-	if isLocked == false:
-		collision.disabled = false
-		doorSprite.play("closed")
+	if requiredCode != "":
+		if GlobalStuff.check_door_code(requiredCode) != true:
+			push_warning("Required code not found in inventory")
+			return
+
+	collision.disabled = false
+	play_animation("closed")
+
+func play_animation(animation: String) -> void:
+	for door in doorSprites:
+		door.play(animation)

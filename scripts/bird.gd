@@ -31,6 +31,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			target.open()
 		if target is Grub:
 			target.catch()
+		if target is DoorUnlockButton:
+			target.unlock_door()
 
 func interact_check(body: Node2D) -> void:
 	if body.is_in_group("Interactable"):
