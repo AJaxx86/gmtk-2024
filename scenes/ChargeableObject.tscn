@@ -1,19 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://0rd2tjh1676u"]
+[gd_scene load_steps=5 format=3 uid="uid://0rd2tjh1676u"]
 
-[ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="1_0dh5t"]
 [ext_resource type="Script" path="res://scripts/chargeable_object.gd" id="1_0mlq4"]
+[ext_resource type="Texture2D" uid="uid://cpni138e4bn3c" path="res://art/objects/barrel.png" id="2_u3ob4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqwtt"]
-size = Vector2(128, 129)
+size = Vector2(23, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1uj33"]
+size = Vector2(18, 17.9687)
 
 [node name="ChargeableObject" type="Area2D"]
 script = ExtResource("1_0mlq4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_0dh5t")
+texture = ExtResource("2_u3ob4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_hqwtt")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.499999)
+scale = Vector2(1, 1.28)
+shape = SubResource("RectangleShape2D_1uj33")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

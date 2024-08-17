@@ -9,10 +9,11 @@
 [node name="hippo" parent="." instance=ExtResource("1_kka25")]
 position = Vector2(142, 153)
 collision_layer = 3
-chargeSpeed = 2000.0
+chargeSpeed = 1500.0
 
 [node name="Pushable" parent="." instance=ExtResource("2_16wbw")]
-position = Vector2(703, 50)
+position = Vector2(801, 138)
 
 [node name="ChargeableObject" parent="." instance=ExtResource("3_1fmqt")]
 position = Vector2(809, 417)
+scale = Vector2(3.92, 3.92)

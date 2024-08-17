@@ -19,7 +19,7 @@ rotation = -1.5708
 shape = SubResource("RectangleShape2D_r22xh")
 
 [node name="chargeDuration" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.2
 one_shot = true
 
 [node name="ChargeCooldown" type="Timer" parent="."]

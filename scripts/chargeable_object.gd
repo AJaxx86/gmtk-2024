@@ -20,4 +20,6 @@ func _on_body_entered(body: Node2D) -> void:
 			ChargeInteract()
 
 func ChargeInteract() -> void:
+	
 	print("Interacted with charging Hippo")
+	self.queue_free()
