@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmpx3mtby7q4h"]
+[gd_scene load_steps=3 format=3 uid="uid://cu5xce2lc3mea"]
 
 [ext_resource type="Script" path="res://scripts/camera_trigger.gd" id="1_weiqi"]
 

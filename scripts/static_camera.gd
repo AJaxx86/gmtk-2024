@@ -2,10 +2,11 @@ extends Camera2D
 class_name StaticCamera2d
 var targetPosition: Vector2 = Vector2.ZERO
 @export var currentMarker: Marker2D
+@export var transitionSpeed =0.2
 
 func _process(delta: float) -> void:
 	if targetPosition != Vector2.ZERO:
-		global_position = lerp(global_position, targetPosition, delta)
+		global_position = lerp(global_position, targetPosition, delta * (1/transitionSpeed))
 
 func move_position(newPos: Vector2, zoomLevel: float = 1.5) -> void:
 	print_debug(str(newPos))

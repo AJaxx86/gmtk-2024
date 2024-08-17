@@ -31,6 +31,11 @@ project/assembly_name="GMTK 2024"
 
 enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg")
 
+[global_group]
+
+Player=""
+Interactable="can be interacted by the player"
+
 [input]
 
 move_left={

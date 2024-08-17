@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/static_camera.gd" id="2_plytn"]
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="2_v4x8t"]
 [ext_resource type="PackedScene" uid="uid://jyiuce8hpugh" path="res://scenes/door.tscn" id="3_ue55k"]
-[ext_resource type="PackedScene" path="res://scenes/camera_trigger.tscn" id="6_n3jdj"]
+[ext_resource type="PackedScene" uid="uid://cu5xce2lc3mea" path="res://scenes/camera_trigger.tscn" id="6_n3jdj"]
 
 [node name="zoo" type="Node2D"]
 texture_filter = 1

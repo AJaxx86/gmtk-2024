@@ -33,8 +33,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			target.catch()
 
 func interact_check(body: Node2D) -> void:
-	target = body
-	interactPrompt.show()
+	if body.is_in_group("Interactable"):
+		target = body
+		interactPrompt.show()
 
 func interact_check_exit(body: Node2D) -> void:
 	target = null
