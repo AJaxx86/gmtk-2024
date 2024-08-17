@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=8 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="2_v4x8t"]
 [ext_resource type="PackedScene" uid="uid://jyiuce8hpugh" path="res://scenes/door.tscn" id="3_ue55k"]
 [ext_resource type="PackedScene" uid="uid://cu5xce2lc3mea" path="res://scenes/camera_trigger.tscn" id="6_n3jdj"]
+[ext_resource type="PackedScene" uid="uid://ds01jb8ccnww8" path="res://scenes/SceneSwapper.tscn" id="7_4dj7l"]
 
 [node name="zoo" type="Node2D"]
 texture_filter = 1
@@ -58,3 +59,8 @@ position = Vector2(-2, 303)
 
 [node name="Cam3" type="Marker2D" parent="."]
 position = Vector2(489, 391)
+
+[node name="SceneSwapper" parent="." instance=ExtResource("7_4dj7l")]
+position = Vector2(197, 110)
+scale = Vector2(0.220434, 0.220434)
+scenePath = "res://scenes/TestScene.tscn"

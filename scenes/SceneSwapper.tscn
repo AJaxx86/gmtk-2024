@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds01jb8ccnww8"]
+
+[ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="1_m4m7j"]
+[ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="1_te5qe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg65e"]
+size = Vector2(126, 129)
+
+[node name="SceneSwapper" type="StaticBody2D" groups=["Interactable"]]
+scale = Vector2(0.380434, 0.380434)
+script = ExtResource("1_m4m7j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_te5qe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_sg65e")
