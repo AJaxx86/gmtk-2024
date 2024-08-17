@@ -14,10 +14,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		pass
-
+		next_line()
+ 
 func start_dialogue(dialogueChunks: Array[DialogueChunk]) -> void:
-	push_warning("initiated dialogues: %s" % dialogueChunks)
+	push_warning("initiated dialogues: " + str(dialogueChunks))
 
 	currentDialogueIndex = 0
 	currentDialogues = dialogueChunks
@@ -27,11 +27,11 @@ func start_dialogue(dialogueChunks: Array[DialogueChunk]) -> void:
 	set_process(true)
 
 func next_line() -> void:
-	if currentDialogueIndex <= currentDialogues.size():
+	if currentDialogueIndex < currentDialogues.size():
 		dialogueName.text = currentDialogues[currentDialogueIndex].speaker
 		dialogueText.text = currentDialogues[currentDialogueIndex].line
 
-		push_warning("played dialogue chunk: %s" % currentDialogues[currentDialogueIndex])
+		print_debug("played dialogue chunk:\nSpeaker - " + str(currentDialogues[currentDialogueIndex].speaker) + "\nLine - " + str(currentDialogues[currentDialogueIndex].line))
 		currentDialogueIndex += 1
 	
 	else:
