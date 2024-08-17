@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://ui/dialogue.gd" id="1_x235l"]
 
-[node name="dialogue" type="Control" node_paths=PackedStringArray("dialogueBox", "dialogueName", "dialogueText")]
+[node name="dialogue" type="Control" node_paths=PackedStringArray("dialogueName", "dialogueText")]
+z_index = 10
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,7 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x235l")
-dialogueBox = NodePath("textBox")
 dialogueName = NodePath("textBox/name")
 dialogueText = NodePath("textBox/message")
 

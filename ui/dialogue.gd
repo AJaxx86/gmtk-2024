@@ -24,6 +24,7 @@ func start_dialogue(dialogueChunks: Array[DialogueChunk]) -> void:
 	dialogueBox.show()
 	next_line()
 	
+	toggle_player_control(false)
 	set_process(true)
 
 func next_line() -> void:
@@ -36,4 +37,10 @@ func next_line() -> void:
 	
 	else:
 		dialogueBox.hide()
+		toggle_player_control(true)
 		set_process(false)
+
+func toggle_player_control(enabled: bool) -> void:
+	var player = get_tree().get_first_node_in_group("Player")
+	player.set_process(enabled)
+	player.set_physics_process(enabled)
