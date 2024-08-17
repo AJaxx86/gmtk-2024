@@ -29,7 +29,7 @@ position = Vector2(-144, 192)
 
 [node name="bird" parent="." instance=ExtResource("2_v4x8t")]
 
-[node name="cameraTrigger" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("6_n3jdj")]
+[node name="enclosures" type="Node2D" parent="."]
+
+[node name="cameraTrigger" parent="." instance=ExtResource("6_n3jdj")]
 position = Vector2(-144, 205)
-camera = NodePath("../Camera2D")
-newPosition = Vector2(0, 308)
