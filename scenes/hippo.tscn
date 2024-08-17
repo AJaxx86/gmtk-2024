@@ -25,5 +25,7 @@ one_shot = true
 [node name="ChargeCooldown" type="Timer" parent="."]
 one_shot = true
 
+[node name="WetTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="chargeDuration" to="." method="_on_charge_timer_timeout"]
 [connection signal="timeout" from="ChargeCooldown" to="." method="_on_charge_cooldown_timeout"]

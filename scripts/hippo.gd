@@ -12,6 +12,8 @@ class_name Hippo
 var currentWetness: float = 0.0
 var direction: Vector2 = Vector2.ZERO
 
+var isPushing=false
+
 #Saves last direction the Hippo faced, useful for animations and for the charge ability
 var lastDirection = Vector2.ZERO
 
@@ -42,9 +44,44 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = direction * speed  * delta
 		
+	animationSelector()
 	
-		
 	move_and_collide(velocity)
+
+func animationSelector():
+	#Idle animations-
+	if direction == Vector2.ZERO:
+		if lastDirection == Vector2.UP:
+			pass # Play Idle UP
+		elif lastDirection == Vector2.DOWN	:
+			pass # Play Idle Down
+		elif lastDirection == Vector2.LEFT	:
+			pass # Play Idle Left
+		elif lastDirection == Vector2.RIGHT	:
+			pass # Play Idle Right
+	
+	#Pushing Animations
+	elif direction != Vector2.ZERO and isPushing:
+		
+		if direction == Vector2.UP:
+			pass # Play pushing UP
+		elif direction == Vector2.DOWN	:
+			pass # Play pushing Down
+		elif direction == Vector2.LEFT	:
+			pass # Play pushing Left
+		elif direction == Vector2.RIGHT	:
+			pass # Play pushing Right
+	
+	if isCharging:
+		if lastDirection == Vector2.UP:
+			pass # Play Charging UP
+		elif lastDirection == Vector2.DOWN	:
+			pass # Play Charging Down
+		elif lastDirection == Vector2.LEFT	:
+			pass # Play Charging Left
+		elif lastDirection == Vector2.RIGHT	:
+			pass # Play Charging Right
+	
 
 func charge_ability() -> void:
 	if canCharge:

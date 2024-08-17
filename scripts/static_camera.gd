@@ -1,6 +1,7 @@
 extends Camera2D
-
+class_name StaticCamera2d
 var targetPosition: Vector2 = Vector2.ZERO
+@export var currentMarker: Marker2D
 
 func _process(delta: float) -> void:
 	if targetPosition != Vector2.ZERO:
