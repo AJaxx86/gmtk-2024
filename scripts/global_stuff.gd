@@ -1,12 +1,17 @@
 extends Node
 class_name Globals
 
+var itemLimit: int = 1
 var items: Array[String] = []
 var hippoPosition: Vector2 #update this before switching to bird scenes
 
+var door1Locked: bool = true
+var door2Locked: bool = true
+
 func add_item(item: String) -> void:
-	items.append(item)
-	push_warning("item added to inventory: %s" % item)
+	if items.size() > itemLimit:
+		items.append(item)
+		push_warning("item added to inventory: %s" % item)
 
 func remove_item(item: String) -> void:
 	items.erase(item)

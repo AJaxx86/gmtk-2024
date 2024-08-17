@@ -9,6 +9,9 @@ class_name Door
 
 var state: String = "closed"
 
+func _ready() -> void:
+	pass
+
 func open() -> void:
 	if isLocked == false:
 		collision.disabled = true
