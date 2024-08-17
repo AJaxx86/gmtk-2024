@@ -38,6 +38,7 @@ tile_set = SubResource("TileSet_vns7x")
 
 [node name="hippo" parent="." instance=ExtResource("1_kka25")]
 position = Vector2(142, 153)
+scale = Vector2(4.24, 4.24)
 collision_layer = 3
 chargeSpeed = 1500.0
 
