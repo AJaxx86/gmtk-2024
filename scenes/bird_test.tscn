@@ -19,7 +19,7 @@ passcode = "2974"
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.8, 1.8)
 
-[node name="addgrub" type="Button" parent="."]
+[node name="addgrub" type="Button" parent="." groups=["Player"]]
 offset_left = -240.0
 offset_top = 52.0
 offset_right = -160.0

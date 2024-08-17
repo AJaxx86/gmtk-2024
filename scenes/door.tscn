@@ -45,9 +45,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wxh5"]
-size = Vector2(32, 32)
+size = Vector2(32, 15)
 
-[node name="door" type="StaticBody2D" node_paths=PackedStringArray("collision", "doorSprite")]
+[node name="door" type="StaticBody2D" node_paths=PackedStringArray("collision", "doorSprite") groups=["Interactable"]]
 script = ExtResource("1_cm4nl")
 collision = NodePath("CollisionShape2D")
 doorSprite = NodePath("AnimatedSprite2D")
@@ -58,7 +58,7 @@ sprite_frames = SubResource("SpriteFrames_s2j3w")
 animation = &"closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -7.5)
 shape = SubResource("RectangleShape2D_8wxh5")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="door_transitioned"]

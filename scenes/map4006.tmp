@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/static_camera.gd" id="2_plytn"]
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="2_v4x8t"]
 [ext_resource type="PackedScene" uid="uid://jyiuce8hpugh" path="res://scenes/door.tscn" id="3_ue55k"]
-[ext_resource type="PackedScene" uid="uid://cu5xce2lc3mea" path="res://scenes/camera_trigger.tscn" id="6_n3jdj"]
+[ext_resource type="PackedScene" uid="uid://bmpx3mtby7q4h" path="res://scenes/camera_trigger.tscn" id="6_n3jdj"]
 
 [node name="zoo" type="Node2D"]
 texture_filter = 1
@@ -19,42 +19,17 @@ tile_set = ExtResource("1_hojxk")
 tile_map_data = PackedByteArray("AAD4//3/AQAAAAAAAAD5//3/AQACAAEAAAD6//3/AQACAAEAAAD7//3/AQACAAEAAAD8//3/AQACAAEAAAD9//3/AQACAAEAAAD+//3/AQACAAEAAAD///3/AQACAAEAAAAAAP3/AQACAAEAAAABAP3/AQACAAEAAAACAP3/AQACAAEAAAADAP3/AQACAAEAAAAEAP3/AQACAAEAAAAFAP3/AQACAAEAAAAGAP3/AQACAAEAAAAHAP3/AQABAAAAAAAHAP7/AQADAAAAAAAHAP//AQADAAAAAAAHAAAAAQADAAAAAAAHAAEAAQADAAAAAAAHAAIAAQADAAAAAAAHAAMAAQADAAAAAAAHAAQAAQADAAAAAAAHAAUAAQABAAEAAAAGAAUAAQACAAAAAAAFAAUAAQACAAAAAAAEAAUAAQACAAAAAAADAAUAAQACAAAAAAACAAUAAQACAAAAAAABAAUAAQACAAAAAAAAAAUAAQACAAAAAAD//wUAAQACAAAAAAD+/wUAAQACAAAAAAD9/wUAAQACAAAAAAD8/wUAAQACAAAAAAD6/wUAAQACAAAAAAD5/wUAAQACAAAAAAD4/wUAAQAAAAEAAAD4/wQAAQADAAEAAAD4/wMAAQADAAEAAAD4/wIAAQADAAEAAAD4/wEAAQADAAEAAAD4/wAAAQADAAEAAAD4////AQADAAEAAAD4//7/AQADAAEAAAAIAAoAAQADAAEAAAAIAAgAAQADAAEAAAAIAAcAAQAAAAAAAAAJAAcAAQAEAAEAAAAKAAcAAQAEAAEAAAALAAcAAQAEAAEAAAAMAAcAAQAEAAEAAAANAAcAAQAEAAEAAAAOAAcAAQAEAAEAAAAPAAcAAQAEAAEAAAAQAAcAAQAEAAEAAAARAAcAAQAEAAEAAAASAAcAAQAEAAEAAAATAAcAAQAEAAEAAAAUAAcAAQAEAAEAAAAVAAcAAQABAAAAAAAVAAgAAQAFAAAAAAAVAAkAAQAFAAAAAAAVAAoAAQAFAAAAAAAVAAsAAQAFAAAAAAAVAAwAAQAFAAAAAAAVAA0AAQAFAAAAAAAVAA4AAQAFAAAAAAAVAA8AAQAFAAAAAAAVABAAAQABAAEAAAAUABAAAQAEAAAAAAATABAAAQAEAAAAAAASABAAAQAEAAAAAAARABAAAQAEAAAAAAAQABAAAQAEAAAAAAAPABAAAQAEAAAAAAAOABAAAQAEAAAAAAANABAAAQAEAAAAAAAMABAAAQAEAAAAAAALABAAAQAEAAAAAAAKABAAAQAEAAAAAAAJABAAAQAEAAAAAAAIABAAAQAAAAEAAAAIAA8AAQADAAEAAAAIAA4AAQADAAEAAAAIAA0AAQADAAEAAAAIAAwAAQADAAEAAAAIAAsAAQADAAEAAAD8/wYAAQADAAAAAAD8/wcAAQADAAAAAAD9/wgAAQAEAAEAAAD+/wgAAQAEAAEAAAD//wgAAQAEAAEAAAAAAAgAAQAEAAEAAAABAAgAAQAEAAEAAAACAAgAAQAEAAEAAAADAAgAAQAEAAEAAAAEAAgAAQAEAAEAAAAFAAgAAQAEAAEAAAAGAAgAAQAEAAEAAAAHAAgAAQAEAAEAAAAHAAoAAQAEAAAAAAAGAAoAAQAEAAAAAAAFAAoAAQAEAAAAAAAEAAoAAQAEAAAAAAADAAoAAQAEAAAAAAACAAoAAQAEAAAAAAABAAoAAQAEAAAAAAAAAAoAAQAEAAAAAAD//woAAQAEAAAAAAD+/woAAQAEAAAAAAD9/woAAQAEAAAAAAD8/woAAQAEAAAAAAD7/woAAQAEAAAAAAD6/woAAQAAAAEAAAD6/wkAAQADAAEAAAD6/wgAAQADAAEAAAD6/wcAAQADAAEAAAD6/wYAAQADAAEAAAA=")
 tile_set = ExtResource("1_hojxk")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("currentMarker")]
-position = Vector2(-1, 46)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 45)
 zoom = Vector2(2.2, 2.2)
 script = ExtResource("2_plytn")
-currentMarker = NodePath("../Cam1")
 
 [node name="door" parent="." instance=ExtResource("3_ue55k")]
 position = Vector2(-144, 192)
 
 [node name="bird" parent="." instance=ExtResource("2_v4x8t")]
 
-[node name="camTrigger1" parent="." node_paths=PackedStringArray("camera", "newPosition") instance=ExtResource("6_n3jdj")]
-position = Vector2(-145, 151)
-camera = NodePath("../Camera2D")
-newPosition = NodePath("../Cam1")
+[node name="enclosures" type="Node2D" parent="."]
 
-[node name="camTrigger2" parent="." node_paths=PackedStringArray("camera", "newPosition") instance=ExtResource("6_n3jdj")]
+[node name="cameraTrigger" parent="." instance=ExtResource("6_n3jdj")]
 position = Vector2(-144, 205)
-camera = NodePath("../Camera2D")
-newPosition = NodePath("../Cam2")
-
-[node name="camTrigger3" parent="." node_paths=PackedStringArray("camera", "newPosition") instance=ExtResource("6_n3jdj")]
-position = Vector2(242, 304)
-camera = NodePath("../Camera2D")
-newPosition = NodePath("../Cam2")
-
-[node name="camTrigger4" parent="." node_paths=PackedStringArray("camera", "newPosition") instance=ExtResource("6_n3jdj")]
-position = Vector2(272, 303)
-camera = NodePath("../Camera2D")
-newPosition = NodePath("../Cam3")
-
-[node name="Cam1" type="Marker2D" parent="."]
-position = Vector2(0, 45)
-
-[node name="Cam2" type="Marker2D" parent="."]
-position = Vector2(-2, 303)
-
-[node name="Cam3" type="Marker2D" parent="."]
-position = Vector2(489, 391)

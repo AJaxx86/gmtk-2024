@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Bird
 
-@export var speed: float = 100.0
+@export var speed: float = 200.0
 
 @export_group("Nodes")
 @export var interactPrompt: RichTextLabel
@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 
 	if direction:
-		velocity = direction * (speed * 100) * delta
+		velocity = direction * speed
 	else:
 		velocity = Vector2.ZERO
 
@@ -33,8 +33,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			target.catch()
 
 func interact_check(body: Node2D) -> void:
-	target = body
-	interactPrompt.show()
+	if body.is_in_group("Interactable"):
+		target = body
+		interactPrompt.show()
 
 func interact_check_exit(body: Node2D) -> void:
 	target = null

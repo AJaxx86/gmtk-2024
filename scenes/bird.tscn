@@ -27,6 +27,7 @@ shape = SubResource("CircleShape2D_irif5")
 [node name="interact" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interact"]
+scale = Vector2(2.0356, 2.0356)
 shape = SubResource("CircleShape2D_auh2u")
 
 [node name="interactPrompt" type="RichTextLabel" parent="."]

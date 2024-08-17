@@ -8,7 +8,7 @@
 [sub_resource type="Theme" id="Theme_fqi2r"]
 default_font_size = 10
 
-[node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("message", "messageTimer")]
+[node name="npc" type="CharacterBody2D" node_paths=PackedStringArray("message", "messageTimer") groups=["Interactable"]]
 script = ExtResource("1_40vrs")
 message = NodePath("message")
 messageTimer = NodePath("messageTimer")
