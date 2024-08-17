@@ -505,7 +505,7 @@ radius = 35.323
 default_font = ExtResource("3_h7kgf")
 default_font_size = 12
 
-[node name="hippo" type="CharacterBody2D" node_paths=PackedStringArray("chargeTimer")]
+[node name="hippo" type="CharacterBody2D" node_paths=PackedStringArray("chargeTimer") groups=["Player"]]
 scale = Vector2(2.56, 2.56)
 script = ExtResource("1_0qske")
 chargeTimer = NodePath("chargeDuration")

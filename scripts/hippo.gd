@@ -124,7 +124,6 @@ func _on_charge_cooldown_timeout() -> void:
 func _on_wet_timer_timeout() -> void:
 	isWet = false
 
-
 func _on_interact_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Interactable"):
 		target = body
