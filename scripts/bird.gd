@@ -7,6 +7,7 @@ class_name Bird
 
 @export_group("Nodes")
 @export var interactPrompt: RichTextLabel
+@export var birdSprite: AnimatedSprite2D
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -23,12 +24,25 @@ func _physics_process(delta: float) -> void:
 	
 	if is_on_floor():
 		jumpBoostUsed = false
+
+		if velocity.x >= 1:
+			birdSprite.flip_h = true
+			birdSprite.play("run")
+		elif velocity.x <= -1:
+			birdSprite.flip_h = false
+			birdSprite.play("run")
+		else:
+			birdSprite.play("idle")
+
 		if Input.is_action_just_pressed("jump"):
+			birdSprite.play("jump")
 			velocity.y = -jumpForce
 	else:
 		if Input.is_action_just_pressed("jump") and jumpBoostUsed == false:
 			velocity.y = -boostJumpForce
+			birdSprite.play("doubleJump")
 			jumpBoostUsed = true
+
 		velocity.y += gravity * delta
 
 	move_and_slide()

@@ -1,10 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=25 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
 [ext_resource type="Script" path="res://scripts/static_camera.gd" id="2_plytn"]
 [ext_resource type="PackedScene" uid="uid://cu5xce2lc3mea" path="res://scenes/camera_trigger.tscn" id="6_n3jdj"]
-[ext_resource type="PackedScene" uid="uid://ds01jb8ccnww8" path="res://scenes/SceneSwapper.tscn" id="7_4dj7l"]
 [ext_resource type="PackedScene" uid="uid://cdlrig1maaxbs" path="res://scenes/doorDouble.tscn" id="7_68ehx"]
 [ext_resource type="PackedScene" uid="uid://1kokyfy61hk8" path="res://scenes/hippo.tscn" id="7_pp858"]
 [ext_resource type="PackedScene" uid="uid://y3q58nn2mg3u" path="res://scenes/npc.tscn" id="8_drmay"]
@@ -12,6 +11,9 @@
 [ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="9_0rbk3"]
 [ext_resource type="PackedScene" uid="uid://u08tpfm6c6oj" path="res://scenes/WaterSource.tscn" id="9_gtck6"]
 [ext_resource type="Resource" uid="uid://cfn02yiid26nb" path="res://dialogue/test_dialogue_1.tres" id="10_q4fdv"]
+[ext_resource type="Script" path="res://scripts/office.gd" id="13_2nkrg"]
+[ext_resource type="Texture2D" uid="uid://b1kfyf3cyf0ls" path="res://art/objects/zooOfficeSheet.png" id="13_80e8x"]
+[ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="15_tud0i"]
 
 [sub_resource type="Resource" id="Resource_7nb74"]
 script = ExtResource("9_0rbk3")
@@ -22,6 +24,60 @@ line = "kjhflkujh"
 script = ExtResource("9_0rbk3")
 speaker = "ujhjkfghj"
 line = "jhgfjhgf"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrbub"]
+atlas = ExtResource("13_80e8x")
+region = Rect2(0, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfslj"]
+atlas = ExtResource("13_80e8x")
+region = Rect2(0, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6q3a6"]
+atlas = ExtResource("13_80e8x")
+region = Rect2(64, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iufvg"]
+atlas = ExtResource("13_80e8x")
+region = Rect2(128, 0, 64, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neoif"]
+atlas = ExtResource("13_80e8x")
+region = Rect2(192, 0, 64, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d8kxi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrbub")
+}],
+"loop": false,
+"name": &"locked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lfslj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6q3a6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iufvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neoif")
+}],
+"loop": false,
+"name": &"unlocked",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xcif"]
+size = Vector2(190, 211)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_52c8f"]
+size = Vector2(165, 203)
 
 [node name="zoo" type="Node2D"]
 texture_filter = 1
@@ -100,12 +156,13 @@ position = Vector2(1217, 1444)
 
 [node name="WaterSource" parent="waters" instance=ExtResource("9_gtck6")]
 position = Vector2(-164, -54)
+scale = Vector2(3, 3)
 
 [node name="doors" type="Node2D" parent="."]
 
 [node name="doubleDoor" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(-320, 384)
-requiredCode = "2"
+requiredCode = "2425"
 
 [node name="doubleDoor2" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1217, 867)
@@ -113,11 +170,6 @@ requiredCode = "855"
 
 [node name="doubleDoor3" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1536, 1444)
-
-[node name="SceneSwapper" parent="." instance=ExtResource("7_4dj7l")]
-position = Vector2(197, 110)
-scale = Vector2(0.220434, 0.220434)
-scenePath = "res://inside_tree.tscn"
 
 [node name="hippo" parent="." instance=ExtResource("7_pp858")]
 position = Vector2(-2, 41)
@@ -134,3 +186,26 @@ position = Vector2(-422, 123)
 greetingDialogue = Array[ExtResource("9_0rbk3")]([ExtResource("10_q4fdv"), SubResource("Resource_7nb74"), SubResource("Resource_3rvec")])
 requiredItem = "ice cream"
 passcode = "2"
+
+[node name="office" type="Area2D" parent="."]
+position = Vector2(381, -56)
+script = ExtResource("13_2nkrg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="office"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_d8kxi")
+animation = &"unlocked"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="office"]
+position = Vector2(1, 4.5)
+shape = SubResource("RectangleShape2D_7xcif")
+
+[node name="SceneSwitch" type="StaticBody2D" parent="office"]
+script = ExtResource("15_tud0i")
+scenePath = "res://scenes/areas/office_interior.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="office/SceneSwitch"]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_52c8f")
+
+[connection signal="body_entered" from="office" to="office" method="_on_body_entered"]

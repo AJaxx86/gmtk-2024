@@ -1,20 +1,21 @@
-[gd_scene load_steps=27 format=3 uid="uid://5yb1bqj8ccm6"]
+[gd_scene load_steps=28 format=3 uid="uid://5yb1bqj8ccm6"]
 
-[ext_resource type="Texture2D" uid="uid://buld7l4ek83dq" path="res://art/tiles/officeBackground.png" id="1_1jgcd"]
-[ext_resource type="Texture2D" uid="uid://c31anh2016bwv" path="res://art/objects/drawer.png" id="2_7ihnn"]
-[ext_resource type="Texture2D" uid="uid://cnupwb404eo11" path="res://art/objects/table.png" id="3_bpyjb"]
-[ext_resource type="Texture2D" uid="uid://dpu8y1uubka0p" path="res://art/objects/chair.png" id="4_al76w"]
-[ext_resource type="Texture2D" uid="uid://c6et2xdx0c0bc" path="res://art/objects/fan.png" id="5_eaat6"]
-[ext_resource type="Script" path="res://scenes/areas/bin.gd" id="5_mkji5"]
+[ext_resource type="Texture2D" uid="uid://bnits5vjotvkv" path="res://art/tiles/officeBackground.png" id="1_1jgcd"]
+[ext_resource type="Texture2D" uid="uid://dxkjxub8odl81" path="res://art/objects/drawer.png" id="2_7ihnn"]
+[ext_resource type="Texture2D" uid="uid://dbulmijnlgwdk" path="res://art/objects/table.png" id="3_bpyjb"]
+[ext_resource type="Texture2D" uid="uid://dekr5gdipi3fp" path="res://art/objects/chair.png" id="4_al76w"]
+[ext_resource type="Texture2D" uid="uid://e2yf7rp58r11" path="res://art/objects/fan.png" id="5_eaat6"]
 [ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="6_8y23s"]
-[ext_resource type="Texture2D" uid="uid://ba8jalyphjqvb" path="res://art/objects/basketFront.png" id="6_mfteb"]
-[ext_resource type="Texture2D" uid="uid://psridorvvc1v" path="res://art/objects/basketBack&PaperSheet.png" id="7_ckgil"]
-[ext_resource type="Resource" uid="uid://dnuyrvpuvvfmc" path="res://dialogue/bin_code_1.tres" id="7_pgdsq"]
+[ext_resource type="Texture2D" uid="uid://bmg5eaq6lroew" path="res://art/objects/basketFront.png" id="6_mfteb"]
+[ext_resource type="Texture2D" uid="uid://ccjrega2hyytu" path="res://art/objects/basketBack&PaperSheet.png" id="7_ckgil"]
+[ext_resource type="Script" path="res://scripts/bin.gd" id="7_mmk18"]
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="8_n4q1w"]
-[ext_resource type="Resource" uid="uid://64pfqfptubgp" path="res://dialogue/bin_code_2.tres" id="8_rmkbt"]
+[ext_resource type="Resource" uid="uid://18rb7bpitm57" path="res://dialogue/bin_code_1.tres" id="9_jt4tl"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="9_mmwjf"]
+[ext_resource type="Resource" uid="uid://csrd63f2xyxxb" path="res://dialogue/bin_code_2.tres" id="10_q02vu"]
+[ext_resource type="Resource" uid="uid://pe1b8nblftu8" path="res://dialogue/bin_code_3.tres" id="11_vrhy8"]
 [ext_resource type="PackedScene" uid="uid://ds01jb8ccnww8" path="res://scenes/SceneSwapper.tscn" id="13_ekmb1"]
-[ext_resource type="Texture2D" uid="uid://s4da0qc0wrq3" path="res://art/objects/book2.png" id="15_6x5bm"]
+[ext_resource type="Texture2D" uid="uid://u3taf6hfqnxb" path="res://art/objects/book2.png" id="15_6x5bm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilcvt"]
 size = Vector2(198, 323)
@@ -189,8 +190,8 @@ one_way_collision = true
 [node name="bin" type="CharacterBody2D" parent="." groups=["Interactable"]]
 position = Vector2(1319, 573)
 scale = Vector2(2, 2)
-script = ExtResource("5_mkji5")
-completedQuestDialogue = Array[ExtResource("6_8y23s")]([ExtResource("7_pgdsq"), ExtResource("8_rmkbt")])
+script = ExtResource("7_mmk18")
+completedQuestDialogue = Array[ExtResource("6_8y23s")]([ExtResource("9_jt4tl"), ExtResource("10_q02vu"), ExtResource("11_vrhy8")])
 passcode = "2425"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bin"]
@@ -235,10 +236,10 @@ shape = SubResource("WorldBoundaryShape2D_lncei")
 
 [node name="bird" parent="." instance=ExtResource("8_n4q1w")]
 position = Vector2(-58, 284)
-scale = Vector2(8, 8)
 boostJumpForce = 600.0
 
 [node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+zoom = Vector2(2, 2)
 limit_left = -166
 limit_top = -103
 limit_right = 1453

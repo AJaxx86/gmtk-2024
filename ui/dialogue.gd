@@ -11,7 +11,6 @@ var currentDialogueIndex: int = 0
 
 func _ready() -> void:
 	dialogueBox.hide()
-	pass
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):

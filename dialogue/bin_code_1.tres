@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogueChunk" load_steps=2 format=3 uid="uid://18rb7bpitm57"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="1_ksn2e"]
+
+[resource]
+script = ExtResource("1_ksn2e")
+speaker = "Bird"
+line = "Aha! Silly buggers threw the passcode away."
