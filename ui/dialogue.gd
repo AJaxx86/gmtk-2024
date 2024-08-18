@@ -10,7 +10,7 @@ var currentDialogues: Array[DialogueChunk] = []
 var currentDialogueIndex: int = 0
 
 func _ready() -> void:
-	dialogueBox.hide()
+	pass
 
 func _process(_delta: float) -> void:
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):

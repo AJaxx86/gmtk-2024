@@ -61,17 +61,18 @@ scale = Vector2(2, 2)
 camera = NodePath("../../Camera2D")
 newPosition = NodePath("../Cam3")
 
-[node name="camTrigger5" parent="cameraStuff" node_paths=PackedStringArray("camera", "newPosition") instance=ExtResource("6_n3jdj")]
-position = Vector2(1026, 1025)
-scale = Vector2(2, 2)
-camera = NodePath("../../Camera2D")
-newPosition = NodePath("../Cam4")
-
 [node name="camTrigger6" parent="cameraStuff" node_paths=PackedStringArray("camera", "newPosition") instance=ExtResource("6_n3jdj")]
-position = Vector2(1026, 1117)
+position = Vector2(1026, 1014)
 scale = Vector2(2, 2)
 camera = NodePath("../../Camera2D")
 newPosition = NodePath("../Cam3")
+
+[node name="camTrigger5" parent="cameraStuff" node_paths=PackedStringArray("camera", "newPosition") instance=ExtResource("6_n3jdj")]
+position = Vector2(1026, 1117)
+scale = Vector2(2, 2)
+camera = NodePath("../../Camera2D")
+newPosition = NodePath("../Cam4")
+newZoom = 0.9
 
 [node name="Cam1" type="Marker2D" parent="cameraStuff"]
 position = Vector2(0, 45)
