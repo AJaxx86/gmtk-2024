@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name NPC
 
+signal RequiredItemGiven
+
 @export var greetingDialogue: Array[DialogueChunk]
 @export var completedQuestDialogue: Array[DialogueChunk]
 @export var requiredItem: String
@@ -10,11 +12,14 @@ func _ready() -> void:
 	pass
 
 func interact() -> void:
-	if GlobalStuff.check_item(requiredItem) == true:
+	if GlobalStuff.check_item(requiredItem) == true or requiredItem == "":
 		push_warning(requiredItem + " found in inventory, playing dialogue: " + str(completedQuestDialogue))
+		emit_signal("RequiredItemGiven")
 
-		GlobalStuff.remove_item(requiredItem)
-		GlobalStuff.add_item(passcode)
+		if requiredItem != "":
+			GlobalStuff.remove_item(requiredItem)
+		GlobalStuff.add_door_code(passcode)
+		
 		DialogueSystem.get_node("dialogue").start_dialogue(completedQuestDialogue)
 
 	else:

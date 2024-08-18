@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogueChunk" load_steps=2 format=3 uid="uid://csrd63f2xyxxb"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="1_tjt46"]
+
+[resource]
+script = ExtResource("1_tjt46")
+speaker = "Bird"
+line = "*Yoink*"

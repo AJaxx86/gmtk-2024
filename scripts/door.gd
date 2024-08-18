@@ -8,10 +8,13 @@ class_name Door
 @export var collision: CollisionShape2D
 @export var doorSprites: Array[AnimatedSprite2D]
 
-var state: String = "closed"
+func force_open() -> void:
+	collision.disabled = true
+	play_animation("opened")
 
-func _ready() -> void:
-	pass
+func force_close() -> void:
+	collision.disabled = false
+	play_animation("closed")
 
 func open() -> void:
 	if requiredCode != "":

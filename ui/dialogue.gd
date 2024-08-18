@@ -10,11 +10,12 @@ var currentDialogues: Array[DialogueChunk] = []
 var currentDialogueIndex: int = 0
 
 func _ready() -> void:
-	pass
+	dialogueBox.hide()
 
-func _process(_delta: float) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("skip_dialogue"):
 		next_line()
+	
  
 func start_dialogue(dialogueChunks: Array[DialogueChunk]) -> void:
 	push_warning("initiated dialogues: " + str(dialogueChunks))
