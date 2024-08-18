@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=15 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
@@ -12,6 +12,16 @@
 [ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="9_0rbk3"]
 [ext_resource type="PackedScene" uid="uid://u08tpfm6c6oj" path="res://scenes/WaterSource.tscn" id="9_gtck6"]
 [ext_resource type="Resource" uid="uid://cfn02yiid26nb" path="res://dialogue/test_dialogue_1.tres" id="10_q4fdv"]
+
+[sub_resource type="Resource" id="Resource_7nb74"]
+script = ExtResource("9_0rbk3")
+speaker = "kjhfkijh"
+line = "kjhflkujh"
+
+[sub_resource type="Resource" id="Resource_3rvec"]
+script = ExtResource("9_0rbk3")
+speaker = "ujhjkfghj"
+line = "jhgfjhgf"
 
 [node name="zoo" type="Node2D"]
 texture_filter = 1
@@ -121,6 +131,6 @@ position = Vector2(1564, 1383)
 
 [node name="npc" parent="." instance=ExtResource("8_drmay")]
 position = Vector2(-422, 123)
-greetingDialogue = Array[ExtResource("9_0rbk3")]([ExtResource("10_q4fdv")])
+greetingDialogue = Array[ExtResource("9_0rbk3")]([ExtResource("10_q4fdv"), SubResource("Resource_7nb74"), SubResource("Resource_3rvec")])
 requiredItem = "ice cream"
 passcode = "2"
