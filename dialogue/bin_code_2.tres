@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DialogueChunk" load_steps=2 format=3 uid="uid://64pfqfptubgp"]
+
+[ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="1_ivmlc"]
+
+[resource]
+script = ExtResource("1_ivmlc")
+speaker = "Bird"
+line = "Them drawers are a little high to jump out again, though. How am I gonna get out?"
