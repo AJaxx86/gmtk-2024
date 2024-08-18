@@ -508,6 +508,7 @@ default_font_size = 12
 [node name="hippo" type="CharacterBody2D" node_paths=PackedStringArray("chargeTimer") groups=["Player"]]
 scale = Vector2(2.56, 2.56)
 script = ExtResource("1_0qske")
+chargeLimit = 2
 chargeTimer = NodePath("chargeDuration")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

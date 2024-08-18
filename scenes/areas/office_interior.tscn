@@ -85,7 +85,7 @@ position = Vector2(-9, 0.5)
 shape = SubResource("RectangleShape2D_ilcvt")
 
 [node name="table" type="StaticBody2D" parent="."]
-position = Vector2(1228, 465)
+position = Vector2(1228, 464)
 
 [node name="Sprite2D" type="Sprite2D" parent="table"]
 scale = Vector2(3, 3)
@@ -152,7 +152,7 @@ texture = ExtResource("15_6x5bm")
 shape = SubResource("RectangleShape2D_vmcqc")
 
 [node name="seat" type="StaticBody2D" parent="."]
-position = Vector2(1228, 465)
+position = Vector2(1228, 466)
 
 [node name="Sprite2D" type="Sprite2D" parent="seat"]
 position = Vector2(-361, 0)
@@ -239,6 +239,10 @@ scale = Vector2(8, 8)
 boostJumpForce = 600.0
 
 [node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+limit_left = -166
+limit_top = -103
+limit_right = 1453
+limit_bottom = 647
 script = ExtResource("9_mmwjf")
 target = NodePath("../bird")
 

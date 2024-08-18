@@ -2,8 +2,6 @@ extends CharacterBody2D
 class_name Hippo
 
 @export var speed: float = 400.0
-@export_group("Nodes")
-@export var chargeTimer: Timer
 
 ### Direction
 var direction: Vector2 = Vector2.ZERO
@@ -19,15 +17,16 @@ var canPush = true
 var isCharging: bool = false
 var canCharge: bool = true
 @export var chargeSpeed: float = 1000
+@export var chargeLimit: int = 1
+@export var chargeTimer: Timer
+
+var currentCharges: int = 0
 
 ###Wetness
 var isWet: bool = false
-@export var wetDuration: float = 10.0
 
 ###Interact
 var target: Node2D = null
-
-
 
 func _ready() -> void:
 	pass
@@ -100,20 +99,22 @@ func animationSelector():
 	
 
 func charge_ability() -> void:
-	if canCharge:
+	if canCharge and currentCharges > 0:
 		chargeTimer.start()
 		isCharging = true
 		canCharge = false
+		currentCharges -= 1
+		print_debug("Charges left: " + str(currentCharges))
 		
 	else:
 		push_warning("Attempted to charge during cooldown")
 
 func getWet():
-	isWet = true
-	$WetTimer.start()
+	currentCharges = chargeLimit
+	print_debug("Charges reset to " + str(currentCharges))
 
 func _on_charge_timer_timeout() -> void:
-	isCharging =false
+	isCharging = false
 	$ChargeCooldown.start()
 
 
