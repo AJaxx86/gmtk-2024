@@ -2,22 +2,34 @@ extends CharacterBody2D
 class_name Bird
 
 @export var speed: float = 200.0
+@export var jumpForce: float = 400.0
+@export var boostJumpForce: float = 800.0
 
 @export_group("Nodes")
 @export var interactPrompt: RichTextLabel
 
+@onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 var target: Node2D = null
+
+var jumpBoostUsed: bool = false
 
 func _ready() -> void:
 	interactPrompt.hide()
 
 func _physics_process(delta: float) -> void:
-	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-
-	if direction:
-		velocity = direction * speed
+	velocity.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	velocity.x *= speed
+	
+	if is_on_floor():
+		jumpBoostUsed = false
+		if Input.is_action_just_pressed("jump"):
+			velocity.y = -jumpForce
 	else:
-		velocity = Vector2.ZERO
+		if Input.is_action_just_pressed("jump") and jumpBoostUsed == false:
+			velocity.y = -boostJumpForce
+			jumpBoostUsed = true
+		velocity.y += gravity * delta
 
 	move_and_slide()
 

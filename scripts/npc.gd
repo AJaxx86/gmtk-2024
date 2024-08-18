@@ -15,8 +15,8 @@ func interact() -> void:
 
 		GlobalStuff.remove_item(requiredItem)
 		GlobalStuff.add_item(passcode)
-		DialogueSystem.start_dialogue(completedQuestDialogue)
+		DialogueSystem.get_node("dialogue").start_dialogue(completedQuestDialogue)
 
 	else:
 		push_warning(requiredItem + " not found in inventory, playing dialogue: " + str(greetingDialogue))
-		DialogueSystem.start_dialogue(greetingDialogue)
+		DialogueSystem.get_node("dialogue").start_dialogue(greetingDialogue)

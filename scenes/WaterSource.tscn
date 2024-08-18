@@ -1,15 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://u08tpfm6c6oj"]
+[gd_scene load_steps=10 format=3 uid="uid://u08tpfm6c6oj"]
 
 [ext_resource type="Script" path="res://scripts/WaterSource.gd" id="1_p2kde"]
+[ext_resource type="Texture2D" uid="uid://517jntjdfunv" path="res://art/objects/pondSheet.png" id="2_kblt4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gavct"]
+atlas = ExtResource("2_kblt4")
+region = Rect2(0, 0, 64, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj83t"]
+atlas = ExtResource("2_kblt4")
+region = Rect2(64, 0, 64, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt0dv"]
+atlas = ExtResource("2_kblt4")
+region = Rect2(128, 0, 64, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b32c4"]
+atlas = ExtResource("2_kblt4")
+region = Rect2(192, 0, 64, 43)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j45a8"]
+atlas = ExtResource("2_kblt4")
+region = Rect2(256, 0, 64, 43)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6hpd0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gavct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj83t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt0dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b32c4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j45a8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jmgtj"]
+size = Vector2(61, 36.5)
 
-[node name="WaterSource" type="Area2D"]
+[node name="WaterSource" type="Area2D" node_paths=PackedStringArray("waterSprite")]
+scale = Vector2(2, 2)
 script = ExtResource("1_p2kde")
+waterSprite = NodePath("water")
+
+[node name="water" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6hpd0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1.25)
 shape = SubResource("RectangleShape2D_jmgtj")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
