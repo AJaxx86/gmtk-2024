@@ -19,8 +19,6 @@ func _process(_delta: float) -> void:
 func start_dialogue(dialogueChunks: Array[DialogueChunk]) -> void:
 	push_warning("initiated dialogues: " + str(dialogueChunks))
 
-	var gameCamPos: Vector2 = get_tree().get_first_node_in_group("Cameras").global_position
-	global_position = gameCamPos
 
 	currentDialogueIndex = 0
 	currentDialogues = dialogueChunks

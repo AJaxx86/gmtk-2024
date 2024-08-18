@@ -14,8 +14,8 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 8
+size_flags_horizontal = 3
+size_flags_vertical = 10
 script = ExtResource("1_x235l")
 dialogueBox = NodePath("textBox")
 dialogueName = NodePath("textBox/name")
@@ -29,11 +29,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -576.0
-offset_top = -210.0
+offset_top = -209.0
 offset_right = 576.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-pivot_offset = Vector2(576, 210)
+pivot_offset = Vector2(576, 209)
 
 [node name="name" type="RichTextLabel" parent="dialogue/textBox"]
 layout_mode = 0
