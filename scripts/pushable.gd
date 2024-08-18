@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Pushable
 
 var isPushed : bool = false
 var direction: Vector2 = Vector2.ZERO
