@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://5yb1bqj8ccm6"]
+[gd_scene load_steps=30 format=3 uid="uid://5yb1bqj8ccm6"]
 
 [ext_resource type="Texture2D" uid="uid://bnits5vjotvkv" path="res://art/tiles/officeBackground.png" id="1_1jgcd"]
 [ext_resource type="Texture2D" uid="uid://dxkjxub8odl81" path="res://art/objects/drawer.png" id="2_7ihnn"]
@@ -66,6 +66,13 @@ animations = [{
 size = Vector2(68.5, 72.5)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lncei"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sd3ar"]
+cull_mode = 1
+polygon = PackedVector2Array(-71, -195, -69, -93, 1549, -92, 1548, -192)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_twn3w"]
+polygon = PackedVector2Array(105, 230, 125, 248, 127, 556, -71, 556, -72, 231)
 
 [node name="officeInterior" type="Node2D"]
 
@@ -250,3 +257,17 @@ target = NodePath("../bird")
 [node name="SceneSwapper" parent="." instance=ExtResource("13_ekmb1")]
 position = Vector2(-150, 296)
 scenePath = "res://scenes/map.tscn"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-94, 91)
+occluder = SubResource("OccluderPolygon2D_sd3ar")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+position = Vector2(-94, 91)
+occluder = SubResource("OccluderPolygon2D_twn3w")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(-94, 91)
+skew = -1.09083
+color = Color(1, 1, 0, 1)
+shadow_enabled = true
