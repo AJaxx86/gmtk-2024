@@ -6,6 +6,10 @@ var targetPosition: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	add_to_group("Cameras")
+	
+	if GlobalStuff.cameraPosition != Vector2.ZERO:
+		global_position = GlobalStuff.cameraPosition
+		zoom = GlobalStuff.cameraZoom
 
 func _process(delta: float) -> void:
 	if targetPosition != Vector2.ZERO:

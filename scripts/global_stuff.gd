@@ -6,6 +6,9 @@ var items: Array[String] = []
 var doorCodes: Array[String] = []
 var hippoPosition: Vector2
 
+var cameraPosition: Vector2
+var cameraZoom: Vector2
+
 var lockedDoorsArray: Array = []
 var officeUnlocked: bool = false
 

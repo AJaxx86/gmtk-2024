@@ -256,7 +256,7 @@ polygon = PackedVector2Array(49.6667, -4.33334, 30.6667, -9.66666, 5.33333, -8.6
 [node name="bird" parent="." instance=ExtResource("1_cs0rs")]
 position = Vector2(175, 720)
 
-[node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+[node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target") groups=["Cameras"]]
 zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0

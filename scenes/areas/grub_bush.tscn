@@ -28,7 +28,7 @@ position = Vector2(526, 172)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grubSpawner"]
 shape = SubResource("RectangleShape2D_ikxmi")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target") groups=["Cameras"]]
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("2_yimtd")
 target = NodePath("../bird")
