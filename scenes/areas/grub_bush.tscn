@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbjmhk482fovb"]
+[gd_scene load_steps=8 format=3 uid="uid://cbjmhk482fovb"]
 
 [ext_resource type="Script" path="res://scripts/grub_bush.gd" id="1_3njou"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_yimtd"]
@@ -12,9 +12,6 @@ size = Vector2(167, 101)
 size = Vector2(20, 84)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b2v0n"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xm5ul"]
-size = Vector2(135, 63)
 
 [node name="grubBush" type="Node2D" node_paths=PackedStringArray("grubSpawnTimer")]
 script = ExtResource("1_3njou")
@@ -53,11 +50,4 @@ position = Vector2(323, 223)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 shape = SubResource("WorldBoundaryShape2D_b2v0n")
 
-[node name="GRUBSAVE" type="Area2D" parent="."]
-position = Vector2(214, 184)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GRUBSAVE"]
-shape = SubResource("RectangleShape2D_xm5ul")
-
 [connection signal="timeout" from="grubSpawnTimer" to="." method="spawn_grub"]
-[connection signal="body_entered" from="GRUBSAVE" to="." method="_on_grubsave_entered"]
