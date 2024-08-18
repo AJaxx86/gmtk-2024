@@ -36,8 +36,4 @@ func spawn_grub() -> void:
 		push_warning("Grub limit reached.")
 
 func grub_cought() -> void:
-	grubsCought += 1
-
-func _on_grubsave_entered(body: Node2D) -> void:
-	GlobalStuff.add_item("grubx" + str(grubsCought))
-	print_debug("Saving grubx" + str(grubsCought))
+	GlobalStuff.add_item("grub")

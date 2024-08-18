@@ -308,7 +308,7 @@ position = Vector2(262, 289)
 script = ExtResource("9_2mu47")
 greetingDialogue = Array[ExtResource("10_vlhbj")]([SubResource("Resource_r3n63"), SubResource("Resource_eux82"), SubResource("Resource_g2sjr"), SubResource("Resource_j8th2"), SubResource("Resource_uf473"), SubResource("Resource_7q3j3")])
 completedQuestDialogue = Array[ExtResource("10_vlhbj")]([SubResource("Resource_sl2w2"), SubResource("Resource_6e1ta"), SubResource("Resource_g32pf"), SubResource("Resource_ytemb")])
-requiredItem = "grubx3"
+requiredItem = "grub"
 passcode = "6969"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
