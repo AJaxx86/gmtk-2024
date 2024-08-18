@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg")
 Player=""
 Interactable="can be interacted by the player"
 Doors=""
+Cameras=""
 
 [input]
 
