@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://caa0jvs26njis"]
+
+[ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_cs0rs"]
+[ext_resource type="Texture2D" uid="uid://d2q0r61geytna" path="res://art/tiles/willowBackground.png" id="1_gqu1u"]
+[ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_t4qsf"]
+
+[node name="tree" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(809, 373)
+scale = Vector2(3, 3)
+texture = ExtResource("1_gqu1u")
+
+[node name="bird" parent="." instance=ExtResource("1_cs0rs")]
+position = Vector2(175, 720)
+
+[node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("2_t4qsf")
+target = NodePath("../bird")
