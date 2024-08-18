@@ -502,6 +502,7 @@ requiredCode = "2425"
 
 [node name="doubleDoor2" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1217, 867)
+requiredCode = "6969"
 
 [node name="doubleDoor3" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1536, 1444)

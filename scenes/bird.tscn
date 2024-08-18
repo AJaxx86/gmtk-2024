@@ -219,6 +219,7 @@ default_font_size = 12
 
 [node name="bird" type="CharacterBody2D" node_paths=PackedStringArray("interactPrompt", "birdSprite") groups=["Player"]]
 script = ExtResource("1_w6nrb")
+boostJumpForce = 600.0
 interactPrompt = NodePath("interactPrompt")
 birdSprite = NodePath("AnimatedSprite2D")
 

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Grub
 
+signal CoughtGrub
+
 @export var speed: float = 10.0
 ##How far away the Grub will move.
 @export var moveRadius: float = 50.0
@@ -23,7 +25,7 @@ func _physics_process(delta: float) -> void:
 		targetPos = global_position + Vector2(randf_range(-moveRadius, moveRadius), randf_range(-moveRadius, moveRadius))
 
 func catch() -> void:
-	GlobalStuff.add_item("grub")
+	emit_signal("CoughtGrub")
 	die()
 
 func die() -> void:

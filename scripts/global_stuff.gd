@@ -1,7 +1,7 @@
 extends Node
 class_name Globals
 
-var itemLimit: int = 5
+var itemLimit: int = 99
 var items: Array[String] = []
 var doorCodes: Array[String] = []
 var hippoPosition: Vector2

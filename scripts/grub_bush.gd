@@ -12,6 +12,8 @@ extends Node2D
 var grubSpawners: Array[Node2D] = []
 var grubScene: PackedScene = preload("res://scenes/grub.tscn")
 
+var grubsCought: int = 0
+
 func _ready() -> void:
 	grubSpawnTimer.wait_time = grubSpawnRate
 	grubSpawnTimer.start()
@@ -27,6 +29,15 @@ func spawn_grub() -> void:
 		newGrub.global_position += Vector2(randf_range(-25, 25), randf_range(-25, 25))
 		newGrub.lifespan = grubLifeSpan
 
+		newGrub.connect("CoughtGrub", grub_cought)
+
 		add_child(newGrub)
 	else:
 		push_warning("Grub limit reached.")
+
+func grub_cought() -> void:
+	grubsCought += 1
+
+func _on_grubsave_entered(body: Node2D) -> void:
+	GlobalStuff.add_item("grubx" + str(grubsCought))
+	print_debug("Saving grubx" + str(grubsCought))

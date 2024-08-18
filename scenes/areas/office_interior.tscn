@@ -243,7 +243,6 @@ shape = SubResource("WorldBoundaryShape2D_lncei")
 
 [node name="bird" parent="." instance=ExtResource("8_n4q1w")]
 position = Vector2(-58, 284)
-boostJumpForce = 600.0
 
 [node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
 zoom = Vector2(2, 2)
