@@ -5,10 +5,24 @@ var isPushed : bool = false
 var direction: Vector2 = Vector2.ZERO
 @export var PushSpeed: float = 50
 @export var Pushable: bool = true
+@export var infinitePush: bool = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+var lastPosition: Vector2 =Vector2.ZERO
+func _ready() -> void:
+	lastPosition = position
 func _physics_process(delta: float) -> void:
-	if isPushed:
+	if position == lastPosition: 
+		velocity = Vector2.ZERO
+	lastPosition = position 
+	
+	if isPushed and not infinitePush:
 		position += direction * delta * PushSpeed
+	elif isPushed and infinitePush:
+		velocity = direction * PushSpeed* delta
+		
+	move_and_collide(velocity)
+
+	
 	
 
 
