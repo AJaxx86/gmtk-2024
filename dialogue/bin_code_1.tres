@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="DialogueChunk" load_steps=2 format=3 uid="uid://dnuyrvpuvvfmc"]
-
-[ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="1_2smio"]
-
-[resource]
-script = ExtResource("1_2smio")
-speaker = "Bird"
-line = "AHA! Here's the code for the door."

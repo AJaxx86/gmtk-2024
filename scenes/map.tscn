@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=15 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
 [ext_resource type="Script" path="res://scripts/static_camera.gd" id="2_plytn"]
 [ext_resource type="PackedScene" uid="uid://cu5xce2lc3mea" path="res://scenes/camera_trigger.tscn" id="6_n3jdj"]
+[ext_resource type="PackedScene" uid="uid://ds01jb8ccnww8" path="res://scenes/SceneSwapper.tscn" id="7_4dj7l"]
 [ext_resource type="PackedScene" uid="uid://cdlrig1maaxbs" path="res://scenes/doorDouble.tscn" id="7_68ehx"]
 [ext_resource type="PackedScene" uid="uid://1kokyfy61hk8" path="res://scenes/hippo.tscn" id="7_pp858"]
 [ext_resource type="PackedScene" uid="uid://y3q58nn2mg3u" path="res://scenes/npc.tscn" id="8_drmay"]
@@ -11,7 +12,16 @@
 [ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="9_0rbk3"]
 [ext_resource type="PackedScene" uid="uid://u08tpfm6c6oj" path="res://scenes/WaterSource.tscn" id="9_gtck6"]
 [ext_resource type="Resource" uid="uid://cfn02yiid26nb" path="res://dialogue/test_dialogue_1.tres" id="10_q4fdv"]
-[ext_resource type="PackedScene" uid="uid://cyr6ysyweu4em" path="res://scenes/office.tscn" id="12_g0nm1"]
+
+[sub_resource type="Resource" id="Resource_7nb74"]
+script = ExtResource("9_0rbk3")
+speaker = "kjhfkijh"
+line = "kjhflkujh"
+
+[sub_resource type="Resource" id="Resource_3rvec"]
+script = ExtResource("9_0rbk3")
+speaker = "ujhjkfghj"
+line = "jhgfjhgf"
 
 [node name="zoo" type="Node2D"]
 texture_filter = 1
@@ -95,7 +105,7 @@ position = Vector2(-164, -54)
 
 [node name="doubleDoor" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(-320, 384)
-requiredCode = "2425"
+requiredCode = "2"
 
 [node name="doubleDoor2" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1217, 867)
@@ -103,6 +113,11 @@ requiredCode = "855"
 
 [node name="doubleDoor3" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1536, 1444)
+
+[node name="SceneSwapper" parent="." instance=ExtResource("7_4dj7l")]
+position = Vector2(197, 110)
+scale = Vector2(0.220434, 0.220434)
+scenePath = "res://inside_tree.tscn"
 
 [node name="hippo" parent="." instance=ExtResource("7_pp858")]
 position = Vector2(-2, 41)
@@ -115,13 +130,7 @@ position = Vector2(1501, 1382)
 position = Vector2(1564, 1383)
 
 [node name="npc" parent="." instance=ExtResource("8_drmay")]
-position = Vector2(840, 764)
-greetingDialogue = Array[ExtResource("9_0rbk3")]([ExtResource("10_q4fdv")])
+position = Vector2(-422, 123)
+greetingDialogue = Array[ExtResource("9_0rbk3")]([ExtResource("10_q4fdv"), SubResource("Resource_7nb74"), SubResource("Resource_3rvec")])
 requiredItem = "ice cream"
 passcode = "2"
-
-[node name="Node" type="Node" parent="."]
-
-[node name="office" parent="." instance=ExtResource("12_g0nm1")]
-position = Vector2(403, -72)
-scenePath = "res://scenes/areas/office_interior.tscn"
