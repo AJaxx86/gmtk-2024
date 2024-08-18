@@ -11,7 +11,7 @@ var officeUnlocked: bool = false
 
 #ITEMS
 func add_item(item: String) -> void:
-	if items.size() > itemLimit:
+	if items.size() < itemLimit:
 		items.append(item)
 		print_debug("item added to inventory: %s" % item)
 
