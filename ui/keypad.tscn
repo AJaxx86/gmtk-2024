@@ -1,0 +1,113 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1qopxkmjj4uf"]
+
+[ext_resource type="Script" path="res://ui/keypad_buttons.gd" id="1_2q6uv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_kpkd2"]
+font_size = 24
+
+[node name="keypad" type="CanvasLayer"]
+follow_viewport_enabled = true
+
+[node name="pad" type="Control" parent="." node_paths=PackedStringArray("codeLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2q6uv")
+codeLabel = NodePath("Panel/currentCode")
+
+[node name="Panel" type="Panel" parent="pad"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 154.0
+
+[node name="currentCode" type="Label" parent="pad/Panel"]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 39.0
+text = "1234"
+label_settings = SubResource("LabelSettings_kpkd2")
+
+[node name="buttons" type="Control" parent="pad/Panel"]
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 40.0
+offset_bottom = 80.0
+
+[node name="1" type="Button" parent="pad/Panel/buttons"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 38.0
+text = "1"
+
+[node name="2" type="Button" parent="pad/Panel/buttons"]
+layout_mode = 0
+offset_left = 40.0
+offset_right = 80.0
+offset_bottom = 38.0
+text = "2"
+
+[node name="3" type="Button" parent="pad/Panel/buttons"]
+layout_mode = 0
+offset_left = 80.0
+offset_right = 120.0
+offset_bottom = 38.0
+text = "3"
+
+[node name="4" type="Button" parent="pad/Panel/buttons"]
+layout_mode = 0
+offset_top = 38.0
+offset_right = 40.0
+offset_bottom = 76.0
+text = "4"
+
+[node name="5" type="Button" parent="pad/Panel/buttons"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 38.0
+offset_right = 80.0
+offset_bottom = 76.0
+text = "5"
+
+[node name="6" type="Button" parent="pad/Panel/buttons"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 38.0
+offset_right = 120.0
+offset_bottom = 76.0
+text = "6"
+
+[node name="7" type="Button" parent="pad/Panel/buttons"]
+layout_mode = 0
+offset_top = 76.0
+offset_right = 40.0
+offset_bottom = 114.0
+text = "7"
+
+[node name="8" type="Button" parent="pad/Panel/buttons"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 76.0
+offset_right = 80.0
+offset_bottom = 114.0
+text = "8"
+
+[node name="9" type="Button" parent="pad/Panel/buttons"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 76.0
+offset_right = 120.0
+offset_bottom = 114.0
+text = "9"
+
+[connection signal="pressed" from="pad/Panel/buttons/1" to="pad" method="button_pressed" binds= [1]]
+[connection signal="pressed" from="pad/Panel/buttons/2" to="pad" method="button_pressed" binds= [2]]
+[connection signal="pressed" from="pad/Panel/buttons/3" to="pad" method="button_pressed" binds= [3]]
+[connection signal="pressed" from="pad/Panel/buttons/4" to="pad" method="button_pressed" binds= [4]]
+[connection signal="pressed" from="pad/Panel/buttons/5" to="pad" method="button_pressed" binds= [5]]
+[connection signal="pressed" from="pad/Panel/buttons/6" to="pad" method="button_pressed" binds= [6]]
+[connection signal="pressed" from="pad/Panel/buttons/7" to="pad" method="button_pressed" binds= [7]]
+[connection signal="pressed" from="pad/Panel/buttons/8" to="pad" method="button_pressed" binds= [8]]
+[connection signal="pressed" from="pad/Panel/buttons/9" to="pad" method="button_pressed" binds= [9]]

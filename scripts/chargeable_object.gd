@@ -18,3 +18,8 @@ func _on_body_entered(body: Node2D) -> void:
 func ChargeInteract() -> void:
 	print("Interacted with charging Hippo")
 	self.queue_free()
+
+func stream_sfx(soundFile: AudioStreamMP3) -> void:
+	if sfxStreamer:
+		sfxStreamer.stream = soundFile
+		sfxStreamer.play()
