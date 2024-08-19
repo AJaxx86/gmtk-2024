@@ -8,7 +8,7 @@ var unlocked: bool = false:
 		unlocked = value
 
 		if value == true:
-			officeSprite.play("unlocked" if unlocked else "locked")
+			officeSprite.play("broken_in" if unlocked else "locked")
 			sceneSwitch.add_to_group("Interactable")
 
 func _ready() -> void:
