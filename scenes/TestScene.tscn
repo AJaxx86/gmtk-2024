@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://1kokyfy61hk8" path="res://scenes/hippo.tscn" id="1_kka25"]
 [ext_resource type="PackedScene" uid="uid://r0wq1qw8dho7" path="res://scenes/Pushable.tscn" id="2_16wbw"]
 [ext_resource type="PackedScene" uid="uid://0rd2tjh1676u" path="res://scenes/ChargeableObject.tscn" id="3_1fmqt"]
-[ext_resource type="PackedScene" uid="uid://ds01jb8ccnww8" path="res://scenes/SceneSwapper.tscn" id="5_j6a5w"]
 [ext_resource type="PackedScene" uid="uid://cyl66qx666ffb" path="res://scenes/panda.tscn" id="6_whs74"]
+[ext_resource type="PackedScene" uid="uid://u08tpfm6c6oj" path="res://scenes/WaterSource.tscn" id="6_ys84a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7db3p"]
 texture = ExtResource("1_ahklq")
@@ -50,11 +50,10 @@ position = Vector2(801, 138)
 position = Vector2(809, 417)
 scale = Vector2(3.92, 3.92)
 
-[node name="SceneSwapper" parent="." instance=ExtResource("5_j6a5w")]
-position = Vector2(139, 526)
-scenePath = "res://scenes/map.tscn"
-
 [node name="Panda" parent="." instance=ExtResource("6_whs74")]
 position = Vector2(395, 377)
 PushSpeed = 200.0
 infinitePush = false
+
+[node name="WaterSource" parent="." instance=ExtResource("6_ys84a")]
+position = Vector2(117, 470)
