@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=100 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/office.gd" id="13_2nkrg"]
 [ext_resource type="Texture2D" uid="uid://b1kfyf3cyf0ls" path="res://art/objects/zooOfficeSheet.png" id="13_80e8x"]
 [ext_resource type="PackedScene" uid="uid://b7cg2tn0hxk50" path="res://scenes/keypad.tscn" id="14_jl3md"]
+[ext_resource type="Texture2D" uid="uid://npd0c7r0godl" path="res://art/objects/UI.png" id="15_qn120"]
 [ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="15_tud0i"]
 [ext_resource type="Script" path="res://scenes/event.gd" id="17_gfsbc"]
 [ext_resource type="Texture2D" uid="uid://gu4ap6wrsqam" path="res://art/characters/zebraSpriteSheets.png" id="17_vpjy0"]
@@ -344,6 +345,10 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkr83"]
+atlas = ExtResource("15_qn120")
+region = Rect2(26, 0, 26, 26)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqfll"]
 size = Vector2(24.5, 22)
 
@@ -354,7 +359,7 @@ line = "Pssst. Hey."
 
 [sub_resource type="Resource" id="Resource_cwnf3"]
 script = ExtResource("9_0rbk3")
-speaker = "Hippo"
+speaker = "Big"
 line = "Huh?"
 
 [sub_resource type="Resource" id="Resource_w81hr"]
@@ -364,7 +369,7 @@ line = "I got a passcode here. If you get me out of here, you can have it. Deal?
 
 [sub_resource type="Resource" id="Resource_pw56p"]
 script = ExtResource("9_0rbk3")
-speaker = "Hippo"
+speaker = "Big"
 line = "Duuuhhhhh..."
 
 [sub_resource type="Resource" id="Resource_p42vb"]
@@ -863,6 +868,7 @@ position = Vector2(832, 2368)
 
 [node name="keypad" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
 position = Vector2(-137, 344)
+codeTexture = SubResource("AtlasTexture_dkr83")
 connectedDoor = NodePath("../doubleDoor")
 
 [node name="pressurePlates" type="Node2D" parent="."]

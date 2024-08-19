@@ -4,6 +4,7 @@ signal CodeEntered
 
 @export_group("Nodes")
 @export var codeLabel: Label
+@export var codePaper: TextureRect
 
 var currentCode: String = ""
 
@@ -19,3 +20,10 @@ func button_pressed(number: int) -> void:
 		emit_signal("CodeEntered", currentCode)
 		currentCode = ""
 		codeLabel.text = ""
+
+func popup(codeTexture: Texture2D = null) -> void:
+	if codeTexture:
+		codePaper.texture = codeTexture
+		codePaper.show()
+	else:
+		codePaper.hide()

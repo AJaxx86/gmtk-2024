@@ -199,7 +199,7 @@ position = Vector2(1319, 573)
 scale = Vector2(2, 2)
 script = ExtResource("7_mmk18")
 completedQuestDialogue = Array[ExtResource("6_8y23s")]([ExtResource("9_jt4tl"), ExtResource("10_q02vu"), ExtResource("11_vrhy8")])
-passcode = "2425"
+passcode = "1234"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="bin"]
 sprite_frames = SubResource("SpriteFrames_li4cp")

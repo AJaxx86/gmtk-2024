@@ -1,6 +1,7 @@
 extends StaticBody2D
 class_name Keypad
 
+@export var codeTexture: Texture2D
 @export var connectedDoor: Door
 @export var working: bool = true
 
@@ -29,7 +30,7 @@ func activate() -> void:
 			keypadUI.hide()
 			keypadUI.disconnect("CodeEntered", code_entered)
 		else:
-			keypadUI.show()
+			keypadUI.popup(codeTexture)
 			keypadUI.connect("CodeEntered", code_entered)
 
 func code_entered(enteredCode: String) -> void:
