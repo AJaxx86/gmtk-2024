@@ -12,6 +12,7 @@ func save_positions() -> void:
 	var camera = get_tree().get_first_node_in_group("Cameras")
 	if player is Hippo:
 		GlobalStuff.hippoPosition = player.global_position
+		GlobalStuff.hippoCharges = player.currentCharges
 	if camera is StaticCamera2d:
 		GlobalStuff.cameraPosition = camera.global_position
 		GlobalStuff.cameraZoom = camera.zoom

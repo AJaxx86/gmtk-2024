@@ -618,11 +618,12 @@ radius = 35.323
 default_font = ExtResource("3_h7kgf")
 default_font_size = 12
 
-[node name="hippo" type="CharacterBody2D" node_paths=PackedStringArray("chargeTimer", "chargeUI") groups=["Player"]]
+[node name="hippo" type="CharacterBody2D" node_paths=PackedStringArray("chargeTimer", "chargeUI", "sfxStreamer") groups=["Player"]]
 script = ExtResource("1_0qske")
 chargeLimit = 2
 chargeTimer = NodePath("chargeDuration")
 chargeUI = NodePath("chargeUI")
+sfxStreamer = NodePath("AudioStreamPlayer2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nxlec")

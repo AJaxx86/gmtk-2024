@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dky1lxx1rfj3w"
+path="res://.godot/imported/Window Break 3.mp3-257f14c563cf59deae11640a9178d631.mp3str"
+
+[deps]
+
+source_file="res://sfx/Other SFX/Window Break 3.mp3"
+dest_files=["res://.godot/imported/Window Break 3.mp3-257f14c563cf59deae11640a9178d631.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

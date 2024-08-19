@@ -1,14 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1qopxkmjj4uf"]
+[gd_scene load_steps=5 format=3 uid="uid://c1qopxkmjj4uf"]
 
 [ext_resource type="Script" path="res://ui/keypad_buttons.gd" id="1_2q6uv"]
+[ext_resource type="Texture2D" uid="uid://npd0c7r0godl" path="res://art/objects/UI.png" id="2_cfn0r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kpkd2"]
 font_size = 24
 
-[node name="keypad" type="CanvasLayer"]
-follow_viewport_enabled = true
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpcqx"]
+atlas = ExtResource("2_cfn0r")
+region = Rect2(26, 0, 26, 26)
 
-[node name="pad" type="Control" parent="." node_paths=PackedStringArray("codeLabel")]
+[node name="keypad" type="CanvasLayer"]
+
+[node name="pad" type="Control" parent="." node_paths=PackedStringArray("codeLabel", "codePaper")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,11 +21,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2q6uv")
 codeLabel = NodePath("Panel/currentCode")
+codePaper = NodePath("TextureRect")
 
 [node name="Panel" type="Panel" parent="pad"]
 layout_mode = 0
-offset_right = 120.0
-offset_bottom = 154.0
+offset_left = 50.0
+offset_top = 34.0
+offset_right = 170.0
+offset_bottom = 188.0
 
 [node name="currentCode" type="Label" parent="pad/Panel"]
 layout_mode = 0
@@ -101,6 +108,14 @@ offset_top = 76.0
 offset_right = 120.0
 offset_bottom = 114.0
 text = "9"
+
+[node name="TextureRect" type="TextureRect" parent="pad"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 41.0
+offset_right = 257.0
+offset_bottom = 117.0
+texture = SubResource("AtlasTexture_dpcqx")
 
 [connection signal="pressed" from="pad/Panel/buttons/1" to="pad" method="button_pressed" binds= [1]]
 [connection signal="pressed" from="pad/Panel/buttons/2" to="pad" method="button_pressed" binds= [2]]
