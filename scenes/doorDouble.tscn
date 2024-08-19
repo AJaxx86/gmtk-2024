@@ -95,7 +95,8 @@ doorSprites = [NodePath("AnimatedSprite2D"), NodePath("AnimatedSprite2D2")]
 texture_filter = 1
 position = Vector2(-16, 0)
 sprite_frames = SubResource("SpriteFrames_s2j3w")
-animation = &"Opened_vertical"
+animation = &"closed_Horizontal"
+autoplay = "closed_Horizontal"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
