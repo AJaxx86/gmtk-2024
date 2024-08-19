@@ -1,8 +1,9 @@
-[gd_scene load_steps=88 format=3 uid="uid://1kokyfy61hk8"]
+[gd_scene load_steps=89 format=3 uid="uid://1kokyfy61hk8"]
 
 [ext_resource type="Script" path="res://scripts/hippo.gd" id="1_0qske"]
 [ext_resource type="Texture2D" uid="uid://degxk5sc1ngp6" path="res://art/characters/hippoSpriteSheet.png" id="2_l7ftx"]
 [ext_resource type="FontFile" uid="uid://h2nbx4elr011" path="res://fonts/lemon_milk/LEMONMILK-Medium.otf" id="3_h7kgf"]
+[ext_resource type="PackedScene" uid="uid://cwiwptuq5ukjf" path="res://ui/charge_ui.tscn" id="4_jqg25"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h2twr"]
 atlas = ExtResource("2_l7ftx")
@@ -657,6 +658,12 @@ theme = SubResource("Theme_ylei2")
 text = "interact"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="chargeUI" parent="." instance=ExtResource("4_jqg25")]
+offset_left = -19.0
+offset_top = -64.0
+offset_right = 21.0
+offset_bottom = -24.0
 
 [connection signal="timeout" from="chargeDuration" to="." method="_on_charge_timer_timeout"]
 [connection signal="timeout" from="ChargeCooldown" to="." method="_on_charge_cooldown_timeout"]
