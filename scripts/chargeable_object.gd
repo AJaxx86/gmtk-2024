@@ -19,7 +19,15 @@ func ChargeInteract() -> void:
 	print("Interacted with charging Hippo")
 	self.queue_free()
 
+var previousSFX: AudioStreamMP3
 func stream_sfx(soundFile: AudioStreamMP3) -> void:
 	if sfxStreamer:
-		sfxStreamer.stream = soundFile
-		sfxStreamer.play()
+		if soundFile != previousSFX:
+			sfxStreamer.stream = soundFile
+			sfxStreamer.play()
+		else:
+			if sfxStreamer.playing == false:
+				sfxStreamer.play()
+	
+	else:
+		push_error("This node doesn't have a SFX Streamer.")

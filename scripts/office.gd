@@ -16,4 +16,5 @@ func _ready() -> void:
 
 func ChargeInteract() -> void:
 	unlocked = true
+	stream_sfx(sfxBreaking)
 	GlobalStuff.officeUnlocked = true

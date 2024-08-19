@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=98 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://bl6ju3fi51a06" path="res://art/foliage/bush1.png" id="19_wcxsm"]
 [ext_resource type="Texture2D" uid="uid://d3a3duga828ua" path="res://art/foliage/bush2.png" id="20_3cifg"]
 [ext_resource type="Texture2D" uid="uid://40map13ew2ob" path="res://art/foliage/weepingWillow.png" id="21_wncdu"]
+[ext_resource type="AudioStream" uid="uid://cx2rngpnqm18r" path="res://sfx/Other SFX/Window Break 7.mp3" id="24_kbmpa"]
 [ext_resource type="PackedScene" uid="uid://cyl66qx666ffb" path="res://scenes/panda.tscn" id="26_eu7me"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km3v2"]
@@ -920,9 +921,11 @@ position = Vector2(1184, 898)
 [node name="ChargeableObject2" parent="." instance=ExtResource("8_dtkv5")]
 position = Vector2(1243, 898)
 
-[node name="office" type="Area2D" parent="."]
+[node name="office" type="Area2D" parent="." node_paths=PackedStringArray("sfxStreamer")]
 position = Vector2(381, -56)
 script = ExtResource("13_2nkrg")
+sfxStreamer = NodePath("AudioStreamPlayer2D")
+sfxBreaking = ExtResource("24_kbmpa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="office"]
 scale = Vector2(3, 3)

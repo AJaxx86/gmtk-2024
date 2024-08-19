@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://co64hukpnu5ts"
+path="res://.godot/imported/Pressure plate activate.mp3-4fb036aa8c11edde5422d9a2ba2b6ead.mp3str"
+
+[deps]
+
+source_file="res://sfx/Other SFX/Pressure plate activate.mp3"
+dest_files=["res://.godot/imported/Pressure plate activate.mp3-4fb036aa8c11edde5422d9a2ba2b6ead.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
