@@ -16,7 +16,7 @@ var passcode: String = ""
 
 func _ready() -> void:
 	if !working:
-		if GlobalStuff.check_item("keypad key") == true:
+		if GlobalStuff.check_item("keypad button") == true:
 			working = true
 
 	if connectedDoor:

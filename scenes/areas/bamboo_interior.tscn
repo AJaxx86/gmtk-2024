@@ -1,14 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://bclfcjfuhbuop"]
+[gd_scene load_steps=9 format=3 uid="uid://bclfcjfuhbuop"]
 
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_avafy"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_t5mhv"]
+[ext_resource type="Script" path="res://scripts/grub.gd" id="3_b1lng"]
+[ext_resource type="Texture2D" uid="uid://npd0c7r0godl" path="res://art/objects/UI.png" id="4_kq4p3"]
+[ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="5_pus2x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0124"]
+atlas = ExtResource("4_kq4p3")
+region = Rect2(106.321, 0, 23.6795, 25.5655)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67xpw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uexb"]
+size = Vector2(78, 9)
 
 [node name="bambooInterior" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
 
 [node name="bird" parent="." instance=ExtResource("1_avafy")]
+position = Vector2(42, 101)
 
 [node name="FollowCamera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 script = ExtResource("2_t5mhv")
+
+[node name="Grub" type="CharacterBody2D" parent="."]
+position = Vector2(260, 92)
+script = ExtResource("3_b1lng")
+itemToGive = "keypad button"
+
+[node name="Sprite2D" type="Sprite2D" parent="Grub"]
+texture = SubResource("AtlasTexture_s0124")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grub"]
+shape = SubResource("RectangleShape2D_67xpw")
+
+[node name="SceneSwitch" type="StaticBody2D" parent="."]
+position = Vector2(37, 162)
+script = ExtResource("5_pus2x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneSwitch"]
+shape = SubResource("RectangleShape2D_7uexb")
+
+[connection signal="CoughtGrub" from="Grub" to="." method="button_found"]
