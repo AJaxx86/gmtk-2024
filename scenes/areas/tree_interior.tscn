@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://caa0jvs26njis"]
+[gd_scene load_steps=29 format=3 uid="uid://caa0jvs26njis"]
 
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_cs0rs"]
 [ext_resource type="Texture2D" uid="uid://d2q0r61geytna" path="res://art/tiles/willowBackground.png" id="1_gqu1u"]
@@ -9,8 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bbov8y2x7i42j" path="res://art/objects/branchPlatform2.png" id="4_aghpf"]
 [ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="8_yb01p"]
 [ext_resource type="Script" path="res://scripts/npc.gd" id="9_2mu47"]
-[ext_resource type="Texture2D" uid="uid://cei3v68c6a5d8" path="res://art/characters/birdSpriteSheet.png" id="10_rqr36"]
 [ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="10_vlhbj"]
+[ext_resource type="Texture2D" uid="uid://omv6y2bl5kh1" path="res://art/characters/parrotSpriteSheets.png" id="11_f0eyg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_abdtr"]
 
@@ -67,117 +67,33 @@ script = ExtResource("10_vlhbj")
 speaker = "Bird"
 line = "Deal."
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gfw5k"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0scnb"]
+atlas = ExtResource("11_f0eyg")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l8gfu"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(32, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_khqxj"]
+atlas = ExtResource("11_f0eyg")
+region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cjeua"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_suuj1"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3o65p"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ywfd"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_il02r"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rauwf"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(96, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jjxvf"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(64, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jo2uy"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(32, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2rg0o"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(0, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lahfc"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(96, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybh04"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(64, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fngko"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4agbo"]
-atlas = ExtResource("10_rqr36")
-region = Rect2(0, 32, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc7tp"]
+atlas = ExtResource("11_f0eyg")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pobqp"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gfw5k")
+"texture": SubResource("AtlasTexture_0scnb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_l8gfu")
+"texture": SubResource("AtlasTexture_khqxj")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cjeua")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_suuj1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3o65p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8ywfd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_il02r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rauwf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jjxvf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jo2uy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2rg0o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lahfc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ybh04")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fngko")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4agbo")
+"texture": SubResource("AtlasTexture_lc7tp")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcqed"]
@@ -303,20 +219,19 @@ scenePath = "res://scenes/map.tscn"
 position = Vector2(-3, 2)
 shape = SubResource("RectangleShape2D_50ikp")
 
-[node name="NPC" type="CharacterBody2D" parent="." groups=["Interactable"]]
-position = Vector2(262, 289)
+[node name="parrot" type="CharacterBody2D" parent="." groups=["Interactable"]]
+position = Vector2(281, 301)
 script = ExtResource("9_2mu47")
 greetingDialogue = Array[ExtResource("10_vlhbj")]([SubResource("Resource_r3n63"), SubResource("Resource_eux82"), SubResource("Resource_g2sjr"), SubResource("Resource_j8th2"), SubResource("Resource_uf473"), SubResource("Resource_7q3j3")])
 completedQuestDialogue = Array[ExtResource("10_vlhbj")]([SubResource("Resource_sl2w2"), SubResource("Resource_6e1ta"), SubResource("Resource_g32pf"), SubResource("Resource_ytemb")])
 requiredItem = "grub"
 passcode = "6969"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="parrot"]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_pobqp")
 autoplay = "default"
-flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="parrot"]
 position = Vector2(2.5, -2)
 shape = SubResource("RectangleShape2D_hcqed")

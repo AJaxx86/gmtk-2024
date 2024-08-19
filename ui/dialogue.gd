@@ -13,8 +13,9 @@ func _ready() -> void:
 	dialogueBox.hide()
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("skip_dialogue"):
-		next_line()
+	if dialogueBox.visible:
+		if Input.is_action_just_pressed("skip_dialogue"):
+			next_line()
 	
  
 func start_dialogue(dialogueChunks: Array[DialogueChunk]) -> void:

@@ -143,6 +143,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			target.change_scene()
 		if target is Door:
 			target.open()
+		if target is Keypad:
+			target.activate()
 
 func _on_interact_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Interactable"):

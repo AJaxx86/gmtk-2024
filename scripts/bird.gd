@@ -77,3 +77,8 @@ func interact_check(body: Node2D) -> void:
 func interact_check_exit(body: Node2D) -> void:
 	target = null
 	interactPrompt.hide()
+
+func stream_sfx(soundFile: AudioStreamMP3) -> void:
+	if sfxStreamer:
+		sfxStreamer.stream = soundFile
+		sfxStreamer.play()

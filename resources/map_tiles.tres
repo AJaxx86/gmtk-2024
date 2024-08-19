@@ -1,8 +1,10 @@
-[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://b4rll3munr3h5"]
+[gd_resource type="TileSet" load_steps=27 format=3 uid="uid://b4rll3munr3h5"]
 
 [ext_resource type="Texture2D" uid="uid://b7eiiwwbpp0yi" path="res://art/tiles/enclosureGroundTiles.png" id="1_wl2a2"]
 [ext_resource type="Texture2D" uid="uid://b0eycebes2yiq" path="res://art/tiles/enclosureWallTiles.png" id="2_obalx"]
 [ext_resource type="Texture2D" uid="uid://cwdpgbj5qg302" path="res://art/tiles/walkwayTile.png" id="3_b8yor"]
+[ext_resource type="Texture2D" uid="uid://u0y8wai41xug" path="res://art/tiles/grassGroundTiles.png" id="4_sh1cd"]
+[ext_resource type="Texture2D" uid="uid://dh1ygvrgwakty" path="res://art/tiles/enclosureBarTiles.png" id="5_ltmy4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_32qvk"]
 vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
@@ -264,6 +266,26 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/terrains_peering_bit/top_side = 0
 0:0/0/terrains_peering_bit/top_right_corner = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rj82o"]
+texture = ExtResource("4_sh1cd")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jigd4"]
+texture = ExtResource("5_ltmy4")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
@@ -276,3 +298,5 @@ navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_71f3k")
 sources/1 = SubResource("TileSetAtlasSource_55w8m")
 sources/2 = SubResource("TileSetAtlasSource_oivn0")
+sources/3 = SubResource("TileSetAtlasSource_rj82o")
+sources/4 = SubResource("TileSetAtlasSource_jigd4")

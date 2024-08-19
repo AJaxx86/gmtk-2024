@@ -9,6 +9,10 @@ signal Stop
 #@export var Left_Area: Area2D
 #@export var Right_Area: Area2D
 
+@export_group("SFX")
+@export var sfxStreamer: AudioStreamPlayer2D
+@export var sfxPush: AudioStreamMP3
+
 var isPushed : bool = false
 var direction: Vector2 = Vector2.ZERO
 @export var PushSpeed: float = 50
@@ -78,6 +82,8 @@ func Push(body: Node2D, _direction):
 			hippo.isPushing = true
 			isPushed = true
 
+			stream_sfx(sfxPush)
+
 func _on_body_exited(body: Node2D) -> void:
 	if body is Hippo:
 		var hippo = body as Hippo
@@ -85,4 +91,7 @@ func _on_body_exited(body: Node2D) -> void:
 		direction = Vector2.ZERO
 		hippo.isPushing = false
 		
-		
+func stream_sfx(soundFile: AudioStreamMP3) -> void:
+	if sfxStreamer:
+		sfxStreamer.stream = soundFile
+		sfxStreamer.play()

@@ -23,6 +23,7 @@ ProjectMusicController="*res://addons/maaacks_menus_template/base/scenes/Autoloa
 ProjectUISoundController="*res://addons/maaacks_menus_template/base/scenes/Autoloads/ProjectUISoundController.tscn"
 GlobalStuff="*res://scripts/global_stuff.gd"
 DialogueSystem="*res://ui/dialogue.tscn"
+KeypadUI="*res://ui/keypad.tscn"
 
 [dotnet]
 
