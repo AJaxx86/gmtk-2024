@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnb6qwa5bbrt3"]
+
+[ext_resource type="Script" path="res://scripts/bamboo.gd" id="1_owb84"]
+[ext_resource type="Texture2D" uid="uid://cuhu1sauw070y" path="res://art/foliage/bamboo.png" id="2_6ubge"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7qk7"]
+atlas = ExtResource("2_6ubge")
+region = Rect2(1.46013, 99.7956, 39.8021, 44.2044)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72uca"]
+size = Vector2(43, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_coljb"]
+size = Vector2(28, 26)
+
+[node name="bamboo" type="Area2D"]
+script = ExtResource("1_owb84")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = SubResource("AtlasTexture_q7qk7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_72uca")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_coljb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
