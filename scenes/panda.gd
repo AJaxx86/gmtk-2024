@@ -2,6 +2,8 @@ extends Pushable
 class_name Panda
 
 @onready var pandaSprite: AnimatedSprite2D = $AnimatedSprite2D
+var isRolling: bool
+@export var RollingSpeed: float = 500
 
 func _ready() -> void:
 	pass
@@ -11,11 +13,23 @@ func _process(delta: float) -> void:
 	pass
 
 
-
+func Push(body: Node2D, _direction):
+	if body is Hippo:
+		var hippo = body as Hippo
+		if hippo.canPush and Pushable:
+			direction = _direction
+			hippo.isPushing = true
+			isPushed = true
+			if hippo.isCharging:
+				rolling()
 
 
 func _on_stop() -> void:
 	pandaSprite.play("idleNoBamboo")
+	if rolling:
+		infinitePush = false
+		isRolling = false
+	
 
 
 func _on_moving(direction: Vector2) -> void:
@@ -27,3 +41,7 @@ func _on_moving(direction: Vector2) -> void:
 		pandaSprite.play("rollHorizontal")
 	elif direction == Vector2.RIGHT:
 		pandaSprite.play_backwards("rollHorizontal")
+
+func rolling():
+	infinitePush = true
+	isRolling = true
