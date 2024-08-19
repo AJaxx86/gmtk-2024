@@ -8,6 +8,9 @@ class_name Door
 @export var collision: CollisionShape2D
 @export var doorSprites: Array[AnimatedSprite2D]
 
+@export_group("SFX")
+@export var sfxDoorOpening: AudioStreamMP3
+
 func force_open() -> void:
 	collision.disabled = true
 	play_animation("opened")

@@ -111,7 +111,7 @@ position = Vector2(21.6667, 17.3333)
 polygon = PackedVector2Array(-31.3333, -12, -20.3333, -16.6667, 3, -16.6667, 20.3333, -8.33333, 28.3333, 12, 8.33331, 10.6667, -2.33334, 21, -13, 2, -23.6667, 1.33334)
 
 [node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target") groups=["Cameras"]]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(2, 2)
 limit_left = 0
 limit_top = 0
 limit_right = 1620
