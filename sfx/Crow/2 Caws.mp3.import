@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bw0asvjgbxuct"
+path="res://.godot/imported/2 Caws.mp3-9ed1152a5e096bc61cc7946a9ab8a2ef.mp3str"
+
+[deps]
+
+source_file="res://sfx/Crow/2 Caws.mp3"
+dest_files=["res://.godot/imported/2 Caws.mp3-9ed1152a5e096bc61cc7946a9ab8a2ef.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

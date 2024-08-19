@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1psstr0p4pck"
+path="res://.godot/imported/Bamboo Break 2.mp3-50a3713762b1b6e2aa2260f593c43e8d.mp3str"
+
+[deps]
+
+source_file="res://sfx/Other SFX/Bamboo Break 2.mp3"
+dest_files=["res://.godot/imported/Bamboo Break 2.mp3-50a3713762b1b6e2aa2260f593c43e8d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

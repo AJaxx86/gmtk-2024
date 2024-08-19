@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://7x2lnt8s0v3"
+path="res://.godot/imported/Bird Single Footstep.mp3-2f549de4a9068c6862ede19d43cafb1a.mp3str"
+
+[deps]
+
+source_file="res://sfx/Crow/Bird Single Footstep.mp3"
+dest_files=["res://.godot/imported/Bird Single Footstep.mp3-2f549de4a9068c6862ede19d43cafb1a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
