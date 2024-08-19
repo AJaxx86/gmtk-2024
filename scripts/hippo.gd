@@ -1,11 +1,6 @@
 extends CharacterBody2D
 class_name Hippo
 
-@export_group("SFX")
-@export var sfxStreamer: AudioStreamPlayer2D
-@export var sfxFootsteps: AudioStreamMP3
-@export var sfxNoises: AudioStreamMP3
-
 @export var speed: float = 400.0
 
 ### Direction
@@ -25,13 +20,24 @@ var canCharge: bool = true
 @export var chargeLimit: int = 1
 @export var chargeTimer: Timer
 
-var currentCharges: int = 0
+var currentCharges: int = 0:
+	set(value):
+		currentCharges = value
+		chargeUI.update_charges(currentCharges)
 
 ###Wetness
 var isWet: bool = false
 
 ###Interact
 var target: Node2D = null
+
+@export var chargeUI: Control
+@export_group("SFX")
+@export var sfxStreamer: AudioStreamPlayer2D
+@export var sfxFootsteps: AudioStreamMP3
+@export var sfxNoises: AudioStreamMP3
+
+
 
 func _ready() -> void:
 	pass

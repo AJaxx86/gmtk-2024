@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbi260r47lpac"]
+
+[ext_resource type="Script" path="res://ui/charge_ui.gd" id="1_q6h6y"]
+[ext_resource type="Texture2D" uid="uid://rjqwm5bon5wg" path="res://art/objects/chargeBar.png" id="2_38m7h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58ohp"]
+atlas = ExtResource("2_38m7h")
+region = Rect2(6, 108, 61, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoqua"]
+atlas = ExtResource("2_38m7h")
+region = Rect2(6, 4, 61, 18)
+
+[node name="chargeUI" type="Control" node_paths=PackedStringArray("chargeBar", "visibleTimer")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 62.0
+offset_bottom = 19.0
+script = ExtResource("1_q6h6y")
+chargeBar = NodePath("TextureProgressBar")
+visibleTimer = NodePath("Timer")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 61.0
+offset_bottom = 20.0
+max_value = 4.0
+texture_under = SubResource("AtlasTexture_58ohp")
+texture_progress = SubResource("AtlasTexture_yoqua")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="hide_ui"]
