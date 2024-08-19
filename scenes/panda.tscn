@@ -1,6 +1,6 @@
-[gd_scene load_steps=45 format=3 uid="uid://cyl66qx666ffb"]
+[gd_scene load_steps=49 format=3 uid="uid://cyl66qx666ffb"]
 
-[ext_resource type="Script" path="res://scenes/panda.gd" id="1_3ajoi"]
+[ext_resource type="Script" path="res://scripts/pushable.gd" id="1_vsncf"]
 [ext_resource type="Texture2D" uid="uid://d4imnrjo5h2fh" path="res://art/characters/pandaSpriteSheets.png" id="2_iybfv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2domu"]
@@ -306,18 +306,63 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4ef0"]
-size = Vector2(39, 39)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iti8q"]
+size = Vector2(61, 57)
 
-[node name="panda" type="CharacterBody2D"]
-script = ExtResource("1_3ajoi")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3lcp6"]
+size = Vector2(52.175, 3.99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wphp1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2qhg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yvvbf"]
+
+[node name="Panda" type="CharacterBody2D"]
+script = ExtResource("1_vsncf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_6xu5k")
-animation = &"idleNoBamboo"
+animation = &"rollVertical"
 autoplay = "idleNoBamboo"
 
-[node name="CollisionPolygon2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, 16.5)
-shape = SubResource("RectangleShape2D_i4ef0")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 10.5)
+shape = SubResource("RectangleShape2D_iti8q")
+
+[node name="Top" type="Area2D" parent="."]
+position = Vector2(-5, -18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+shape = SubResource("RectangleShape2D_3lcp6")
+
+[node name="Bot" type="Area2D" parent="."]
+position = Vector2(-5.5, 39)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bot"]
+scale = Vector2(2.48, 0.2)
+shape = SubResource("RectangleShape2D_wphp1")
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2(-36, 10.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+scale = Vector2(0.16, 2.56)
+shape = SubResource("RectangleShape2D_x2qhg")
+
+[node name="Right" type="Area2D" parent="."]
+position = Vector2(25, 10.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+scale = Vector2(0.2, 2.44)
+shape = SubResource("RectangleShape2D_yvvbf")
+
+[connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]
+[connection signal="body_exited" from="Top" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Bot" to="." method="_on_down_body_entered"]
+[connection signal="body_exited" from="Bot" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
+[connection signal="body_exited" from="Left" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
+[connection signal="body_exited" from="Right" to="." method="_on_body_exited"]

@@ -6,6 +6,11 @@ signal MoveUp
 signal MoveLeft
 signal MoveRight
 
+#@export var Top_Area: Area2D
+#@export var Bottom_Area: Area2D
+#@export var Left_Area: Area2D
+#@export var Right_Area: Area2D
+
 var isPushed : bool = false
 var direction: Vector2 = Vector2.ZERO
 @export var PushSpeed: float = 50
@@ -31,21 +36,26 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_top_body_entered(body: Node2D) -> void:
+	
 	Push(body, Vector2.DOWN)
 	emit_signal("MoveDown")
 
 
 func _on_down_body_entered(body: Node2D) -> void:
+	
 	Push(body, Vector2.UP)
 	emit_signal("MoveUp")
 
 
 func _on_left_body_entered(body: Node2D) -> void:
+	
 	Push(body, Vector2.RIGHT)
 	emit_signal("MoveRight")
 
 func _on_right_body_entered(body: Node2D) -> void:
+	
 	Push(body, Vector2.LEFT)
+	
 	emit_signal("MoveLeft")
 
 func Push(body: Node2D, _direction):
@@ -62,3 +72,7 @@ func _on_body_exited(body: Node2D) -> void:
 		isPushed = false
 		direction = Vector2.ZERO
 		hippo.isPushing = false
+		$AnimatedSprite2D.flip_v =false
+		$AnimatedSprite2D.flip_h =false
+		
+		$AnimatedSprite2D.play("idleNoBamboo")

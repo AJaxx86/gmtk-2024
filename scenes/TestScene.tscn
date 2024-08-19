@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://prtgk4s4uly6"]
+[gd_scene load_steps=9 format=4 uid="uid://prtgk4s4uly6"]
 
 [ext_resource type="Texture2D" uid="uid://b7eiiwwbpp0yi" path="res://art/tiles/enclosureGroundTiles.png" id="1_ahklq"]
 [ext_resource type="PackedScene" uid="uid://1kokyfy61hk8" path="res://scenes/hippo.tscn" id="1_kka25"]
 [ext_resource type="PackedScene" uid="uid://r0wq1qw8dho7" path="res://scenes/Pushable.tscn" id="2_16wbw"]
 [ext_resource type="PackedScene" uid="uid://0rd2tjh1676u" path="res://scenes/ChargeableObject.tscn" id="3_1fmqt"]
 [ext_resource type="PackedScene" uid="uid://ds01jb8ccnww8" path="res://scenes/SceneSwapper.tscn" id="5_j6a5w"]
+[ext_resource type="PackedScene" uid="uid://cyl66qx666ffb" path="res://scenes/panda.tscn" id="6_whs74"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7db3p"]
 texture = ExtResource("1_ahklq")
@@ -52,3 +53,6 @@ scale = Vector2(3.92, 3.92)
 [node name="SceneSwapper" parent="." instance=ExtResource("5_j6a5w")]
 position = Vector2(139, 526)
 scenePath = "res://scenes/map.tscn"
+
+[node name="Panda" parent="." instance=ExtResource("6_whs74")]
+position = Vector2(395, 377)
