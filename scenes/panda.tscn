@@ -1,7 +1,12 @@
-[gd_scene load_steps=50 format=3 uid="uid://cyl66qx666ffb"]
+[gd_scene load_steps=55 format=3 uid="uid://cyl66qx666ffb"]
 
 [ext_resource type="Script" path="res://scenes/panda.gd" id="1_3ajoi"]
+[ext_resource type="AudioStream" uid="uid://dbn5njce1vqrf" path="res://sfx/Panda/Panda Noise 2.mp3" id="2_8syrt"]
+[ext_resource type="AudioStream" uid="uid://421svc8gchqu" path="res://sfx/Panda/Panda Roll.mp3" id="2_gtcx5"]
 [ext_resource type="Texture2D" uid="uid://d4imnrjo5h2fh" path="res://art/characters/pandaSpriteSheets.png" id="2_iybfv"]
+[ext_resource type="AudioStream" uid="uid://d377drfxugn8p" path="res://sfx/Panda/Panda Noise 3.mp3" id="3_pddg7"]
+[ext_resource type="AudioStream" uid="uid://c60qnma2vnpl2" path="res://sfx/Panda/Panda Noise 4.mp3" id="4_vqonq"]
+[ext_resource type="AudioStream" uid="uid://ber2pccahbe3d" path="res://sfx/Panda/Panda Noise 1.mp3" id="5_ipbij"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2domu"]
 atlas = ExtResource("2_iybfv")
@@ -321,8 +326,14 @@ size = Vector2(52.175, 3.99)
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rqe7"]
 radius = 54.0093
 
-[node name="Panda" type="CharacterBody2D"]
+[node name="Panda" type="CharacterBody2D" node_paths=PackedStringArray("sfxStreamer")]
 script = ExtResource("1_3ajoi")
+sfxStreamer = NodePath("AudioStreamPlayer2D")
+sfxRolling = ExtResource("2_gtcx5")
+sfxNoises1 = ExtResource("5_ipbij")
+sfxNoises2 = ExtResource("2_8syrt")
+sfxNoises3 = ExtResource("3_pddg7")
+sfxNoises4 = ExtResource("4_vqonq")
 infinitePush = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -370,6 +381,8 @@ shape = SubResource("RectangleShape2D_yvvbf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RollingCollision"]
 shape = SubResource("CircleShape2D_1rqe7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="Moving" from="." to="." method="_on_moving"]
 [connection signal="Stop" from="." to="." method="_on_stop"]

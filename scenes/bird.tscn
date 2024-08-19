@@ -1,8 +1,13 @@
-[gd_scene load_steps=33 format=3 uid="uid://bmqxpwhjeidqy"]
+[gd_scene load_steps=38 format=3 uid="uid://bmqxpwhjeidqy"]
 
 [ext_resource type="Script" path="res://scripts/bird.gd" id="1_w6nrb"]
 [ext_resource type="Texture2D" uid="uid://cei3v68c6a5d8" path="res://art/characters/birdSpriteSheet.png" id="2_bs2pr"]
+[ext_resource type="AudioStream" uid="uid://dwf4n45x51d8k" path="res://sfx/Crow/Bird Multiple steps.mp3" id="2_pvn20"]
 [ext_resource type="FontFile" uid="uid://h2nbx4elr011" path="res://fonts/lemon_milk/LEMONMILK-Medium.otf" id="3_j2cym"]
+[ext_resource type="AudioStream" uid="uid://bys02cb34c7mk" path="res://sfx/Crow/1 Caw.mp3" id="3_kawr6"]
+[ext_resource type="AudioStream" uid="uid://t8pk3gqm2450" path="res://sfx/Crow/2 Caws.mp3" id="4_2r5qj"]
+[ext_resource type="AudioStream" uid="uid://cqeelm7l4cw8c" path="res://sfx/Crow/3 Caws.mp3" id="5_1y8qu"]
+[ext_resource type="AudioStream" uid="uid://dqea2biv7cal4" path="res://sfx/Crow/Bird Wing Flap Double Jump.mp3" id="6_uy3fn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uq1ll"]
 atlas = ExtResource("2_bs2pr")
@@ -217,11 +222,17 @@ radius = 12.8574
 default_font = ExtResource("3_j2cym")
 default_font_size = 12
 
-[node name="bird" type="CharacterBody2D" node_paths=PackedStringArray("interactPrompt", "birdSprite") groups=["Player"]]
+[node name="bird" type="CharacterBody2D" node_paths=PackedStringArray("interactPrompt", "birdSprite", "sfxStreamer") groups=["Player"]]
 script = ExtResource("1_w6nrb")
 boostJumpForce = 600.0
 interactPrompt = NodePath("interactPrompt")
 birdSprite = NodePath("AnimatedSprite2D")
+sfxStreamer = NodePath("AudioStreamPlayer2D")
+sfxFootsteps = ExtResource("2_pvn20")
+sfxJump = ExtResource("6_uy3fn")
+sfxCaw = ExtResource("3_kawr6")
+sfxCaw2 = ExtResource("4_2r5qj")
+sfxCaw3 = ExtResource("5_1y8qu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2jx4d")

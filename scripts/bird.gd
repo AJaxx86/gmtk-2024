@@ -14,8 +14,11 @@ class_name Bird
 @export var sfxFootsteps: AudioStreamMP3
 @export var sfxJump: AudioStreamMP3
 @export var sfxCaw: AudioStreamMP3
+@export var sfxCaw2: AudioStreamMP3
+@export var sfxCaw3: AudioStreamMP3
 
 @onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var birdCaws: Array = [sfxCaw, sfxCaw2, sfxCaw3]
 
 var target: Node2D = null
 
@@ -38,17 +41,20 @@ func _physics_process(delta: float) -> void:
 
 		if velocity.x != 0:
 			birdSprite.play("run")
+			stream_sfx(sfxFootsteps)
 		else:
 			birdSprite.play("idle")
 
 		if Input.is_action_just_pressed("jump"):
 			birdSprite.play("jump")
 			velocity.y = -jumpForce
+			stream_sfx(sfxJump)
 	else:
 		if Input.is_action_just_pressed("jump") and jumpBoostUsed == false:
 			velocity.y = -boostJumpForce
 			birdSprite.play("doubleJump")
 			jumpBoostUsed = true
+			stream_sfx(sfxJump)
 
 		velocity.y += gravity * delta
 
@@ -56,6 +62,7 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact"):
+		stream_sfx(birdCaws[randi() % birdCaws.size()])
 		if target is NPC:
 			target.interact()
 		if target is SceneSwitch:
@@ -78,7 +85,12 @@ func interact_check_exit(body: Node2D) -> void:
 	target = null
 	interactPrompt.hide()
 
+var previousSFX: AudioStreamMP3 = null
 func stream_sfx(soundFile: AudioStreamMP3) -> void:
-	if sfxStreamer:
+	if soundFile != previousSFX:
 		sfxStreamer.stream = soundFile
+		previousSFX = soundFile
 		sfxStreamer.play()
+	else:
+		if sfxStreamer.playing == false:
+			sfxStreamer.play()

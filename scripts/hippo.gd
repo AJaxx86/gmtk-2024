@@ -36,8 +36,9 @@ var target: Node2D = null
 @export var sfxStreamer: AudioStreamPlayer2D
 @export var sfxFootsteps: AudioStreamMP3
 @export var sfxNoises: AudioStreamMP3
+@export var sfxNoises2: AudioStreamMP3
 
-
+var idleNoiseTimer: Timer = Timer.new()
 
 func _ready() -> void:
 	pass
@@ -77,6 +78,7 @@ func animationSelector():
 			$AnimatedSprite2D.play("Idle_Right")
 	#Running animations
 	elif direction != Vector2.ZERO and not isPushing:
+		stream_sfx(sfxFootsteps)
 		if direction == Vector2.UP:
 			$AnimatedSprite2D.play("Run_Up")
 		elif direction == Vector2.DOWN	:
@@ -115,6 +117,8 @@ func charge_ability() -> void:
 		isCharging = true
 		canCharge = false
 		currentCharges -= 1
+		stream_sfx(sfxNoises)
+
 		print_debug("Charges left: " + str(currentCharges))
 		
 	else:
@@ -143,6 +147,7 @@ func _on_interact_range_body_entered(body: Node2D) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and target != null:
+		stream_sfx(sfxNoises2)
 		if target is NPC:
 			target.interact()
 		if target is SceneSwitch:
@@ -156,3 +161,14 @@ func _on_interact_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Interactable"):
 		target = null
 		$interactPrompt.hide()
+
+
+var previousSFX: AudioStreamMP3 = null
+func stream_sfx(soundFile: AudioStreamMP3) -> void:
+	if soundFile != previousSFX:
+		sfxStreamer.stream = soundFile
+		previousSFX = soundFile
+		sfxStreamer.play()
+	else:
+		if sfxStreamer.playing == false:
+			sfxStreamer.play()

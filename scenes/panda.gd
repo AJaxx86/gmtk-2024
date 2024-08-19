@@ -5,6 +5,14 @@ class_name Panda
 var isRolling: bool
 @export var RollingSpeed: float = 500
 
+@export_group("SFX")
+@export var sfxStreamer: AudioStreamPlayer2D
+@export var sfxRolling: AudioStreamMP3
+@export var sfxNoises1: AudioStreamMP3
+@export var sfxNoises2: AudioStreamMP3
+@export var sfxNoises3: AudioStreamMP3
+@export var sfxNoises4: AudioStreamMP3
+
 func _ready() -> void:
 	pass
 	
