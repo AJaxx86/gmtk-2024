@@ -1,10 +1,8 @@
 extends CharacterBody2D
 class_name Pushable
 
-signal MoveDown
-signal MoveUp
-signal MoveLeft
-signal MoveRight
+signal Moving(direction)
+signal Stop
 
 #@export var Top_Area: Area2D
 #@export var Bottom_Area: Area2D
@@ -20,14 +18,28 @@ var lastPosition: Vector2 =Vector2.ZERO
 func _ready() -> void:
 	lastPosition = position
 func _physics_process(delta: float) -> void:
-	if position == lastPosition: 
+	var hasStopped: bool= true
+	if position == lastPosition and infinitePush: 
 		velocity = Vector2.ZERO
+		Stop.emit()
+		
+	elif position != lastPosition:
+		hasStopped = false
+		
+		
 	lastPosition = position 
 	
 	if isPushed and not infinitePush:
 		position += direction * delta * PushSpeed
+		Moving.emit(direction)
+		hasStopped = false
 	elif isPushed and infinitePush:
 		velocity = direction * PushSpeed* delta
+		Moving.emit(direction)
+	
+	if hasStopped == true and not infinitePush:
+		Stop.emit()
+	
 		
 	move_and_collide(velocity)
 
@@ -38,25 +50,25 @@ func _physics_process(delta: float) -> void:
 func _on_top_body_entered(body: Node2D) -> void:
 	
 	Push(body, Vector2.DOWN)
-	emit_signal("MoveDown")
+
 
 
 func _on_down_body_entered(body: Node2D) -> void:
 	
 	Push(body, Vector2.UP)
-	emit_signal("MoveUp")
+
 
 
 func _on_left_body_entered(body: Node2D) -> void:
 	
 	Push(body, Vector2.RIGHT)
-	emit_signal("MoveRight")
+
 
 func _on_right_body_entered(body: Node2D) -> void:
 	
 	Push(body, Vector2.LEFT)
 	
-	emit_signal("MoveLeft")
+
 
 func Push(body: Node2D, _direction):
 	if body is Hippo:
@@ -72,7 +84,5 @@ func _on_body_exited(body: Node2D) -> void:
 		isPushed = false
 		direction = Vector2.ZERO
 		hippo.isPushing = false
-		$AnimatedSprite2D.flip_v =false
-		$AnimatedSprite2D.flip_h =false
 		
-		$AnimatedSprite2D.play("idleNoBamboo")
+		

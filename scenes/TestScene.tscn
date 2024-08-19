@@ -56,3 +56,5 @@ scenePath = "res://scenes/map.tscn"
 
 [node name="Panda" parent="." instance=ExtResource("6_whs74")]
 position = Vector2(395, 377)
+PushSpeed = 200.0
+infinitePush = false

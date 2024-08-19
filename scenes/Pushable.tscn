@@ -21,28 +21,34 @@ scale = Vector2(3.8125, 3.8125)
 texture = ExtResource("2_gbuiq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.759999, 0.759999)
 shape = SubResource("RectangleShape2D_r0kq5")
 
 [node name="Top" type="Area2D" parent="."]
-position = Vector2(0, -48)
+position = Vector2(1, -37)
+scale = Vector2(0.643288, 2.76)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
 shape = SubResource("RectangleShape2D_02b46")
 
 [node name="Down" type="Area2D" parent="."]
-position = Vector2(0, 48)
+position = Vector2(0, 36)
+scale = Vector2(0.686683, 1.58347)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+scale = Vector2(1, 1.84)
 shape = SubResource("RectangleShape2D_02b46")
 
 [node name="Left" type="Area2D" parent="."]
-position = Vector2(-56, 0)
+position = Vector2(-43, 0)
+scale = Vector2(2.84, 0.64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
 shape = SubResource("RectangleShape2D_3ephq")
 
 [node name="Right" type="Area2D" parent="."]
-position = Vector2(57, 0)
+position = Vector2(43, 0)
+scale = Vector2(2.88, 0.68)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
 shape = SubResource("RectangleShape2D_3ephq")
