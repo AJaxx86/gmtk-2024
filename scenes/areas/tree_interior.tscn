@@ -1,14 +1,322 @@
-[gd_scene load_steps=3 format=3 uid="uid://caa0jvs26njis"]
+[gd_scene load_steps=41 format=3 uid="uid://caa0jvs26njis"]
 
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_cs0rs"]
+[ext_resource type="Texture2D" uid="uid://d2q0r61geytna" path="res://art/tiles/willowBackground.png" id="1_gqu1u"]
+[ext_resource type="Texture2D" uid="uid://bfije7ddiybd2" path="res://art/objects/rockPlatform.png" id="2_r21hi"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_t4qsf"]
+[ext_resource type="Texture2D" uid="uid://bkfhrcjeualr7" path="res://art/objects/branchPlatform1.png" id="3_ypx12"]
+[ext_resource type="Texture2D" uid="uid://c7xkqvgdxgy68" path="res://art/objects/branchPlatform3.png" id="4_17fcv"]
+[ext_resource type="Texture2D" uid="uid://bbov8y2x7i42j" path="res://art/objects/branchPlatform2.png" id="4_aghpf"]
+[ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="8_yb01p"]
+[ext_resource type="Script" path="res://scripts/npc.gd" id="9_2mu47"]
+[ext_resource type="Texture2D" uid="uid://cei3v68c6a5d8" path="res://art/characters/birdSpriteSheet.png" id="10_rqr36"]
+[ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="10_vlhbj"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_abdtr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50ikp"]
+size = Vector2(138, 7.5)
+
+[sub_resource type="Resource" id="Resource_r3n63"]
+script = ExtResource("10_vlhbj")
+speaker = "S. Hawking"
+line = "Lawdy, I sure am hungry."
+
+[sub_resource type="Resource" id="Resource_eux82"]
+script = ExtResource("10_vlhbj")
+speaker = "S. Hawking"
+line = "I tried pestering one of the zoo keepers for some GRUB, he refused to give me any..."
+
+[sub_resource type="Resource" id="Resource_g2sjr"]
+script = ExtResource("10_vlhbj")
+speaker = "S. Hawking"
+line = "So I stole his PASSCODE thingy instead. Hehehehe."
+
+[sub_resource type="Resource" id="Resource_j8th2"]
+script = ExtResource("10_vlhbj")
+speaker = "Bird"
+line = "There's a bush full of GRUB just outside this tree..."
+
+[sub_resource type="Resource" id="Resource_uf473"]
+script = ExtResource("10_vlhbj")
+speaker = "S. Hawking"
+line = "Oh, really? Could you get me some? I'll trade you this PASSCODE."
+
+[sub_resource type="Resource" id="Resource_7q3j3"]
+script = ExtResource("10_vlhbj")
+speaker = "Bird"
+line = "Fine, yeah, sure, whatever."
+
+[sub_resource type="Resource" id="Resource_sl2w2"]
+script = ExtResource("10_vlhbj")
+speaker = "S. Hawking"
+line = "*Sniff*"
+
+[sub_resource type="Resource" id="Resource_6e1ta"]
+script = ExtResource("10_vlhbj")
+speaker = "S. Hawking"
+line = "Is that... Is that GRUB you've got there?"
+
+[sub_resource type="Resource" id="Resource_g32pf"]
+script = ExtResource("10_vlhbj")
+speaker = "S. Hawking"
+line = "I'll trade you this stupid inedible PASSCODE for that yummy grub."
+
+[sub_resource type="Resource" id="Resource_ytemb"]
+script = ExtResource("10_vlhbj")
+speaker = "Bird"
+line = "Deal."
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfw5k"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8gfu"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjeua"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suuj1"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o65p"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ywfd"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_il02r"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rauwf"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjxvf"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo2uy"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rg0o"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lahfc"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybh04"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fngko"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4agbo"]
+atlas = ExtResource("10_rqr36")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pobqp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfw5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8gfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjeua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suuj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3o65p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ywfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_il02r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rauwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjxvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo2uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rg0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lahfc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybh04")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fngko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4agbo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcqed"]
+size = Vector2(37, 108)
 
 [node name="tree" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
+position = Vector2(809, 373)
+scale = Vector2(3, 3)
+texture = ExtResource("1_gqu1u")
+
+[node name="platforming" type="Node2D" parent="."]
+
+[node name="rock" type="Sprite2D" parent="platforming"]
+position = Vector2(986, 691)
+scale = Vector2(3, 3)
+texture = ExtResource("2_r21hi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="platforming/rock"]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="platforming/rock/StaticBody2D"]
+position = Vector2(-0.166687, 0)
+polygon = PackedVector2Array(-22.8333, 18.3333, -17.8333, -13.6667, -6.5, -18.6667, 15.8333, -12, 23.5, 18.6667)
+
+[node name="branch1" type="Sprite2D" parent="platforming"]
+position = Vector2(1305, 469)
+scale = Vector2(3, 3)
+texture = ExtResource("3_ypx12")
+
+[node name="leaves1" type="StaticBody2D" parent="platforming/branch1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="platforming/branch1/leaves1"]
+polygon = PackedVector2Array(-3, 19, 9, 19, 27.3333, 24, 17.6667, 38.3333, -1, 57.3333, -32, 48, -29.6667, 35.3333, -23.3333, 27, -14, 24)
+
+[node name="leaves2" type="StaticBody2D" parent="platforming/branch1"]
+position = Vector2(-68.3333, -39)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="platforming/branch1/leaves2"]
+polygon = PackedVector2Array(-6, -7, 11.6667, -0.333328, 18.3333, 6, 23, 22.3333, 4.66666, 21, -7.66669, 31.3333, -36.3333, -1.33333, -25, -5.66666)
+
+[node name="branch2" type="Sprite2D" parent="platforming"]
+position = Vector2(925, 193)
+scale = Vector2(3, 3)
+texture = ExtResource("4_aghpf")
+
+[node name="leaves" type="StaticBody2D" parent="platforming/branch2"]
+position = Vector2(95.6667, 16.3333)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="platforming/branch2/leaves"]
+polygon = PackedVector2Array(33, -5.33334, 14.6667, -11, 2.66669, -10.6667, -13.3333, -5, -22.3333, 3.66666, -26.3333, 18.6667, -7, 18, 4.66669, 27.6667)
+
+[node name="leaves2" type="StaticBody2D" parent="platforming/branch2"]
+position = Vector2(-15, -7)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="platforming/branch2/leaves2"]
+polygon = PackedVector2Array(2.33334, -13.6667, 32.6667, -8.33334, 23.6667, 5, 13, 5.33333, 5.66666, 24.6667, -8, 14.6667, -26.6667, 15.6667, -23.6667, 1.66666, -15, -7)
+
+[node name="leaves3" type="StaticBody2D" parent="platforming/branch2"]
+position = Vector2(-97.6667, 37.3333)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="platforming/branch2/leaves3"]
+polygon = PackedVector2Array(28.3333, 13.3333, 24.3333, -1.66667, 15.6667, -9.33334, -0.666672, -16.3333, -19.6667, -15, -31.3333, -11, -22, 3.33333, -2.33333, 23)
+
+[node name="branch3" type="Sprite2D" parent="platforming"]
+position = Vector2(219, 377)
+scale = Vector2(3, 3)
+texture = ExtResource("4_17fcv")
+
+[node name="leaves1" type="StaticBody2D" parent="platforming/branch3"]
+position = Vector2(9.66667, 0.666667)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="platforming/branch3/leaves1"]
+polygon = PackedVector2Array(49.6667, -4.33334, 30.6667, -9.66666, 5.33333, -8.66666, -9.33334, -15.6667, -27.3333, -22, -55, -16.6667, -45.3333, -2.33334, -27, 17.3333, -10, 19.6667, 21, 29)
 
 [node name="bird" parent="." instance=ExtResource("1_cs0rs")]
+position = Vector2(175, 720)
 
-[node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+[node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target") groups=["Cameras"]]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1619
+limit_bottom = 748
 script = ExtResource("2_t4qsf")
 target = NodePath("../bird")
+
+[node name="boundaries" type="Node2D" parent="."]
+
+[node name="floor" type="StaticBody2D" parent="boundaries"]
+position = Vector2(813, 748)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/floor"]
+shape = SubResource("WorldBoundaryShape2D_abdtr")
+
+[node name="floor2" type="StaticBody2D" parent="boundaries"]
+position = Vector2(1619, 409)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/floor2"]
+shape = SubResource("WorldBoundaryShape2D_abdtr")
+
+[node name="floor3" type="StaticBody2D" parent="boundaries"]
+position = Vector2(0, 409)
+rotation = -4.71239
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/floor3"]
+shape = SubResource("WorldBoundaryShape2D_abdtr")
+
+[node name="floor4" type="StaticBody2D" parent="boundaries"]
+position = Vector2(813, 0)
+rotation = -3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/floor4"]
+shape = SubResource("WorldBoundaryShape2D_abdtr")
+
+[node name="SceneSwitch" type="StaticBody2D" parent="." groups=["Interactable"]]
+position = Vector2(175, 751)
+script = ExtResource("8_yb01p")
+scenePath = "res://scenes/map.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneSwitch"]
+position = Vector2(-3, 2)
+shape = SubResource("RectangleShape2D_50ikp")
+
+[node name="NPC" type="CharacterBody2D" parent="." groups=["Interactable"]]
+position = Vector2(262, 289)
+script = ExtResource("9_2mu47")
+greetingDialogue = Array[ExtResource("10_vlhbj")]([SubResource("Resource_r3n63"), SubResource("Resource_eux82"), SubResource("Resource_g2sjr"), SubResource("Resource_j8th2"), SubResource("Resource_uf473"), SubResource("Resource_7q3j3")])
+completedQuestDialogue = Array[ExtResource("10_vlhbj")]([SubResource("Resource_sl2w2"), SubResource("Resource_6e1ta"), SubResource("Resource_g32pf"), SubResource("Resource_ytemb")])
+requiredItem = "grub"
+passcode = "6969"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC"]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_pobqp")
+autoplay = "default"
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+position = Vector2(2.5, -2)
+shape = SubResource("RectangleShape2D_hcqed")

@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbjmhk482fovb"]
+[gd_scene load_steps=8 format=3 uid="uid://cbjmhk482fovb"]
 
 [ext_resource type="Script" path="res://scripts/grub_bush.gd" id="1_3njou"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_yimtd"]
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="3_3vqpw"]
+[ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="4_r0j2f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikxmi"]
 size = Vector2(167, 101)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwmr5"]
+size = Vector2(20, 84)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b2v0n"]
 
 [node name="grubBush" type="Node2D" node_paths=PackedStringArray("grubSpawnTimer")]
 script = ExtResource("1_3njou")
@@ -19,14 +25,29 @@ position = Vector2(526, 172)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grubSpawner"]
 shape = SubResource("RectangleShape2D_ikxmi")
 
-[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target") groups=["Cameras"]]
 zoom = Vector2(1.5, 1.5)
 script = ExtResource("2_yimtd")
 target = NodePath("../bird")
 
 [node name="bird" parent="." instance=ExtResource("3_3vqpw")]
-position = Vector2(200, 140)
+position = Vector2(373, 192)
 
 [node name="grubSpawnTimer" type="Timer" parent="."]
+
+[node name="SceneSwitch" type="StaticBody2D" parent="." groups=["Interactable"]]
+position = Vector2(184, 211)
+script = ExtResource("4_r0j2f")
+scenePath = "res://scenes/map.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneSwitch"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_kwmr5")
+
+[node name="floor" type="StaticBody2D" parent="."]
+position = Vector2(323, 223)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+shape = SubResource("WorldBoundaryShape2D_b2v0n")
 
 [connection signal="timeout" from="grubSpawnTimer" to="." method="spawn_grub"]

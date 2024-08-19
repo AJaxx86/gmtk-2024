@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjspp0j2x2yju"]
+[gd_scene load_steps=4 format=3 uid="uid://bjspp0j2x2yju"]
 
 [ext_resource type="Script" path="res://ui/dialogue.gd" id="1_x235l"]
+[ext_resource type="FontFile" uid="uid://b812tvou18efy" path="res://fonts/coolvetica/coolvetica rg.otf" id="2_7wgbn"]
+
+[sub_resource type="Theme" id="Theme_kokro"]
+default_font = ExtResource("2_7wgbn")
+default_font_size = 24
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -40,6 +45,7 @@ pivot_offset = Vector2(576, 209)
 layout_mode = 0
 offset_right = 212.0
 offset_bottom = 39.0
+theme = SubResource("Theme_kokro")
 bbcode_enabled = true
 text = "NAME"
 
