@@ -1,21 +1,68 @@
-[gd_scene load_steps=4 format=3 uid="uid://r04u58l2rc28"]
+[gd_scene load_steps=11 format=3 uid="uid://r04u58l2rc28"]
 
-[ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="1_5wgtl"]
 [ext_resource type="Script" path="res://scripts/grub.gd" id="1_ukjp3"]
+[ext_resource type="Texture2D" uid="uid://tv62arefwjsb" path="res://art/characters/grubSpriteSheet.png" id="2_t4470"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q6xeg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7d5w"]
+atlas = ExtResource("2_t4470")
+region = Rect2(0, 0, 13, 9)
 
-[node name="grub" type="CharacterBody2D" node_paths=PackedStringArray("deathTimer") groups=["Grubs", "Interactable"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w0lyp"]
+atlas = ExtResource("2_t4470")
+region = Rect2(13, 0, 13, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxccp"]
+atlas = ExtResource("2_t4470")
+region = Rect2(26, 0, 13, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tppdl"]
+atlas = ExtResource("2_t4470")
+region = Rect2(39, 0, 13, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ydjk"]
+atlas = ExtResource("2_t4470")
+region = Rect2(52, 0, 13, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3v3f"]
+atlas = ExtResource("2_t4470")
+region = Rect2(65, 0, 13, 9)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8il2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7d5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w0lyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxccp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tppdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ydjk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3v3f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iuuu"]
+size = Vector2(17, 9)
+
+[node name="grub" type="CharacterBody2D" groups=["Grubs", "Interactable"]]
 script = ExtResource("1_ukjp3")
-deathTimer = NodePath("deathTimer")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_5wgtl")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8il2f")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_q6xeg")
-
-[node name="deathTimer" type="Timer" parent="."]
-
-[connection signal="timeout" from="deathTimer" to="." method="die"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_4iuuu")
