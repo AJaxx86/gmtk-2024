@@ -15,3 +15,8 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Panda:
 		if body.isRolling: #check this
 			pass
+
+func stream_sfx(soundFile: AudioStreamMP3) -> void:
+	if sfxStreamer:
+		sfxStreamer.stream = soundFile
+		sfxStreamer.play()

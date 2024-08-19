@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=97 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scripts/npc.gd" id="11_o1iem"]
 [ext_resource type="Script" path="res://scripts/office.gd" id="13_2nkrg"]
 [ext_resource type="Texture2D" uid="uid://b1kfyf3cyf0ls" path="res://art/objects/zooOfficeSheet.png" id="13_80e8x"]
+[ext_resource type="PackedScene" uid="uid://b7cg2tn0hxk50" path="res://scenes/keypad.tscn" id="14_jl3md"]
 [ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="15_tud0i"]
 [ext_resource type="Script" path="res://scenes/event.gd" id="17_gfsbc"]
 [ext_resource type="Texture2D" uid="uid://gu4ap6wrsqam" path="res://art/characters/zebraSpriteSheets.png" id="17_vpjy0"]
@@ -680,7 +681,7 @@ autoplay = "default"
 
 [node name="doubleDoor" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(-320, 384)
-requiredCode = "2425"
+requiredCode = "1234"
 
 [node name="doubleDoor2" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1217, 867)
@@ -688,7 +689,7 @@ requiredCode = "6969"
 
 [node name="doubleDoor3" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1536, 1444)
-requiredCode = "2995"
+requiredCode = "0420"
 
 [node name="doubleDoor4" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1138, 2176)
@@ -696,6 +697,10 @@ rotation = 1.57079
 
 [node name="doubleDoor5" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(832, 2368)
+
+[node name="keypad" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
+position = Vector2(-137, 344)
+connectedDoor = NodePath("../doubleDoor")
 
 [node name="pressurePlates" type="Node2D" parent="."]
 
@@ -734,7 +739,7 @@ script = ExtResource("11_o1iem")
 greetingDialogue = Array[ExtResource("9_0rbk3")]([SubResource("Resource_eti2i"), SubResource("Resource_cwnf3"), SubResource("Resource_w81hr"), SubResource("Resource_pw56p"), SubResource("Resource_p42vb")])
 completedQuestDialogue = Array[ExtResource("9_0rbk3")]([SubResource("Resource_wsomc")])
 requiredItem = "zebra_unlocked"
-passcode = "2995"
+passcode = "0420"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zebra"]
 scale = Vector2(3, 3)
@@ -801,8 +806,9 @@ shape = SubResource("RectangleShape2D_rvgpp")
 [node name="pandaBowling" type="Node2D" parent="."]
 position = Vector2(581, 1444)
 
-[node name="panda" parent="pandaBowling" instance=ExtResource("26_eu7me")]
-position = Vector2(848, 133)
+[node name="Panda" parent="pandaBowling" instance=ExtResource("26_eu7me")]
+position = Vector2(899, 162)
+infinitePush = false
 
 [connection signal="body_entered" from="office" to="office" method="_on_body_entered"]
 [connection signal="body_entered" from="event" to="event" method="_on_body_entered"]

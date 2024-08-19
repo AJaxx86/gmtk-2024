@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bclfcjfuhbuop"]
+
+[ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_avafy"]
+[ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_t5mhv"]
+
+[node name="bambooInterior" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+
+[node name="bird" parent="." instance=ExtResource("1_avafy")]
+
+[node name="FollowCamera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+script = ExtResource("2_t5mhv")

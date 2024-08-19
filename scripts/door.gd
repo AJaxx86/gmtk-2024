@@ -9,24 +9,30 @@ class_name Door
 @export var doorSprites: Array[AnimatedSprite2D]
 
 @export_group("SFX")
+@export var sfxStreamer: AudioStreamPlayer2D
 @export var sfxDoorOpening: AudioStreamMP3
+
+var keypadConnected: bool = false
 
 func force_open() -> void:
 	collision.disabled = true
 	play_animation("opened")
+	stream_sfx(sfxDoorOpening)
 
 func force_close() -> void:
 	collision.disabled = false
 	play_animation("closed")
+	stream_sfx(sfxDoorOpening)
 
 func open() -> void:
 	if requiredCode != "":
-		if GlobalStuff.check_door_code(requiredCode) != true:
+		if GlobalStuff.check_door_code(requiredCode) != true or keypadConnected == true:
 			push_warning("Required code not found in inventory")
 			return
 
 	collision.disabled = true
 	play_animation("opened")
+	stream_sfx(sfxDoorOpening)
 
 func close() -> void:
 	if requiredCode != "":
@@ -36,7 +42,13 @@ func close() -> void:
 
 	collision.disabled = false
 	play_animation("closed")
+	stream_sfx(sfxDoorOpening)
 
 func play_animation(animation: String) -> void:
 	for door in doorSprites:
 		door.play(animation)
+
+func stream_sfx(soundFile: AudioStreamMP3) -> void:
+	if sfxStreamer:
+		sfxStreamer.stream = soundFile
+		sfxStreamer.play()

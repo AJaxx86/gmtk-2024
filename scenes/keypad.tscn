@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7cg2tn0hxk50"]
+
+[ext_resource type="Script" path="res://scripts/keypad.gd" id="1_cmimi"]
+[ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="1_mouor"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdx2s"]
+
+[node name="keypad" type="StaticBody2D" groups=["Interactable"]]
+script = ExtResource("1_cmimi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_mouor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hdx2s")
