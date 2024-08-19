@@ -25,13 +25,18 @@ GlobalStuff="*res://scripts/global_stuff.gd"
 DialogueSystem="*res://ui/dialogue.tscn"
 KeypadUI="*res://ui/keypad.tscn"
 
+[display]
+
+window/size/resizable=false
+window/stretch/mode="viewport"
+
 [dotnet]
 
 project/assembly_name="GMTK 2024"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg")
+enabled=PackedStringArray("res://addons/easyAspectRatio/plugin.cfg", "res://addons/maaacks_menus_template/plugin.cfg")
 
 [global_group]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://421svc8gchqu"
+path="res://.godot/imported/Panda Roll.mp3-ad57247a9953029a78c329a9e5a4edde.mp3str"
+
+[deps]
+
+source_file="res://sfx/Panda/Panda Roll.mp3"
+dest_files=["res://.godot/imported/Panda Roll.mp3-ad57247a9953029a78c329a9e5a4edde.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
