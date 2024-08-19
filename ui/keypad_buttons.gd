@@ -22,6 +22,8 @@ func button_pressed(number: int) -> void:
 		codeLabel.text = ""
 
 func popup(codeTexture: Texture2D = null) -> void:
+	show()
+	
 	if codeTexture:
 		codePaper.texture = codeTexture
 		codePaper.show()

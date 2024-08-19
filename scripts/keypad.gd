@@ -30,7 +30,10 @@ func activate() -> void:
 			keypadUI.hide()
 			keypadUI.disconnect("CodeEntered", code_entered)
 		else:
-			keypadUI.popup(codeTexture)
+			if GlobalStuff.check_door_code(passcode) == true:
+				keypadUI.popup(codeTexture)
+			else:
+				keypadUI.popup()
 			keypadUI.connect("CodeEntered", code_entered)
 
 func code_entered(enteredCode: String) -> void:

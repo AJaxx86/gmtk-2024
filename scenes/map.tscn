@@ -345,9 +345,9 @@ animations = [{
 "speed": 1.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dkr83"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6hwh"]
 atlas = ExtResource("15_qn120")
-region = Rect2(26, 0, 26, 26)
+region = Rect2(0, 0, 26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqfll"]
 size = Vector2(24.5, 22)
@@ -868,7 +868,7 @@ position = Vector2(832, 2368)
 
 [node name="keypad" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
 position = Vector2(-137, 344)
-codeTexture = SubResource("AtlasTexture_dkr83")
+codeTexture = SubResource("AtlasTexture_c6hwh")
 connectedDoor = NodePath("../doubleDoor")
 
 [node name="pressurePlates" type="Node2D" parent="."]

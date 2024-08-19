@@ -4,7 +4,9 @@ class_name Globals
 var itemLimit: int = 99
 var items: Array[String] = []
 var doorCodes: Array[String] = []
+
 var hippoPosition: Vector2
+var hippoCharges: int
 
 var cameraPosition: Vector2
 var cameraZoom: Vector2
