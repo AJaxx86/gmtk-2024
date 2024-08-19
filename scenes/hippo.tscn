@@ -618,10 +618,11 @@ radius = 35.323
 default_font = ExtResource("3_h7kgf")
 default_font_size = 12
 
-[node name="hippo" type="CharacterBody2D" node_paths=PackedStringArray("chargeTimer") groups=["Player"]]
+[node name="hippo" type="CharacterBody2D" node_paths=PackedStringArray("chargeTimer", "chargeUI") groups=["Player"]]
 script = ExtResource("1_0qske")
 chargeLimit = 2
 chargeTimer = NodePath("chargeDuration")
+chargeUI = NodePath("chargeUI")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nxlec")
@@ -660,10 +661,10 @@ text = "interact"
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="chargeUI" parent="." instance=ExtResource("4_jqg25")]
-offset_left = -19.0
-offset_top = -64.0
-offset_right = 21.0
-offset_bottom = -24.0
+offset_left = -30.0
+offset_top = -39.0
+offset_right = 10.0
+offset_bottom = 1.0
 
 [connection signal="timeout" from="chargeDuration" to="." method="_on_charge_timer_timeout"]
 [connection signal="timeout" from="ChargeCooldown" to="." method="_on_charge_cooldown_timeout"]
