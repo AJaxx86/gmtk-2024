@@ -9,6 +9,12 @@ class_name Bird
 @export var interactPrompt: RichTextLabel
 @export var birdSprite: AnimatedSprite2D
 
+@export_group("SFX")
+@export var sfxStreamer: AudioStreamPlayer2D
+@export var sfxFootsteps: AudioStreamMP3
+@export var sfxJump: AudioStreamMP3
+@export var sfxCaw: AudioStreamMP3
+
 @onready var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var target: Node2D = null

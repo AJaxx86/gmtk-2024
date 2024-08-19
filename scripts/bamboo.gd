@@ -3,6 +3,10 @@ extends Area2D
 ##Changes the bamboo texture.
 @export var bambooVariant: Texture2D
 
+@export_group("SFX")
+@export var sfxStreamer: AudioStreamPlayer2D
+@export var sfxBreaking: AudioStreamMP3
+
 func _ready() -> void:
 	if bambooVariant:
 		$Sprite2D.texture = bambooVariant

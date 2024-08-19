@@ -1,6 +1,11 @@
 extends CharacterBody2D
 class_name Hippo
 
+@export_group("SFX")
+@export var sfxStreamer: AudioStreamPlayer2D
+@export var sfxFootsteps: AudioStreamMP3
+@export var sfxNoises: AudioStreamMP3
+
 @export var speed: float = 400.0
 
 ### Direction
