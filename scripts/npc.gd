@@ -8,9 +8,6 @@ signal RequiredItemGiven
 @export var requiredItem: String
 @export var passcode: String
 
-func _ready() -> void:
-	pass
-
 func interact() -> void:
 	if GlobalStuff.check_item(requiredItem) == true or requiredItem == "":
 		push_warning(requiredItem + " found in inventory, playing dialogue: " + str(completedQuestDialogue))

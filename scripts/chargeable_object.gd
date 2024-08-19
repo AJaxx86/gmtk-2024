@@ -7,10 +7,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Hippo:
 		var _hippo = body as Hippo
 		if _hippo.isCharging and Interacted == false:
-			Interacted =true
+			Interacted = true
 			ChargeInteract()
 
 func ChargeInteract() -> void:
-	
 	print("Interacted with charging Hippo")
 	self.queue_free()

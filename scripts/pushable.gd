@@ -1,12 +1,16 @@
 extends CharacterBody2D
 class_name Pushable
 
+signal MoveDown
+signal MoveUp
+signal MoveLeft
+signal MoveRight
+
 var isPushed : bool = false
 var direction: Vector2 = Vector2.ZERO
 @export var PushSpeed: float = 50
 @export var Pushable: bool = true
 @export var infinitePush: bool = false
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 var lastPosition: Vector2 =Vector2.ZERO
 func _ready() -> void:
 	lastPosition = position
@@ -28,17 +32,21 @@ func _physics_process(delta: float) -> void:
 
 func _on_top_body_entered(body: Node2D) -> void:
 	Push(body, Vector2.DOWN)
+	emit_signal("MoveDown")
 
 
 func _on_down_body_entered(body: Node2D) -> void:
 	Push(body, Vector2.UP)
+	emit_signal("MoveUp")
 
 
 func _on_left_body_entered(body: Node2D) -> void:
 	Push(body, Vector2.RIGHT)
+	emit_signal("MoveRight")
 
 func _on_right_body_entered(body: Node2D) -> void:
 	Push(body, Vector2.LEFT)
+	emit_signal("MoveLeft")
 
 func Push(body: Node2D, _direction):
 	if body is Hippo:
