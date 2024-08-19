@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://caa0jvs26njis"]
+[gd_scene load_steps=30 format=3 uid="uid://caa0jvs26njis"]
 
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_cs0rs"]
 [ext_resource type="Texture2D" uid="uid://d2q0r61geytna" path="res://art/tiles/willowBackground.png" id="1_gqu1u"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scripts/npc.gd" id="9_2mu47"]
 [ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="10_vlhbj"]
 [ext_resource type="Texture2D" uid="uid://omv6y2bl5kh1" path="res://art/characters/parrotSpriteSheets.png" id="11_f0eyg"]
+[ext_resource type="AudioStream" uid="uid://dhwqfen44hma2" path="res://sfx/Music/parrot.mp3" id="12_g0s17"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_abdtr"]
 
@@ -235,3 +236,8 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="parrot"]
 position = Vector2(2.5, -2)
 shape = SubResource("RectangleShape2D_hcqed")
+
+[node name="MUSIC" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_g0s17")
+volume_db = -13.867
+autoplay = true

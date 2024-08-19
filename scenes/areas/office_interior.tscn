@@ -270,3 +270,5 @@ position = Vector2(-94, 91)
 skew = -1.09083
 color = Color(1, 1, 0, 1)
 shadow_enabled = true
+
+[node name="MUSIC" type="AudioStreamPlayer" parent="."]

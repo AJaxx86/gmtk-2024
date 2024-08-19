@@ -140,3 +140,5 @@ scale = Vector2(1.5, 1.5)
 [node name="grub2" parent="grubs" instance=ExtResource("10_0nhel")]
 position = Vector2(82, 742)
 scale = Vector2(-1.5, 1.5)
+
+[node name="MUSIC" type="AudioStreamPlayer" parent="."]
