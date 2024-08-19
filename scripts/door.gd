@@ -4,6 +4,8 @@ class_name Door
 ##Uses this to search GlobalStuff.doorCodes for a match before opening. If empty, the door opens freely.
 @export var requiredCode: String
 
+@export var isHorizontal : bool = false
+
 @export_group("Nodes")
 @export var collision: CollisionShape2D
 @export var doorSprites: Array[AnimatedSprite2D]
@@ -16,12 +18,18 @@ var keypadConnected: bool = false
 
 func force_open() -> void:
 	collision.disabled = true
-	play_animation("opened")
+	if isHorizontal:
+		play_animation("opened_horizontal")
+	else:
+		play_animation("opened_vertical")
 	stream_sfx(sfxDoorOpening)
 
 func force_close() -> void:
 	collision.disabled = false
-	play_animation("closed")
+	if isHorizontal:
+		play_animation("closed_horizontal")
+	else:
+		play_animation("closed_vertical")
 	stream_sfx(sfxDoorOpening)
 
 func open() -> void:
