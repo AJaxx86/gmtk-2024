@@ -45,3 +45,9 @@ func _on_moving(direction: Vector2) -> void:
 func rolling():
 	infinitePush = true
 	isRolling = true
+
+
+func _on_rolling_collision_body_entered(body: Node2D) -> void:
+	if rolling and body.is_in_group("PandaInteract"):
+		Stop.emit()
+		#Here you interact with the object

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cyl66qx666ffb"]
+[gd_scene load_steps=50 format=3 uid="uid://cyl66qx666ffb"]
 
 [ext_resource type="Script" path="res://scenes/panda.gd" id="1_3ajoi"]
 [ext_resource type="Texture2D" uid="uid://d4imnrjo5h2fh" path="res://art/characters/pandaSpriteSheets.png" id="2_iybfv"]
@@ -318,6 +318,9 @@ size = Vector2(52.175, 3.99)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvvbf"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1rqe7"]
+radius = 54.0093
+
 [node name="Panda" type="CharacterBody2D"]
 script = ExtResource("1_3ajoi")
 infinitePush = true
@@ -329,47 +332,53 @@ animation = &"rollHorizontal"
 autoplay = "idleNoBamboo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5.5, 10.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_iti8q")
 
-[node name="Top" type="Area2D" parent="."]
-position = Vector2(-5, -18)
+[node name="Top" type="Area2D" parent="CollisionShape2D"]
+position = Vector2(0.5, -28.5)
 scale = Vector2(1, 2.12)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Top"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Top"]
 shape = SubResource("RectangleShape2D_3lcp6")
 
-[node name="Bot" type="Area2D" parent="."]
-position = Vector2(-5.5, 39)
+[node name="Bot" type="Area2D" parent="CollisionShape2D"]
+position = Vector2(0, 28.5)
 scale = Vector2(1, 2.32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bot"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Bot"]
 scale = Vector2(2.48, 0.2)
 shape = SubResource("RectangleShape2D_wphp1")
 
-[node name="Left" type="Area2D" parent="."]
-position = Vector2(-36, 10.5)
+[node name="Left" type="Area2D" parent="CollisionShape2D"]
+position = Vector2(-30.5, 0)
 scale = Vector2(2.84, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Left"]
 scale = Vector2(0.16, 2.56)
 shape = SubResource("RectangleShape2D_x2qhg")
 
-[node name="Right" type="Area2D" parent="."]
-position = Vector2(25, 10.5)
+[node name="Right" type="Area2D" parent="CollisionShape2D"]
+position = Vector2(30.5, 0)
 scale = Vector2(2.8, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D/Right"]
 scale = Vector2(0.2, 2.44)
 shape = SubResource("RectangleShape2D_yvvbf")
 
+[node name="RollingCollision" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RollingCollision"]
+shape = SubResource("CircleShape2D_1rqe7")
+
 [connection signal="Moving" from="." to="." method="_on_moving"]
 [connection signal="Stop" from="." to="." method="_on_stop"]
-[connection signal="body_entered" from="Top" to="." method="_on_top_body_entered"]
-[connection signal="body_exited" from="Top" to="." method="_on_body_exited"]
-[connection signal="body_entered" from="Bot" to="." method="_on_down_body_entered"]
-[connection signal="body_exited" from="Bot" to="." method="_on_body_exited"]
-[connection signal="body_entered" from="Left" to="." method="_on_left_body_entered"]
-[connection signal="body_exited" from="Left" to="." method="_on_body_exited"]
-[connection signal="body_entered" from="Right" to="." method="_on_right_body_entered"]
-[connection signal="body_exited" from="Right" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="CollisionShape2D/Top" to="." method="_on_top_body_entered"]
+[connection signal="body_exited" from="CollisionShape2D/Top" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="CollisionShape2D/Bot" to="." method="_on_down_body_entered"]
+[connection signal="body_exited" from="CollisionShape2D/Bot" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="CollisionShape2D/Left" to="." method="_on_left_body_entered"]
+[connection signal="body_exited" from="CollisionShape2D/Left" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="CollisionShape2D/Right" to="." method="_on_right_body_entered"]
+[connection signal="body_exited" from="CollisionShape2D/Right" to="." method="_on_body_exited"]
+[connection signal="body_entered" from="RollingCollision" to="." method="_on_rolling_collision_body_entered"]
