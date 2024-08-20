@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func button_pressed(number: int) -> void:
 	if currentCode.length() < 4:
-		$AudioStreamPlayer.play()
+		$AudioStreamPlayer2D.play()
 		currentCode += str(number)
 		codeLabel.text = currentCode
 
@@ -41,7 +41,7 @@ func popup(codeTexture: Texture2D = null) -> void:
 
 
 func _on_reset_pressed() -> void:
-	$AudioStreamPlayer.play()
+	$AudioStreamPlayer2D.play()
 	currentCode = ""
 	codeLabel.text =""
 
