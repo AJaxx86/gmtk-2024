@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cbjmhk482fovb"]
+[gd_scene load_steps=28 format=3 uid="uid://cbjmhk482fovb"]
 
 [ext_resource type="Texture2D" uid="uid://oeagisgri3hb" path="res://art/tiles/bushesBackground.png" id="2_gsm1q"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_yimtd"]
@@ -9,11 +9,28 @@
 [ext_resource type="Texture2D" uid="uid://u5u34rqr1xr4" path="res://art/objects/bushBranch2.png" id="5_kvdbl"]
 [ext_resource type="Texture2D" uid="uid://expfs5o1y4n" path="res://art/objects/bushBranch1.png" id="6_twdbq"]
 [ext_resource type="PackedScene" uid="uid://r04u58l2rc28" path="res://scenes/grub.tscn" id="10_0nhel"]
+[ext_resource type="AudioStream" uid="uid://dsk4k38vwut7j" path="res://sfx/Music/Grub Bush Track.mp3" id="10_6t7qx"]
+[ext_resource type="Script" path="res://dialogue/dialogue_chunk.gd" id="10_x3siy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b2v0n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwmr5"]
 size = Vector2(144, 13)
+
+[sub_resource type="Resource" id="Resource_2sqef"]
+script = ExtResource("10_x3siy")
+speaker = "Small"
+line = "Ick. I can't believe that posh twit craves something so..."
+
+[sub_resource type="Resource" id="Resource_swioo"]
+script = ExtResource("10_x3siy")
+speaker = "Small"
+line = "DiRtY..."
+
+[sub_resource type="Resource" id="Resource_6x08m"]
+script = ExtResource("10_x3siy")
+speaker = "Small"
+line = "Bleh."
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ihqr1"]
 polygon = PackedVector2Array(509, -11, 831, -10, 624, 5)
@@ -167,14 +184,18 @@ shape = SubResource("RectangleShape2D_kwmr5")
 [node name="grubs" type="Node2D" parent="."]
 
 [node name="grub" parent="grubs" instance=ExtResource("10_0nhel")]
-position = Vector2(30, 742)
+position = Vector2(34, 742)
 scale = Vector2(1.5, 1.5)
+dialogues = Array[ExtResource("10_x3siy")]([SubResource("Resource_2sqef"), SubResource("Resource_swioo"), SubResource("Resource_6x08m")])
 
 [node name="grub2" parent="grubs" instance=ExtResource("10_0nhel")]
 position = Vector2(82, 742)
 scale = Vector2(-1.5, 1.5)
 
 [node name="MUSIC" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6t7qx")
+volume_db = -12.876
+autoplay = true
 
 [node name="lighting" type="Node2D" parent="."]
 

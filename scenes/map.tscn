@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=110 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
@@ -30,6 +30,36 @@
 [ext_resource type="PackedScene" uid="uid://cyl66qx666ffb" path="res://scenes/panda.tscn" id="26_eu7me"]
 [ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="29_k26oo"]
 [ext_resource type="PackedScene" path="res://scenes/PandaRock.tscn" id="29_tl12a"]
+
+[sub_resource type="Resource" id="Resource_rvynv"]
+script = ExtResource("9_0rbk3")
+speaker = "Small"
+line = "Hey, Big. You ever thought about getting outta here?"
+
+[sub_resource type="Resource" id="Resource_6tw7l"]
+script = ExtResource("9_0rbk3")
+speaker = "Big"
+line = "Huh? Why would I want that, Small?"
+
+[sub_resource type="Resource" id="Resource_2dwua"]
+script = ExtResource("9_0rbk3")
+speaker = "Small"
+line = "Because then I can start the animal uprisi-"
+
+[sub_resource type="Resource" id="Resource_a4pr8"]
+script = ExtResource("9_0rbk3")
+speaker = "Small"
+line = "I mean... they have ice cream out there?"
+
+[sub_resource type="Resource" id="Resource_x12q8"]
+script = ExtResource("9_0rbk3")
+speaker = "Big"
+line = "Oooooo... Ice cream..."
+
+[sub_resource type="Resource" id="Resource_d6j7r"]
+script = ExtResource("9_0rbk3")
+speaker = "Small"
+line = "That's the spirit, Big! Now get yourself wet and charge into that office."
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km3v2"]
 size = Vector2(44.75, 21.75)
@@ -511,6 +541,7 @@ size = Vector2(20, 19.75)
 [node name="zoo" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_bao47")
+prologueDialogue = Array[ExtResource("9_0rbk3")]([SubResource("Resource_rvynv"), SubResource("Resource_6tw7l"), SubResource("Resource_2dwua"), SubResource("Resource_a4pr8"), SubResource("Resource_x12q8"), SubResource("Resource_d6j7r")])
 
 [node name="outsideWalls" type="TileMapLayer" parent="."]
 modulate = Color(0.650128, 0.650128, 0.650128, 1)

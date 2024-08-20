@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/parrot.mp3-8bbd30ebbb98f8a9eef8167787849933.m
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
