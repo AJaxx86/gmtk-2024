@@ -122,7 +122,7 @@ itemToGive = "keypad button"
 [node name="Sprite2D" type="Sprite2D" parent="Grub"]
 texture = SubResource("AtlasTexture_fe2hw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Grub"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grub" groups=["Interactable"]]
 shape = SubResource("RectangleShape2D_67xpw")
 
 [node name="SceneSwitch" type="StaticBody2D" parent="." groups=["Interactable"]]
