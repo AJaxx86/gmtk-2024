@@ -659,13 +659,13 @@ camera = NodePath("../../StaticCamera2D")
 newPosition = NodePath("../Cam3")
 
 [node name="camTrigger6" parent="cameraStuff" node_paths=PackedStringArray("camera", "newPosition") instance=ExtResource("6_n3jdj")]
-position = Vector2(1026, 1014)
+position = Vector2(1021, 1040)
 scale = Vector2(2, 2)
 camera = NodePath("../../StaticCamera2D")
 newPosition = NodePath("../Cam3")
 
 [node name="camTrigger5" parent="cameraStuff" node_paths=PackedStringArray("camera", "newPosition") instance=ExtResource("6_n3jdj")]
-position = Vector2(1026, 1117)
+position = Vector2(1021, 1082)
 scale = Vector2(2, 2)
 camera = NodePath("../../StaticCamera2D")
 newPosition = NodePath("../Cam4")
@@ -962,22 +962,26 @@ requiredCode = "1738"
 position = Vector2(832, 2368)
 
 [node name="keypad" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
-position = Vector2(-137, 344)
+position = Vector2(-128, 342)
+scale = Vector2(2, 2)
 codeTexture = SubResource("AtlasTexture_c6hwh")
 connectedDoor = NodePath("../doubleDoor")
 
 [node name="keypad2" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
-position = Vector2(1066, 866)
+position = Vector2(1075, 864)
+scale = Vector2(2, 2)
 codeTexture = SubResource("AtlasTexture_r0em2")
 connectedDoor = NodePath("../doubleDoor2")
 
 [node name="keypad3" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
-position = Vector2(1372, 1407)
+position = Vector2(1381, 1405)
+scale = Vector2(2, 2)
 codeTexture = SubResource("AtlasTexture_wpxaw")
 connectedDoor = NodePath("../doubleDoor3")
 
 [node name="keypad4" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
-position = Vector2(1153, 2003)
+position = Vector2(1170, 2001)
+scale = Vector2(2, 2)
 connectedDoor = NodePath("../Door")
 working = false
 

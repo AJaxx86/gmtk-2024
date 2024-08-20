@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://b7cg2tn0hxk50"]
 
 [ext_resource type="Script" path="res://scripts/keypad.gd" id="1_cmimi"]
-[ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="1_mouor"]
-[ext_resource type="AudioStream" uid="uid://c7mjdy471iuj0" path="res://sfx/Other SFX/Key Press.mp3" id="2_if21a"]
-[ext_resource type="AudioStream" uid="uid://c42s61jq1n8o" path="res://sfx/Other SFX/Key Press Success New.mp3" id="3_cr2yx"]
-[ext_resource type="AudioStream" uid="uid://d18yt8wk0h32r" path="res://sfx/Other SFX/Key Press Fail.mp3" id="4_ro8q4"]
+[ext_resource type="AudioStream" uid="uid://fqsn1vgg4a6m" path="res://sfx/Other SFX/Key Press.mp3" id="2_if21a"]
+[ext_resource type="AudioStream" uid="uid://danc6vuphc2x8" path="res://sfx/Other SFX/Key Press Success New.mp3" id="3_cr2yx"]
+[ext_resource type="AudioStream" uid="uid://1ev3vsmn5uv0" path="res://sfx/Other SFX/Key Press Fail.mp3" id="4_ro8q4"]
+[ext_resource type="Texture2D" uid="uid://bq5u00c6i42hx" path="res://art/objects/Keypad_topdown.png" id="5_ib1aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdx2s"]
 
@@ -16,8 +16,9 @@ sfxCorrectCode = ExtResource("3_cr2yx")
 sfxIncorrectCode = ExtResource("4_ro8q4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_mouor")
+texture = ExtResource("5_ib1aa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_hdx2s")
