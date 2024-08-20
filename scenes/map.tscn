@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=104 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://scripts/npc.gd" id="11_o1iem"]
 [ext_resource type="Script" path="res://scripts/office.gd" id="13_2nkrg"]
 [ext_resource type="Texture2D" uid="uid://b1kfyf3cyf0ls" path="res://art/objects/zooOfficeSheet.png" id="13_80e8x"]
-[ext_resource type="PackedScene" uid="uid://b7cg2tn0hxk50" path="res://scenes/keypad.tscn" id="14_jl3md"]
+[ext_resource type="PackedScene" path="res://scenes/keypad.tscn" id="14_jl3md"]
 [ext_resource type="Texture2D" uid="uid://npd0c7r0godl" path="res://art/objects/UI.png" id="15_qn120"]
 [ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="15_tud0i"]
 [ext_resource type="Script" path="res://scenes/event.gd" id="17_gfsbc"]
@@ -28,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://40map13ew2ob" path="res://art/foliage/weepingWillow.png" id="21_wncdu"]
 [ext_resource type="AudioStream" uid="uid://cx2rngpnqm18r" path="res://sfx/Other SFX/Window Break 7.mp3" id="24_kbmpa"]
 [ext_resource type="PackedScene" uid="uid://cyl66qx666ffb" path="res://scenes/panda.tscn" id="26_eu7me"]
+[ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="29_k26oo"]
+[ext_resource type="PackedScene" uid="uid://dmxf1uwxj3lh2" path="res://scenes/PandaRock.tscn" id="29_tl12a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km3v2"]
 size = Vector2(44.75, 21.75)
@@ -495,6 +497,8 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvgpp"]
 size = Vector2(20, 19.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shy2d"]
 
 [node name="zoo" type="Node2D"]
 texture_filter = 1
@@ -994,6 +998,27 @@ position = Vector2(581, 1444)
 [node name="Panda" parent="pandaBowling" instance=ExtResource("26_eu7me")]
 position = Vector2(899, 162)
 infinitePush = false
+
+[node name="SceneSwitch" type="StaticBody2D" parent="." groups=["Interactable"]]
+position = Vector2(1809, 2298)
+scale = Vector2(-3.19535, -3.19535)
+script = ExtResource("15_tud0i")
+scenePath = "res://scenes/areas/bamboo_interior.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="SceneSwitch"]
+scale = Vector2(0.20962, 0.20962)
+texture = ExtResource("29_k26oo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneSwitch"]
+shape = SubResource("RectangleShape2D_shy2d")
+
+[node name="PandaRock2" parent="." instance=ExtResource("29_tl12a")]
+position = Vector2(1773, 2155)
+scale = Vector2(4.64, 4.64)
+
+[node name="PandaRock5" parent="." instance=ExtResource("29_tl12a")]
+position = Vector2(1639, 2258)
+scale = Vector2(5.68, 5.68)
 
 [connection signal="body_entered" from="office" to="office" method="_on_body_entered"]
 [connection signal="body_entered" from="event" to="event" method="_on_body_entered"]
