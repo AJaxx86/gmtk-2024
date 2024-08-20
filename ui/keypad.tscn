@@ -196,7 +196,7 @@ offset_top = -63.0
 offset_right = 163.0
 offset_bottom = 28.0
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="pad"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="pad"]
 stream = ExtResource("3_wuuyc")
 
 [connection signal="pressed" from="pad/AnimatedSprite2D/buttons/1" to="pad" method="button_pressed" binds= [1]]
