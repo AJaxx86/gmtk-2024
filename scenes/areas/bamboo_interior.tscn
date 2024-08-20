@@ -81,13 +81,6 @@ position = Vector2(0, 320)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/side1"]
 shape = SubResource("WorldBoundaryShape2D_glpss")
 
-[node name="side2" type="StaticBody2D" parent="boundaries"]
-position = Vector2(0, -320)
-rotation = 3.14159
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/side2"]
-shape = SubResource("WorldBoundaryShape2D_glpss")
-
 [node name="side3" type="StaticBody2D" parent="boundaries"]
 position = Vector2(-124, 0)
 rotation = 1.5708
