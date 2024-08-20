@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://bclfcjfuhbuop"]
+[gd_scene load_steps=16 format=3 uid="uid://bclfcjfuhbuop"]
 
+[ext_resource type="Script" path="res://scenes/areas/bamboo_interior.gd" id="1_4bgvu"]
 [ext_resource type="Texture2D" uid="uid://dxc6bqb7pn4ey" path="res://art/tiles/bambooBackground.png" id="1_aorp5"]
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_avafy"]
 [ext_resource type="Texture2D" uid="uid://b3flh6to8dwu2" path="res://art/tiles/bambooPlatforms.png" id="2_fsvrq"]
@@ -27,6 +28,7 @@ size = Vector2(78, 9)
 polygon = PackedVector2Array(-95, -252, -77, -242, -54, -242, -33, -254)
 
 [node name="bambooInterior" type="Node2D"]
+script = ExtResource("1_4bgvu")
 
 [node name="background" type="Sprite2D" parent="."]
 texture = ExtResource("1_aorp5")

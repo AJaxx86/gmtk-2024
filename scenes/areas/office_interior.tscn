@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5yb1bqj8ccm6"]
+[gd_scene load_steps=31 format=3 uid="uid://5yb1bqj8ccm6"]
 
 [ext_resource type="Texture2D" uid="uid://bnits5vjotvkv" path="res://art/tiles/officeBackground.png" id="1_1jgcd"]
 [ext_resource type="Texture2D" uid="uid://dxkjxub8odl81" path="res://art/objects/drawer.png" id="2_7ihnn"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://pe1b8nblftu8" path="res://dialogue/bin_code_3.tres" id="11_vrhy8"]
 [ext_resource type="PackedScene" uid="uid://ds01jb8ccnww8" path="res://scenes/SceneSwapper.tscn" id="13_ekmb1"]
 [ext_resource type="Texture2D" uid="uid://u3taf6hfqnxb" path="res://art/objects/book2.png" id="15_6x5bm"]
+[ext_resource type="AudioStream" uid="uid://bfct1fxstu8gm" path="res://sfx/Music/New Office Track.mp3" id="17_25nj1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ilcvt"]
 size = Vector2(198, 323)
@@ -272,3 +273,6 @@ color = Color(1, 1, 0, 1)
 shadow_enabled = true
 
 [node name="MUSIC" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_25nj1")
+volume_db = -12.876
+autoplay = true
