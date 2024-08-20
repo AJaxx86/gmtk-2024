@@ -1,8 +1,7 @@
-[gd_scene load_steps=51 format=3 uid="uid://cyl66qx666ffb"]
+[gd_scene load_steps=50 format=3 uid="uid://cyl66qx666ffb"]
 
 [ext_resource type="Script" path="res://scenes/panda.gd" id="1_3ajoi"]
 [ext_resource type="Texture2D" uid="uid://d4imnrjo5h2fh" path="res://art/characters/pandaSpriteSheets.png" id="2_iybfv"]
-[ext_resource type="AudioStream" uid="uid://dudae1tha4lo0" path="res://sfx/Panda/Panda Roll.mp3" id="3_ufipv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2domu"]
 atlas = ExtResource("2_iybfv")
@@ -371,10 +370,6 @@ shape = SubResource("RectangleShape2D_yvvbf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RollingCollision"]
 shape = SubResource("CircleShape2D_1rqe7")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ufipv")
-volume_db = -6.68
 
 [connection signal="Moving" from="." to="." method="_on_moving"]
 [connection signal="Stop" from="." to="." method="_on_stop"]

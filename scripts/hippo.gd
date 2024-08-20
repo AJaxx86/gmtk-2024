@@ -37,10 +37,8 @@ var target: Node2D = null
 @export var sfxFootsteps: AudioStreamMP3
 @export var sfxNoises: AudioStreamMP3
 @export var sfxNoises2: AudioStreamMP3
-@export var sfxDash: AudioStreamMP3
 
 @onready var hippoSFX: Array = [sfxNoises, sfxNoises2]
-
 
 
 func _ready() -> void:
@@ -93,7 +91,7 @@ func animationSelector():
 	
 	#Pushing Animations
 	elif direction != Vector2.ZERO and isPushing:
-		
+		stream_sfx(sfxFootsteps)
 		if direction == Vector2.UP:
 			pass # Play pushing UP
 		elif direction == Vector2.DOWN	:
@@ -104,6 +102,7 @@ func animationSelector():
 			pass # Play pushing Right
 	
 	if isCharging:
+		stream_sfx(sfxNoises)
 		if lastDirection == Vector2.UP:
 			pass # Play Charging UP
 		elif lastDirection == Vector2.DOWN	:
@@ -116,7 +115,6 @@ func animationSelector():
 
 func charge_ability() -> void:
 	if canCharge and currentCharges > 0:
-		stream_sfx(sfxDash)
 		chargeTimer.start()
 		isCharging = true
 		canCharge = false
