@@ -16,6 +16,8 @@ var cameraZoom: Vector2
 var lockedDoorsArray: Array = []
 var officeUnlocked: bool = false
 
+var enteredBamboo = false
+
 #ITEMS
 func add_item(item: String) -> void:
 	if items.size() < itemLimit:

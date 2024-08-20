@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cnt6nr3vle6ly" path="res://sfx/Hippo/hippo Run.mp3" id="2_p20tj"]
 [ext_resource type="FontFile" uid="uid://h2nbx4elr011" path="res://fonts/lemon_milk/LEMONMILK-Medium.otf" id="3_h7kgf"]
 [ext_resource type="AudioStream" uid="uid://cycpr15af5kua" path="res://sfx/Hippo/Hippo Noise 1.mp3" id="3_hi5y3"]
-[ext_resource type="PackedScene" path="res://ui/charge_ui.tscn" id="4_02kym"]
+[ext_resource type="PackedScene" uid="uid://dbi260r47lpac" path="res://ui/charge_ui.tscn" id="4_02kym"]
 [ext_resource type="AudioStream" uid="uid://bgn3h5pofkkam" path="res://sfx/Hippo/Hippo Noise 2.mp3" id="4_cgwli"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53qt8"]
