@@ -1,4 +1,5 @@
 extends Control
+class_name KeypadHUD
 
 signal CodeEntered
 
@@ -15,15 +16,21 @@ func _ready() -> void:
 
 func button_pressed(number: int) -> void:
 	if currentCode.length() < 4:
+	
 		currentCode += str(number)
 		codeLabel.text = currentCode
 
 
 func popup(codeTexture: Texture2D = null) -> void:
-	if not isBroken:
+	if isBroken and GlobalStuff.check_item("keypad button") == false:
 		$AnimatedSprite2D.play("Broken Keypad")
+		$"AnimatedSprite2D/buttons/4".disabled = true
+	elif isBroken and GlobalStuff.check_item("keypad button") == true:
+		$AnimatedSprite2D.play("Last Keypad")
+		$"AnimatedSprite2D/buttons/4".disabled = false
 	else:
 		$AnimatedSprite2D.play("Base Keypad")
+		$"AnimatedSprite2D/buttons/4".disabled = false
 	show()
 	
 	if codeTexture:

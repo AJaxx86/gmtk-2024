@@ -11,14 +11,12 @@ class_name Keypad
 @export var sfxCorrectCode: AudioStreamMP3
 @export var sfxIncorrectCode: AudioStreamMP3
 
-@onready var keypadUI: Control = KeypadUI.get_node("pad")
+@onready var keypadUI: KeypadHUD = KeypadUI.get_node("pad")
 
 var passcode: String = ""
 
 func _ready() -> void:
-	if !working:
-		if GlobalStuff.check_item("keypad button") == true:
-			working = true
+			
 
 	if connectedDoor:
 		passcode = connectedDoor.requiredCode
@@ -26,6 +24,17 @@ func _ready() -> void:
 
 func activate() -> void:
 	if working:
+		if keypadUI.visible:
+			keypadUI.hide()
+			keypadUI.disconnect("CodeEntered", code_entered)
+		else:
+			if GlobalStuff.check_door_code(passcode) == true:
+				keypadUI.popup(codeTexture)
+			else:
+				keypadUI.popup()
+			keypadUI.connect("CodeEntered", code_entered)
+	else:
+		keypadUI.isBroken =true
 		if keypadUI.visible:
 			keypadUI.hide()
 			keypadUI.disconnect("CodeEntered", code_entered)

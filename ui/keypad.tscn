@@ -1,11 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1qopxkmjj4uf"]
+[gd_scene load_steps=8 format=3 uid="uid://c1qopxkmjj4uf"]
 
 [ext_resource type="Script" path="res://ui/keypad_buttons.gd" id="1_2q6uv"]
-[ext_resource type="Texture2D" uid="uid://xeopxgpys2sh" path="res://art/objects/numPad.png" id="2_63qqd"]
+[ext_resource type="Texture2D" uid="uid://b6h2l3fmp2833" path="res://art/objects/numPad.png" id="2_63qqd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s8m5"]
 atlas = ExtResource("2_63qqd")
 region = Rect2(0, 0, 100, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kxv2y"]
+atlas = ExtResource("2_63qqd")
+region = Rect2(100, 0, 100, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3516"]
+atlas = ExtResource("2_63qqd")
+region = Rect2(200, 0, 100, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_moyjf"]
 animations = [{
@@ -17,9 +25,20 @@ animations = [{
 "name": &"Base Keypad",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kxv2y")
+}],
 "loop": true,
 "name": &"Broken Keypad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3516")
+}],
+"loop": true,
+"name": &"Last Keypad",
 "speed": 5.0
 }]
 
@@ -43,7 +62,7 @@ codePaper = NodePath("AnimatedSprite2D/code")
 position = Vector2(118, 114)
 scale = Vector2(1.44, 1.44)
 sprite_frames = SubResource("SpriteFrames_moyjf")
-animation = &"Base Keypad"
+animation = &"Last Keypad"
 
 [node name="currentCode" type="Label" parent="pad/AnimatedSprite2D"]
 offset_left = -34.0278
