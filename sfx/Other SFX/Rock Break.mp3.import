@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dqm780mfoff35"
+path="res://.godot/imported/Rock Break.mp3-1ba696129cec79c7c5561c6fa54a4a9b.mp3str"
+
+[deps]
+
+source_file="res://sfx/Other SFX/Rock Break.mp3"
+dest_files=["res://.godot/imported/Rock Break.mp3-1ba696129cec79c7c5561c6fa54a4a9b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfedx41idf063"
+path="res://.godot/imported/Bamboo Level.mp3-61f55ecaa4ef9f2d8c2a8d25e2c9e67f.mp3str"
+
+[deps]
+
+source_file="res://sfx/Music/Bamboo Level.mp3"
+dest_files=["res://.godot/imported/Bamboo Level.mp3-61f55ecaa4ef9f2d8c2a8d25e2c9e67f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
