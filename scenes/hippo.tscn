@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://degxk5sc1ngp6" path="res://art/characters/hippoSpriteSheet.png" id="2_l7ftx"]
 [ext_resource type="AudioStream" uid="uid://cnt6nr3vle6ly" path="res://sfx/Hippo/hippo Run.mp3" id="2_p20tj"]
 [ext_resource type="AudioStream" uid="uid://cycpr15af5kua" path="res://sfx/Hippo/Hippo Noise 1.mp3" id="3_hi5y3"]
-[ext_resource type="PackedScene" path="res://ui/charge_ui.tscn" id="4_02kym"]
+[ext_resource type="PackedScene" uid="uid://dbi260r47lpac" path="res://ui/charge_ui.tscn" id="4_02kym"]
 [ext_resource type="AudioStream" uid="uid://bgn3h5pofkkam" path="res://sfx/Hippo/Hippo Noise 2.mp3" id="4_cgwli"]
 [ext_resource type="Texture2D" uid="uid://uygo3ej7pxvq" path="res://art/objects/interactUI.png" id="7_4sh66"]
 
