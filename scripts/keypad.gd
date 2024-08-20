@@ -50,7 +50,6 @@ func code_entered(enteredCode: String) -> void:
 
 	if enteredCode == passcode:
 		print_debug("Correct code entered: " + str(enteredCode))
-
 		stream_sfx(sfxCorrectCode)
 		keypadUI.hide()
 		keypadUI.disconnect("CodeEntered", code_entered)
