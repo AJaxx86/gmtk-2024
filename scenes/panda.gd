@@ -27,6 +27,7 @@ func Push(body: Node2D, _direction):
 func _on_stop() -> void:
 	pandaSprite.play("idleNoBamboo")
 	if rolling:
+		velocity = Vector2.ZERO
 		infinitePush = false
 		isRolling = false
 	
@@ -48,6 +49,6 @@ func rolling():
 
 
 func _on_rolling_collision_body_entered(body: Node2D) -> void:
-	if rolling and body.is_in_group("PandaInteract"):
+	if rolling and body is PandaRock:
 		Stop.emit()
-		#Here you interact with the object
+		body.PandaInteract()
