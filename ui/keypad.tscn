@@ -61,6 +61,7 @@ codePaper = NodePath("AnimatedSprite2D/code")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="pad"]
 stream = ExtResource("3_wuuyc")
+volume_db = -8.914
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pad"]
 position = Vector2(118, 114)
