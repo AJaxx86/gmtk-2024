@@ -22,6 +22,7 @@ func Push(body: Node2D, _direction):
 			hippo.isPushing = true
 			isPushed = true
 			if hippo.isCharging:
+				$AudioStreamPlayer.play()
 				rolling()
 
 
@@ -32,6 +33,7 @@ func _on_stop() -> void:
 		velocity = Vector2.ZERO
 		infinitePush = false
 		isRolling = false
+		$AudioStreamPlayer.stop()
 	
 
 

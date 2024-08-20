@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://c1qopxkmjj4uf"]
 
 [ext_resource type="Script" path="res://ui/keypad_buttons.gd" id="1_2q6uv"]
-[ext_resource type="Texture2D" uid="uid://c86dttwtdpabr" path="res://art/objects/numPad.png" id="2_63qqd"]
-[ext_resource type="AudioStream" uid="uid://s11mlmmgoxfo" path="res://sfx/Other SFX/Key Press.mp3" id="3_wuuyc"]
+[ext_resource type="Texture2D" uid="uid://c85lxln0msrdu" path="res://art/objects/numPad.png" id="2_63qqd"]
+[ext_resource type="AudioStream" uid="uid://b4f47m6wwhbdf" path="res://sfx/Other SFX/Key Press.mp3" id="3_wuuyc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s8m5"]
 atlas = ExtResource("2_63qqd")
@@ -61,6 +61,7 @@ codePaper = NodePath("AnimatedSprite2D/code")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="pad"]
 stream = ExtResource("3_wuuyc")
+volume_db = -10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pad"]
 position = Vector2(118, 114)
@@ -92,6 +93,7 @@ offset_top = 2.0
 offset_right = -133.0
 offset_bottom = 40.0
 scale = Vector2(0.528752, 0.438823)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
 flat = true
 
 [node name="2" type="Button" parent="pad/AnimatedSprite2D/buttons"]

@@ -1,11 +1,12 @@
-[gd_scene load_steps=128 format=3 uid="uid://1kokyfy61hk8"]
+[gd_scene load_steps=129 format=3 uid="uid://1kokyfy61hk8"]
 
 [ext_resource type="Script" path="res://scripts/hippo.gd" id="1_0qske"]
 [ext_resource type="Texture2D" uid="uid://degxk5sc1ngp6" path="res://art/characters/hippoSpriteSheet.png" id="2_l7ftx"]
 [ext_resource type="AudioStream" uid="uid://cnt6nr3vle6ly" path="res://sfx/Hippo/hippo Run.mp3" id="2_p20tj"]
 [ext_resource type="AudioStream" uid="uid://cycpr15af5kua" path="res://sfx/Hippo/Hippo Noise 1.mp3" id="3_hi5y3"]
-[ext_resource type="PackedScene" uid="uid://dbi260r47lpac" path="res://ui/charge_ui.tscn" id="4_02kym"]
+[ext_resource type="PackedScene" path="res://ui/charge_ui.tscn" id="4_02kym"]
 [ext_resource type="AudioStream" uid="uid://bgn3h5pofkkam" path="res://sfx/Hippo/Hippo Noise 2.mp3" id="4_cgwli"]
+[ext_resource type="AudioStream" uid="uid://8hm6b54sxp1u" path="res://sfx/Hippo/Hippo Dash.mp3" id="5_vk8si"]
 [ext_resource type="Texture2D" uid="uid://uygo3ej7pxvq" path="res://art/objects/interactUI.png" id="7_4sh66"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_53qt8"]
@@ -916,6 +917,7 @@ sfxStreamer = NodePath("AudioStreamPlayer2D")
 sfxFootsteps = ExtResource("2_p20tj")
 sfxNoises = ExtResource("3_hi5y3")
 sfxNoises2 = ExtResource("4_cgwli")
+sfxDash = ExtResource("5_vk8si")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_nxlec")
