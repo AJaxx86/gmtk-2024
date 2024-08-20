@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1qopxkmjj4uf"]
+[gd_scene load_steps=9 format=3 uid="uid://c1qopxkmjj4uf"]
 
 [ext_resource type="Script" path="res://ui/keypad_buttons.gd" id="1_2q6uv"]
 [ext_resource type="Texture2D" uid="uid://c86dttwtdpabr" path="res://art/objects/numPad.png" id="2_63qqd"]
+[ext_resource type="AudioStream" uid="uid://s11mlmmgoxfo" path="res://sfx/Other SFX/Key Press.mp3" id="3_wuuyc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s8m5"]
 atlas = ExtResource("2_63qqd")
@@ -57,6 +58,9 @@ grow_vertical = 2
 script = ExtResource("1_2q6uv")
 codeLabel = NodePath("AnimatedSprite2D/currentCode")
 codePaper = NodePath("AnimatedSprite2D/code")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="pad"]
+stream = ExtResource("3_wuuyc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pad"]
 position = Vector2(118, 114)
@@ -194,8 +198,6 @@ offset_left = 67.0
 offset_top = -63.0
 offset_right = 163.0
 offset_bottom = 28.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="pad"]
 
 [connection signal="pressed" from="pad/AnimatedSprite2D/buttons/1" to="pad" method="button_pressed" binds= [1]]
 [connection signal="pressed" from="pad/AnimatedSprite2D/buttons/2" to="pad" method="button_pressed" binds= [2]]
