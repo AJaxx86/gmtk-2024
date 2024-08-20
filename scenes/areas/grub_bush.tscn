@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbjmhk482fovb"]
+[gd_scene load_steps=23 format=3 uid="uid://cbjmhk482fovb"]
 
 [ext_resource type="Texture2D" uid="uid://oeagisgri3hb" path="res://art/tiles/bushesBackground.png" id="2_gsm1q"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_yimtd"]
@@ -14,6 +14,39 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwmr5"]
 size = Vector2(144, 13)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ihqr1"]
+polygon = PackedVector2Array(509, -11, 831, -10, 624, 5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sr6hb"]
+polygon = PackedVector2Array(195, -40, -61, 9, -143, -36)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xqhxp"]
+polygon = PackedVector2Array(8, -35, 44, -30, 16, -4)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v2t4w"]
+polygon = PackedVector2Array(113, -30, 127, -28, 109, -6)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p375q"]
+polygon = PackedVector2Array(210, -16, 369, -17, 326, 40)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_rg5a8"]
+polygon = PackedVector2Array(36, -16, 91, -19, 45, 8)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7uhfh"]
+polygon = PackedVector2Array(14, -50, 262, 49, 64, 6)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0ht8y"]
+polygon = PackedVector2Array(-11, -50, 26, -67, 50, -71, 81, -69, 112, -56, 142, -45, 154, -33, 164, -13, 165, 18, 73, 44)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l5qts"]
+polygon = PackedVector2Array(34, 1, 40, -35, 61, -62, 117, -85, 164, -86, 108, 14)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ptt4t"]
+polygon = PackedVector2Array(72, -96, 95, -95, 154, -69, 167, -43, 174, -9, 82, 18, 45, -48)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_kkaak"]
+polygon = PackedVector2Array(20, -46, 47, -37, 16, 3)
 
 [node name="grubBush" type="Node2D"]
 
@@ -142,3 +175,54 @@ position = Vector2(82, 742)
 scale = Vector2(-1.5, 1.5)
 
 [node name="MUSIC" type="AudioStreamPlayer" parent="."]
+
+[node name="lighting" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="lighting"]
+skew = 0.507891
+color = Color(1, 1, 0.513726, 1)
+shadow_enabled = true
+
+[node name="shadow" type="LightOccluder2D" parent="lighting"]
+position = Vector2(129, 10)
+occluder = SubResource("OccluderPolygon2D_ihqr1")
+
+[node name="shadow2" type="LightOccluder2D" parent="lighting"]
+position = Vector2(131, 28)
+occluder = SubResource("OccluderPolygon2D_sr6hb")
+
+[node name="shadow3" type="LightOccluder2D" parent="lighting"]
+position = Vector2(401, 24)
+occluder = SubResource("OccluderPolygon2D_xqhxp")
+
+[node name="shadow4" type="LightOccluder2D" parent="lighting"]
+position = Vector2(435, 22)
+occluder = SubResource("OccluderPolygon2D_v2t4w")
+
+[node name="shadow5" type="LightOccluder2D" parent="lighting"]
+position = Vector2(1249, 15)
+occluder = SubResource("OccluderPolygon2D_p375q")
+
+[node name="shadow6" type="LightOccluder2D" parent="lighting"]
+position = Vector2(1227, 10)
+occluder = SubResource("OccluderPolygon2D_rg5a8")
+
+[node name="shadow7" type="LightOccluder2D" parent="lighting"]
+position = Vector2(1725, 193)
+occluder = SubResource("OccluderPolygon2D_7uhfh")
+
+[node name="shadow8" type="LightOccluder2D" parent="lighting"]
+position = Vector2(876, 330)
+occluder = SubResource("OccluderPolygon2D_0ht8y")
+
+[node name="shadow9" type="LightOccluder2D" parent="lighting"]
+position = Vector2(1062, 504)
+occluder = SubResource("OccluderPolygon2D_l5qts")
+
+[node name="shadow10" type="LightOccluder2D" parent="lighting"]
+position = Vector2(1221, 678)
+occluder = SubResource("OccluderPolygon2D_ptt4t")
+
+[node name="shadow11" type="LightOccluder2D" parent="lighting"]
+position = Vector2(737, 408)
+occluder = SubResource("OccluderPolygon2D_kkaak")
