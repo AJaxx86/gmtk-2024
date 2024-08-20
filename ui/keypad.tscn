@@ -102,7 +102,6 @@ offset_top = 2.0
 offset_right = -133.0
 offset_bottom = 40.0
 scale = Vector2(0.528752, 0.438823)
-theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
 flat = true
 
 [node name="2" type="Button" parent="pad/AnimatedSprite2D/buttons"]
