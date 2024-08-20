@@ -6,7 +6,7 @@ class_name Bird
 @export var boostJumpForce: float = 800.0
 
 @export_group("Nodes")
-@export var interactPrompt: RichTextLabel
+@export var interactPrompt: AnimatedSprite2D
 @export var birdSprite: AnimatedSprite2D
 
 @export_group("SFX")
@@ -79,6 +79,12 @@ func _unhandled_input(event: InputEvent) -> void:
 func interact_check(body: Node2D) -> void:
 	if body.is_in_group("Interactable"):
 		target = body
+		if target is NPC:
+			interactPrompt.play("Chat")
+		elif target is SceneSwitch:
+			interactPrompt.play("Swap")
+		else:
+			interactPrompt.play("Pick")
 		interactPrompt.show()
 
 func interact_check_exit(body: Node2D) -> void:

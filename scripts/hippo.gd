@@ -143,7 +143,13 @@ func _on_wet_timer_timeout() -> void:
 func _on_interact_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Interactable"):
 		target = body
-		$interactPrompt.show()
+		if target is NPC:
+			$InteractPrompt.play("Chat")
+		elif target is SceneSwitch:
+			$InteractPrompt.play("Swap")
+		else: $InteractPrompt.play("Pick")
+		
+		$InteractPrompt.show()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and target != null:
@@ -169,7 +175,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_interact_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Interactable"):
 		target = null
-		$interactPrompt.hide()
+		$InteractPrompt.hide()
 
 func scene_transition() -> void:
 	var transDirection: String = ""

@@ -969,13 +969,13 @@ codeTexture = SubResource("AtlasTexture_c6hwh")
 connectedDoor = NodePath("../doubleDoor")
 
 [node name="keypad2" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
-position = Vector2(1075, 864)
+position = Vector2(1082, 883)
 scale = Vector2(2, 2)
 codeTexture = SubResource("AtlasTexture_r0em2")
 connectedDoor = NodePath("../doubleDoor2")
 
 [node name="keypad3" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
-position = Vector2(1381, 1405)
+position = Vector2(1381, 1378)
 scale = Vector2(2, 2)
 codeTexture = SubResource("AtlasTexture_wpxaw")
 connectedDoor = NodePath("../doubleDoor3")
@@ -1129,7 +1129,6 @@ texture = ExtResource("31_baqh1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneSwitch"]
 position = Vector2(-1.14288, -2.32144)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_shy2d")
 
 [node name="PandaRock2" parent="." groups=["Breakables"] instance=ExtResource("29_tl12a")]
