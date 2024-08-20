@@ -114,7 +114,7 @@ limit_bottom = 320
 script = ExtResource("2_t5mhv")
 target = NodePath("../bird")
 
-[node name="Grub" type="CharacterBody2D" parent="."]
+[node name="Grub" type="CharacterBody2D" parent="." groups=["Interactable"]]
 position = Vector2(-78, -264)
 script = ExtResource("3_b1lng")
 itemToGive = "keypad button"
@@ -125,9 +125,10 @@ texture = SubResource("AtlasTexture_fe2hw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grub"]
 shape = SubResource("RectangleShape2D_67xpw")
 
-[node name="SceneSwitch" type="StaticBody2D" parent="."]
+[node name="SceneSwitch" type="StaticBody2D" parent="." groups=["Interactable"]]
 position = Vector2(5, 326)
 script = ExtResource("5_pus2x")
+scenePath = "res://scenes/map.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneSwitch"]
 shape = SubResource("RectangleShape2D_7uexb")

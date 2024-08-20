@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://scripts/npc.gd" id="11_o1iem"]
 [ext_resource type="Script" path="res://scripts/office.gd" id="13_2nkrg"]
 [ext_resource type="Texture2D" uid="uid://b1kfyf3cyf0ls" path="res://art/objects/zooOfficeSheet.png" id="13_80e8x"]
-[ext_resource type="PackedScene" path="res://scenes/keypad.tscn" id="14_jl3md"]
+[ext_resource type="PackedScene" uid="uid://b7cg2tn0hxk50" path="res://scenes/keypad.tscn" id="14_jl3md"]
 [ext_resource type="Texture2D" uid="uid://npd0c7r0godl" path="res://art/objects/UI.png" id="15_qn120"]
 [ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="15_tud0i"]
 [ext_resource type="Script" path="res://scenes/event.gd" id="17_gfsbc"]
@@ -29,7 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://cx2rngpnqm18r" path="res://sfx/Other SFX/Window Break 7.mp3" id="24_kbmpa"]
 [ext_resource type="PackedScene" uid="uid://cyl66qx666ffb" path="res://scenes/panda.tscn" id="26_eu7me"]
 [ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="29_k26oo"]
-[ext_resource type="PackedScene" uid="uid://dmxf1uwxj3lh2" path="res://scenes/PandaRock.tscn" id="29_tl12a"]
+[ext_resource type="PackedScene" path="res://scenes/PandaRock.tscn" id="29_tl12a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_km3v2"]
 size = Vector2(44.75, 21.75)
@@ -889,12 +889,12 @@ codeTexture = SubResource("AtlasTexture_r0em2")
 connectedDoor = NodePath("../doubleDoor2")
 
 [node name="keypad3" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
-position = Vector2(1410, 1407)
+position = Vector2(1372, 1407)
 codeTexture = SubResource("AtlasTexture_wpxaw")
 connectedDoor = NodePath("../doubleDoor3")
 
 [node name="keypad4" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
-position = Vector2(1153, 2029)
+position = Vector2(1153, 2003)
 connectedDoor = NodePath("../doubleDoor4")
 working = false
 
