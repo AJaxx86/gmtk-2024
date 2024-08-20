@@ -956,7 +956,7 @@ autoplay = "default"
 [node name="doors" type="Node2D" parent="."]
 
 [node name="doubleDoor" parent="doors" instance=ExtResource("7_68ehx")]
-position = Vector2(-320, 384)
+position = Vector2(-320, 387)
 requiredCode = "1234"
 
 [node name="doubleDoor2" parent="doors" instance=ExtResource("7_68ehx")]
@@ -964,7 +964,7 @@ position = Vector2(1217, 867)
 requiredCode = "6969"
 
 [node name="doubleDoor3" parent="doors" instance=ExtResource("7_68ehx")]
-position = Vector2(1536, 1444)
+position = Vector2(1536, 1447)
 requiredCode = "1738"
 
 [node name="keypad" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
@@ -1168,7 +1168,7 @@ scale = Vector2(4.64, 4.64)
 position = Vector2(1576, 2268)
 scale = Vector2(5.68, 5.68)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+[node name="MUSIC" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_mo84l")
 volume_db = -12.876
 autoplay = true
