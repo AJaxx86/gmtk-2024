@@ -19,9 +19,9 @@ var keypadConnected: bool = false
 func force_open() -> void:
 	collision.disabled = true
 	if isHorizontal:
-		play_animation("opened_vertical")
-	else:
 		play_animation("opened_horizontal")
+	else:
+		play_animation("opened_vertical")
 	stream_sfx(sfxDoorOpening)
 
 func force_close() -> void:
@@ -39,7 +39,10 @@ func open() -> void:
 			return
 
 	collision.disabled = true
-	play_animation("opened_vertical")
+	if isHorizontal:
+		play_animation("opened_horizontal")
+	else:
+		play_animation("opened_vertical")
 	stream_sfx(sfxDoorOpening)
 
 func close() -> void:

@@ -5,6 +5,7 @@ signal CodeEntered
 @export_group("Nodes")
 @export var codeLabel: Label
 @export var codePaper: TextureRect
+@export var isBroken: bool = false
 
 var currentCode: String = ""
 
@@ -19,6 +20,10 @@ func button_pressed(number: int) -> void:
 
 
 func popup(codeTexture: Texture2D = null) -> void:
+	if not isBroken:
+		$AnimatedSprite2D.play("Broken Keypad")
+	else:
+		$AnimatedSprite2D.play("Base Keypad")
 	show()
 	
 	if codeTexture:
