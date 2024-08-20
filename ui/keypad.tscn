@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://c1qopxkmjj4uf"]
 
 [ext_resource type="Script" path="res://ui/keypad_buttons.gd" id="1_2q6uv"]
-[ext_resource type="Texture2D" uid="uid://dlt5mcqrap36h" path="res://art/objects/numPad.png" id="2_63qqd"]
-[ext_resource type="AudioStream" uid="uid://fqsn1vgg4a6m" path="res://sfx/Other SFX/Key Press.mp3" id="3_wuuyc"]
+[ext_resource type="Texture2D" uid="uid://d7fj54vrhp6t" path="res://art/objects/numPad.png" id="2_63qqd"]
+[ext_resource type="AudioStream" uid="uid://dojhbevtydx64" path="res://sfx/Other SFX/Key Press.mp3" id="3_wuuyc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s8m5"]
 atlas = ExtResource("2_63qqd")

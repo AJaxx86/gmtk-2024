@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bleq7gx633dy6"
+path="res://.godot/imported/Crate Breaking.mp3-2944e66fe6c2e5fbcfacf1b3c6ff29ea.mp3str"
+
+[deps]
+
+source_file="res://sfx/Other SFX/Crate Breaking.mp3"
+dest_files=["res://.godot/imported/Crate Breaking.mp3-2944e66fe6c2e5fbcfacf1b3c6ff29ea.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

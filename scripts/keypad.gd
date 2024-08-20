@@ -16,7 +16,9 @@ class_name Keypad
 var passcode: String = ""
 
 func _ready() -> void:
-			
+	print_debug(str(GlobalStuff.unlockedDoors))
+	if GlobalStuff.unlockedDoors.has(connectedDoor.name):
+		connectedDoor.force_open()
 
 	if connectedDoor:
 		passcode = connectedDoor.requiredCode
@@ -50,6 +52,8 @@ func code_entered(enteredCode: String) -> void:
 
 	if enteredCode == passcode:
 		print_debug("Correct code entered: " + str(enteredCode))
+		GlobalStuff.unlockedDoors.append(connectedDoor.name)
+
 		stream_sfx(sfxCorrectCode)
 		keypadUI.hide()
 		keypadUI.disconnect("CodeEntered", code_entered)

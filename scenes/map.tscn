@@ -30,8 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://40map13ew2ob" path="res://art/foliage/weepingWillow.png" id="21_wncdu"]
 [ext_resource type="AudioStream" uid="uid://cx2rngpnqm18r" path="res://sfx/Other SFX/Window Break 7.mp3" id="24_kbmpa"]
 [ext_resource type="PackedScene" uid="uid://cyl66qx666ffb" path="res://scenes/panda.tscn" id="26_eu7me"]
-[ext_resource type="Texture2D" uid="uid://6n24n6pfcia" path="res://icon.svg" id="29_k26oo"]
-[ext_resource type="PackedScene" uid="uid://dmxf1uwxj3lh2" path="res://scenes/PandaRock.tscn" id="29_tl12a"]
+[ext_resource type="PackedScene" path="res://scenes/PandaRock.tscn" id="29_tl12a"]
+[ext_resource type="Texture2D" uid="uid://dkl0oemvit0yx" path="res://art/foliage/bambooBush.png" id="31_ypsa6"]
 
 [sub_resource type="Resource" id="Resource_rvynv"]
 script = ExtResource("9_0rbk3")
@@ -1105,17 +1105,18 @@ position = Vector2(581, 1444)
 position = Vector2(899, 162)
 infinitePush = false
 
-[node name="SceneSwitch" type="StaticBody2D" parent="." groups=["Interactable"]]
-position = Vector2(1809, 2298)
+[node name="bamboo" type="StaticBody2D" parent="." groups=["Interactable"]]
+position = Vector2(1780, 2269)
 scale = Vector2(-3.19535, -3.19535)
 script = ExtResource("15_tud0i")
 scenePath = "res://scenes/areas/bamboo_interior.tscn"
 
-[node name="Sprite2D" type="Sprite2D" parent="SceneSwitch"]
-scale = Vector2(0.20962, 0.20962)
-texture = ExtResource("29_k26oo")
+[node name="Sprite2D" type="Sprite2D" parent="bamboo"]
+rotation = -3.14159
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("31_ypsa6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneSwitch"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bamboo"]
 shape = SubResource("RectangleShape2D_shy2d")
 
 [node name="PandaRock2" parent="." groups=["Breakables"] instance=ExtResource("29_tl12a")]

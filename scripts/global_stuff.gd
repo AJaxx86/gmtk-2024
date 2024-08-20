@@ -13,7 +13,8 @@ var hippoCharges: int
 var cameraPosition: Vector2
 var cameraZoom: Vector2
 
-var lockedDoorsArray: Array = []
+var brokenBarrels: Array = []
+var unlockedDoors: Array = []
 var officeUnlocked: bool = false
 
 var enteredBamboo = false
