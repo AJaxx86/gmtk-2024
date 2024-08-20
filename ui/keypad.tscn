@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1qopxkmjj4uf"]
 
 [ext_resource type="Script" path="res://ui/keypad_buttons.gd" id="1_2q6uv"]
-[ext_resource type="Texture2D" uid="uid://dmmpex5ku73kv" path="res://art/objects/numPad.png" id="2_63qqd"]
+[ext_resource type="Texture2D" uid="uid://xeopxgpys2sh" path="res://art/objects/numPad.png" id="2_63qqd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7s8m5"]
 atlas = ExtResource("2_63qqd")
@@ -46,10 +46,10 @@ sprite_frames = SubResource("SpriteFrames_moyjf")
 animation = &"Base Keypad"
 
 [node name="currentCode" type="Label" parent="pad/AnimatedSprite2D"]
-offset_left = -38.0
-offset_top = -47.0
-offset_right = 82.0
-offset_bottom = -8.0
+offset_left = -34.0278
+offset_top = -47.2222
+offset_right = 85.9722
+offset_bottom = -8.22223
 scale = Vector2(0.608313, 0.640001)
 text = "1234"
 label_settings = SubResource("LabelSettings_kpkd2")
@@ -150,7 +150,6 @@ offset_top = 59.0
 offset_right = -133.0
 offset_bottom = 97.0
 scale = Vector2(0.52, 0.48)
-text = "9"
 flat = true
 
 [node name="0" type="Button" parent="pad/AnimatedSprite2D/buttons"]
@@ -160,7 +159,6 @@ offset_top = 59.0
 offset_right = -107.0
 offset_bottom = 97.0
 scale = Vector2(0.52, 0.48)
-text = "9"
 flat = true
 
 [node name="RESET" type="Button" parent="pad/AnimatedSprite2D/buttons"]
@@ -170,7 +168,6 @@ offset_top = 59.0
 offset_right = -81.0
 offset_bottom = 97.0
 scale = Vector2(0.52, 0.48)
-text = "9"
 flat = true
 
 [node name="code" type="TextureRect" parent="pad/AnimatedSprite2D"]
