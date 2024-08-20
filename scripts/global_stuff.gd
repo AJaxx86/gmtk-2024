@@ -1,6 +1,8 @@
 extends Node
 class_name Globals
 
+var firstLoad: bool = true
+
 var itemLimit: int = 99
 var items: Array[String] = []
 var doorCodes: Array[String] = []
