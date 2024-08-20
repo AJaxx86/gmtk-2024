@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bfibib5mie10n"
+path="res://.godot/imported/Key Press Fail.mp3-6b8e1b24a0bf1c09ddb9809fa020105e.mp3str"
+
+[deps]
+
+source_file="res://sfx/Other SFX/Key Press Fail.mp3"
+dest_files=["res://.godot/imported/Key Press Fail.mp3-6b8e1b24a0bf1c09ddb9809fa020105e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

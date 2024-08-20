@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=120 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
@@ -31,7 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://cx2rngpnqm18r" path="res://sfx/Other SFX/Window Break 7.mp3" id="24_kbmpa"]
 [ext_resource type="PackedScene" uid="uid://cyl66qx666ffb" path="res://scenes/panda.tscn" id="26_eu7me"]
 [ext_resource type="PackedScene" path="res://scenes/PandaRock.tscn" id="29_tl12a"]
-[ext_resource type="Texture2D" uid="uid://dkl0oemvit0yx" path="res://art/foliage/bambooBush.png" id="31_baqh1"]
+[ext_resource type="Texture2D" uid="uid://c1xtta17255g3" path="res://art/foliage/bambooBush.png" id="31_baqh1"]
 
 [sub_resource type="Resource" id="Resource_rvynv"]
 script = ExtResource("9_0rbk3")
@@ -432,6 +432,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_btlhp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4djo"]
+atlas = ExtResource("18_o5iis")
+region = Rect2(0, 60, 32, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bio2r"]
+size = Vector2(129, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqfll"]
 size = Vector2(24.5, 22)
@@ -959,9 +966,6 @@ requiredCode = "6969"
 position = Vector2(1536, 1444)
 requiredCode = "1738"
 
-[node name="doubleDoor5" parent="doors" instance=ExtResource("7_68ehx")]
-position = Vector2(832, 2368)
-
 [node name="keypad" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
 position = Vector2(-128, 342)
 scale = Vector2(2, 2)
@@ -1003,6 +1007,26 @@ animation = &"opened_vertical"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="doors/Door"]
 scale = Vector2(0.36, 3.7)
 shape = SubResource("RectangleShape2D_btlhp")
+
+[node name="ending" type="StaticBody2D" parent="doors" groups=["Interactable"]]
+position = Vector2(832, 2371)
+script = ExtResource("15_tud0i")
+scenePath = "res://scenes/areas/ending.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="doors/ending"]
+position = Vector2(-32, -21)
+scale = Vector2(2.1, 2)
+texture = SubResource("AtlasTexture_s4djo")
+
+[node name="Sprite2D2" type="Sprite2D" parent="doors/ending"]
+position = Vector2(33, -21)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_s4djo")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="doors/ending"]
+position = Vector2(0.5, -27.5)
+shape = SubResource("RectangleShape2D_bio2r")
 
 [node name="pushables" type="Node2D" parent="."]
 

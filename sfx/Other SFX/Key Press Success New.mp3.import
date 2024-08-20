@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://q8ur8t7eo4gb"
+path="res://.godot/imported/Key Press Success New.mp3-9c4c1dda92c749d72f9021d14490a2b9.mp3str"
+
+[deps]
+
+source_file="res://sfx/Other SFX/Key Press Success New.mp3"
+dest_files=["res://.godot/imported/Key Press Success New.mp3-9c4c1dda92c749d72f9021d14490a2b9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
