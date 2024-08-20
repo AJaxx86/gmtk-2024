@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://b7cg2tn0hxk50"]
 
 [ext_resource type="Script" path="res://scripts/keypad.gd" id="1_cmimi"]
-[ext_resource type="AudioStream" uid="uid://fqsn1vgg4a6m" path="res://sfx/Other SFX/Key Press.mp3" id="2_if21a"]
-[ext_resource type="AudioStream" uid="uid://danc6vuphc2x8" path="res://sfx/Other SFX/Key Press Success New.mp3" id="3_cr2yx"]
-[ext_resource type="AudioStream" uid="uid://1ev3vsmn5uv0" path="res://sfx/Other SFX/Key Press Fail.mp3" id="4_ro8q4"]
-[ext_resource type="Texture2D" uid="uid://bq5u00c6i42hx" path="res://art/objects/Keypad_topdown.png" id="5_ib1aa"]
+[ext_resource type="AudioStream" uid="uid://b7ca5eh67ymud" path="res://sfx/Other SFX/Key Press.mp3" id="2_if21a"]
+[ext_resource type="AudioStream" uid="uid://ua3tk7mjs28r" path="res://sfx/Other SFX/Key Press Success New.mp3" id="3_cr2yx"]
+[ext_resource type="AudioStream" uid="uid://biissnncal7pp" path="res://sfx/Other SFX/Key Press Fail.mp3" id="4_ro8q4"]
+[ext_resource type="Texture2D" uid="uid://bd65k4odq5soq" path="res://art/objects/Keypad_topdown.png" id="5_ib1aa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdx2s"]
 

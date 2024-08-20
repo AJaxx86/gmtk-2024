@@ -5,7 +5,7 @@ class_name PandaRock
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if GlobalStuff.check_item("keypad button"):
+	if GlobalStuff.enteredBamboo == true:
 		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
