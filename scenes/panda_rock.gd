@@ -5,7 +5,7 @@ class_name PandaRock
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if GlobalStuff.brokenObjects.has(self.name): #why the fuck does this not work
+	if GlobalStuff.check_item("keypad button"):
 		queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,6 +18,5 @@ func PandaInteract():
 	collision.queue_free()
 	await $AudioStreamPlayer2D.finished
 
-	GlobalStuff.brokenObjects.append(self.name)
 	queue_free()
 	

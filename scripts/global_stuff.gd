@@ -14,8 +14,6 @@ var cameraZoom: Vector2
 var lockedDoorsArray: Array = []
 var officeUnlocked: bool = false
 
-var brokenObjects: Array = []
-
 #ITEMS
 func add_item(item: String) -> void:
 	if items.size() < itemLimit:
@@ -47,7 +45,3 @@ func check_door_code(code: String) -> bool:
 	else:
 		push_warning("door code not found: %s" % code)
 		return false
-
-#OBJECTS
-func count_objects(objects: Array) -> void:
-	pass

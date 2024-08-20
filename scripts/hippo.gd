@@ -149,18 +149,41 @@ func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("interact") and target != null:
 		stream_sfx(hippoSFX[randi() % hippoSFX.size()])
 		if target is NPC:
+			scene_transition()
+			await $AnimatedSprite2D.animation_finished
 			target.interact()
 		if target is SceneSwitch:
+			scene_transition()
+			await $AnimatedSprite2D.animation_finished
 			target.change_scene()
 		if target is Door:
+			scene_transition()
+			await $AnimatedSprite2D.animation_finished
 			target.open()
 		if target is Keypad:
+			scene_transition()
+			await $AnimatedSprite2D.animation_finished
 			target.activate()
 
 func _on_interact_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Interactable"):
 		target = null
 		$interactPrompt.hide()
+
+func scene_transition() -> void:
+	var transDirection: String = ""
+
+	if lastDirection == Vector2.UP:
+		transDirection = "Up"
+	elif lastDirection == Vector2.DOWN:
+		transDirection = "Down"
+	elif lastDirection == Vector2.LEFT:
+		transDirection = "Left"
+	elif lastDirection == Vector2.RIGHT:
+		transDirection = "Right"
+	
+	$AnimatedSprite2D.play("Trans_" + transDirection)
+
 
 var previousSFX: AudioStreamMP3
 func stream_sfx(soundFile: AudioStreamMP3) -> void:
