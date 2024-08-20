@@ -423,6 +423,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rwfvs"]
 size = Vector2(127, 127)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_neoif"]
+atlas = ExtResource("13_80e8x")
+region = Rect2(192, 0, 64, 72)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrbub"]
 atlas = ExtResource("13_80e8x")
 region = Rect2(0, 0, 64, 72)
@@ -439,12 +443,16 @@ region = Rect2(64, 0, 64, 72)
 atlas = ExtResource("13_80e8x")
 region = Rect2(128, 0, 64, 72)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_neoif"]
-atlas = ExtResource("13_80e8x")
-region = Rect2(192, 0, 64, 72)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_d8kxi"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neoif")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qrbub")
@@ -957,7 +965,8 @@ sfxBreaking = ExtResource("24_kbmpa")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="office"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_d8kxi")
-animation = &"unlocked"
+animation = &"locked"
+autoplay = "locked"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="office"]
 position = Vector2(1, 4.5)
