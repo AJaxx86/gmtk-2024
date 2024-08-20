@@ -1,6 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1qopxkmjj4uf"]
+[gd_scene load_steps=6 format=3 uid="uid://c1qopxkmjj4uf"]
 
 [ext_resource type="Script" path="res://ui/keypad_buttons.gd" id="1_2q6uv"]
+[ext_resource type="Texture2D" uid="uid://dmmpex5ku73kv" path="res://art/objects/numPad.png" id="2_63qqd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s8m5"]
+atlas = ExtResource("2_63qqd")
+region = Rect2(0, 0, 100, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_moyjf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s8m5")
+}],
+"loop": true,
+"name": &"Base Keypad",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Broken Keypad",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_kpkd2"]
 font_size = 24
@@ -15,108 +36,158 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2q6uv")
-codeLabel = NodePath("Panel/currentCode")
-codePaper = NodePath("code")
+codeLabel = NodePath("AnimatedSprite2D/currentCode")
+codePaper = NodePath("AnimatedSprite2D/code")
 
-[node name="Panel" type="Panel" parent="pad"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 39.0
-offset_right = 160.0
-offset_bottom = 193.0
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="pad"]
+position = Vector2(118, 114)
+scale = Vector2(1.44, 1.44)
+sprite_frames = SubResource("SpriteFrames_moyjf")
+animation = &"Base Keypad"
 
-[node name="currentCode" type="Label" parent="pad/Panel"]
-layout_mode = 0
-offset_right = 120.0
-offset_bottom = 39.0
+[node name="currentCode" type="Label" parent="pad/AnimatedSprite2D"]
+offset_left = -38.0
+offset_top = -47.0
+offset_right = 82.0
+offset_bottom = -8.0
+scale = Vector2(0.608313, 0.640001)
 text = "1234"
 label_settings = SubResource("LabelSettings_kpkd2")
 
-[node name="buttons" type="Control" parent="pad/Panel"]
+[node name="buttons" type="Control" parent="pad/AnimatedSprite2D"]
+layout_mode = 3
 anchors_preset = 0
+offset_left = 136.0
+offset_top = -22.0
+offset_right = 176.0
+offset_bottom = 18.0
+
+[node name="1" type="Button" parent="pad/AnimatedSprite2D/buttons"]
+layout_mode = 0
+offset_left = -173.0
+offset_top = 2.0
+offset_right = -133.0
+offset_bottom = 40.0
+scale = Vector2(0.528752, 0.438823)
+flat = true
+
+[node name="2" type="Button" parent="pad/AnimatedSprite2D/buttons"]
+layout_mode = 0
+offset_left = -147.0
+offset_top = 1.0
+offset_right = -107.0
+offset_bottom = 39.0
+scale = Vector2(0.559999, 0.520001)
+flat = true
+
+[node name="3" type="Button" parent="pad/AnimatedSprite2D/buttons"]
+layout_mode = 0
+offset_left = -121.0
+offset_top = 2.0
+offset_right = -81.0
+offset_bottom = 40.0
+scale = Vector2(0.52, 0.495223)
+flat = true
+
+[node name="4" type="Button" parent="pad/AnimatedSprite2D/buttons"]
+layout_mode = 0
+offset_left = -173.0
+offset_top = 21.0
+offset_right = -133.0
+offset_bottom = 59.0
+scale = Vector2(0.52, 0.48)
+flat = true
+
+[node name="5" type="Button" parent="pad/AnimatedSprite2D/buttons"]
+layout_mode = 0
+offset_left = -147.0
+offset_top = 21.0
+offset_right = -107.0
+offset_bottom = 59.0
+scale = Vector2(0.522808, 0.475047)
+flat = true
+
+[node name="6" type="Button" parent="pad/AnimatedSprite2D/buttons"]
+layout_mode = 0
+offset_left = -121.0
+offset_top = 21.0
+offset_right = -81.0
+offset_bottom = 59.0
+scale = Vector2(0.52, 0.48)
+flat = true
+
+[node name="7" type="Button" parent="pad/AnimatedSprite2D/buttons"]
+layout_mode = 0
+offset_left = -173.0
 offset_top = 40.0
-offset_right = 40.0
-offset_bottom = 80.0
+offset_right = -133.0
+offset_bottom = 78.0
+scale = Vector2(0.519999, 0.48)
+flat = true
 
-[node name="1" type="Button" parent="pad/Panel/buttons"]
+[node name="8" type="Button" parent="pad/AnimatedSprite2D/buttons"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 38.0
-text = "1"
+offset_left = -146.0
+offset_top = 40.0
+offset_right = -106.0
+offset_bottom = 78.0
+scale = Vector2(0.52, 0.479999)
+flat = true
 
-[node name="2" type="Button" parent="pad/Panel/buttons"]
+[node name="9" type="Button" parent="pad/AnimatedSprite2D/buttons"]
 layout_mode = 0
-offset_left = 40.0
-offset_right = 80.0
-offset_bottom = 38.0
-text = "2"
+offset_left = -121.0
+offset_top = 40.0
+offset_right = -81.0
+offset_bottom = 78.0
+scale = Vector2(0.52, 0.48)
+flat = true
 
-[node name="3" type="Button" parent="pad/Panel/buttons"]
+[node name="#" type="Button" parent="pad/AnimatedSprite2D/buttons"]
 layout_mode = 0
-offset_left = 80.0
-offset_right = 120.0
-offset_bottom = 38.0
-text = "3"
-
-[node name="4" type="Button" parent="pad/Panel/buttons"]
-layout_mode = 0
-offset_top = 38.0
-offset_right = 40.0
-offset_bottom = 76.0
-text = "4"
-
-[node name="5" type="Button" parent="pad/Panel/buttons"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 38.0
-offset_right = 80.0
-offset_bottom = 76.0
-text = "5"
-
-[node name="6" type="Button" parent="pad/Panel/buttons"]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 38.0
-offset_right = 120.0
-offset_bottom = 76.0
-text = "6"
-
-[node name="7" type="Button" parent="pad/Panel/buttons"]
-layout_mode = 0
-offset_top = 76.0
-offset_right = 40.0
-offset_bottom = 114.0
-text = "7"
-
-[node name="8" type="Button" parent="pad/Panel/buttons"]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 76.0
-offset_right = 80.0
-offset_bottom = 114.0
-text = "8"
-
-[node name="9" type="Button" parent="pad/Panel/buttons"]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 76.0
-offset_right = 120.0
-offset_bottom = 114.0
+offset_left = -173.0
+offset_top = 59.0
+offset_right = -133.0
+offset_bottom = 97.0
+scale = Vector2(0.52, 0.48)
 text = "9"
+flat = true
 
-[node name="code" type="TextureRect" parent="pad"]
+[node name="0" type="Button" parent="pad/AnimatedSprite2D/buttons"]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 39.0
-offset_right = 256.0
-offset_bottom = 130.0
+offset_left = -147.0
+offset_top = 59.0
+offset_right = -107.0
+offset_bottom = 97.0
+scale = Vector2(0.52, 0.48)
+text = "9"
+flat = true
 
-[connection signal="pressed" from="pad/Panel/buttons/1" to="pad" method="button_pressed" binds= [1]]
-[connection signal="pressed" from="pad/Panel/buttons/2" to="pad" method="button_pressed" binds= [2]]
-[connection signal="pressed" from="pad/Panel/buttons/3" to="pad" method="button_pressed" binds= [3]]
-[connection signal="pressed" from="pad/Panel/buttons/4" to="pad" method="button_pressed" binds= [4]]
-[connection signal="pressed" from="pad/Panel/buttons/5" to="pad" method="button_pressed" binds= [5]]
-[connection signal="pressed" from="pad/Panel/buttons/6" to="pad" method="button_pressed" binds= [6]]
-[connection signal="pressed" from="pad/Panel/buttons/7" to="pad" method="button_pressed" binds= [7]]
-[connection signal="pressed" from="pad/Panel/buttons/8" to="pad" method="button_pressed" binds= [8]]
-[connection signal="pressed" from="pad/Panel/buttons/9" to="pad" method="button_pressed" binds= [9]]
+[node name="RESET" type="Button" parent="pad/AnimatedSprite2D/buttons"]
+layout_mode = 0
+offset_left = -121.0
+offset_top = 59.0
+offset_right = -81.0
+offset_bottom = 97.0
+scale = Vector2(0.52, 0.48)
+text = "9"
+flat = true
+
+[node name="code" type="TextureRect" parent="pad/AnimatedSprite2D"]
+offset_left = 67.0
+offset_top = -63.0
+offset_right = 163.0
+offset_bottom = 28.0
+
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/1" to="pad" method="button_pressed" binds= [1]]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/2" to="pad" method="button_pressed" binds= [2]]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/3" to="pad" method="button_pressed" binds= [3]]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/4" to="pad" method="button_pressed" binds= [4]]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/5" to="pad" method="button_pressed" binds= [5]]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/6" to="pad" method="button_pressed" binds= [6]]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/7" to="pad" method="button_pressed" binds= [7]]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/8" to="pad" method="button_pressed" binds= [8]]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/9" to="pad" method="button_pressed" binds= [9]]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/#" to="pad" method="_on_enter_pressed"]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/0" to="pad" method="button_pressed" binds= [0]]
+[connection signal="pressed" from="pad/AnimatedSprite2D/buttons/RESET" to="pad" method="_on_reset_pressed"]

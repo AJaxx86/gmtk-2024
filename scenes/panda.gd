@@ -4,9 +4,10 @@ class_name Panda
 @onready var pandaSprite: AnimatedSprite2D = $AnimatedSprite2D
 var isRolling: bool
 @export var RollingSpeed: float = 500
+var _pushspeed
 
 func _ready() -> void:
-	pass
+	_pushspeed = PushSpeed
 	
 
 func _process(delta: float) -> void:
@@ -27,6 +28,7 @@ func Push(body: Node2D, _direction):
 func _on_stop() -> void:
 	pandaSprite.play("idleNoBamboo")
 	if rolling:
+		PushSpeed = _pushspeed
 		velocity = Vector2.ZERO
 		infinitePush = false
 		isRolling = false
@@ -46,6 +48,7 @@ func _on_moving(direction: Vector2) -> void:
 func rolling():
 	infinitePush = true
 	isRolling = true
+	PushSpeed = RollingSpeed
 
 
 func _on_rolling_collision_body_entered(body: Node2D) -> void:

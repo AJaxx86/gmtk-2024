@@ -48,6 +48,7 @@ position = Vector2(801, 138)
 
 [node name="Panda" parent="." instance=ExtResource("6_whs74")]
 position = Vector2(395, 377)
+RollingSpeed = 600.0
 PushSpeed = 200.0
 infinitePush = false
 

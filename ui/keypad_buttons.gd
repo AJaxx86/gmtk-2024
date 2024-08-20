@@ -13,13 +13,10 @@ func _ready() -> void:
 	codeLabel.text = ""
 
 func button_pressed(number: int) -> void:
-	currentCode += str(number)
-	codeLabel.text = currentCode
+	if currentCode.length() < 4:
+		currentCode += str(number)
+		codeLabel.text = currentCode
 
-	if currentCode.length() == 4:
-		emit_signal("CodeEntered", currentCode)
-		currentCode = ""
-		codeLabel.text = ""
 
 func popup(codeTexture: Texture2D = null) -> void:
 	show()
@@ -29,3 +26,14 @@ func popup(codeTexture: Texture2D = null) -> void:
 		codePaper.show()
 	else:
 		codePaper.hide()
+
+
+func _on_reset_pressed() -> void:
+	currentCode = ""
+	codeLabel.text =""
+
+
+func _on_enter_pressed() -> void:
+	emit_signal("CodeEntered", currentCode)
+	currentCode = ""
+	codeLabel.text = ""
