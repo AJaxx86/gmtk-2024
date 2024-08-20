@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmxf1uwxj3lh2"]
+
+[ext_resource type="Texture2D" uid="uid://drydfuglhm80c" path="res://art/objects/boulder.png" id="1_u75hg"]
+[ext_resource type="Script" path="res://scenes/panda_rock.gd" id="1_v0ml6"]
+[ext_resource type="AudioStream" uid="uid://bywvrghq14ruo" path="res://sfx/Other SFX/Rock Break.mp3" id="3_k7djs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hij2p"]
+size = Vector2(25, 18)
+
+[node name="PandaRock" type="StaticBody2D" node_paths=PackedStringArray("collision")]
+script = ExtResource("1_v0ml6")
+collision = NodePath("CollisionShape2D")
+
+[node name="Boulder" type="Sprite2D" parent="."]
+position = Vector2(-2, -5)
+texture = ExtResource("1_u75hg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_hij2p")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_k7djs")

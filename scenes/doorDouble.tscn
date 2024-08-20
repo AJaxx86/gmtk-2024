@@ -3,7 +3,23 @@
 [ext_resource type="Script" path="res://scripts/door.gd" id="1_vf6in"]
 [ext_resource type="Texture2D" uid="uid://bx5b1a6fnuifn" path="res://art/objects/cageDoorSheet.png" id="2_lhgm3"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpm0w"]
+atlas = ExtResource("2_lhgm3")
+region = Rect2(0, 0, 32, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ojoyr"]
+atlas = ExtResource("2_lhgm3")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tga1q"]
+atlas = ExtResource("2_lhgm3")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e08u1"]
+atlas = ExtResource("2_lhgm3")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt3nn"]
 atlas = ExtResource("2_lhgm3")
 region = Rect2(64, 0, 32, 64)
 
@@ -19,52 +35,22 @@ region = Rect2(32, 0, 32, 64)
 atlas = ExtResource("2_lhgm3")
 region = Rect2(0, 0, 32, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cpm0w"]
-atlas = ExtResource("2_lhgm3")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tga1q"]
-atlas = ExtResource("2_lhgm3")
-region = Rect2(0, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e08u1"]
-atlas = ExtResource("2_lhgm3")
-region = Rect2(32, 0, 32, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rt3nn"]
-atlas = ExtResource("2_lhgm3")
-region = Rect2(64, 0, 32, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_s2j3w"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ojoyr")
-}],
-"loop": true,
-"name": &"Closed_vertical",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gy4lh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_af1t7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3buln")
-}],
-"loop": true,
-"name": &"Opened_vertical",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cpm0w")
 }],
 "loop": false,
-"name": &"closed_Horizontal",
+"name": &"closed_horizontal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojoyr")
+}],
+"loop": false,
+"name": &"closed_vertical",
 "speed": 5.0
 }, {
 "frames": [{
@@ -78,7 +64,21 @@ animations = [{
 "texture": SubResource("AtlasTexture_rt3nn")
 }],
 "loop": false,
-"name": &"opened_Horizontal",
+"name": &"opened_horizontal",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gy4lh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af1t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3buln")
+}],
+"loop": false,
+"name": &"opened_vertical",
 "speed": 5.0
 }]
 
@@ -95,15 +95,14 @@ doorSprites = [NodePath("AnimatedSprite2D"), NodePath("AnimatedSprite2D2")]
 texture_filter = 1
 position = Vector2(-16, 0)
 sprite_frames = SubResource("SpriteFrames_s2j3w")
-animation = &"closed_Horizontal"
-autoplay = "closed_Horizontal"
+animation = &"opened_horizontal"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(16, 0)
 scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_s2j3w")
-animation = &"opened_Horizontal"
+animation = &"opened_horizontal"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7.5)
