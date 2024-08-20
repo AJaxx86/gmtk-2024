@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlurhwx6qyhos"]
+[gd_scene load_steps=6 format=3 uid="uid://dlurhwx6qyhos"]
 
-[ext_resource type="Texture2D" uid="uid://bk3uk5ln84y2y" path="res://art/Itch Page.png" id="1_f1w2w"]
+[ext_resource type="Texture2D" uid="uid://h1lgucqu138n" path="res://art/Itch Page.png" id="1_f1w2w"]
 [ext_resource type="FontFile" uid="uid://bk7e03egmv55j" path="res://fonts/pixeloid-font/PixeloidSansBold-PKnYd.ttf" id="2_eya0e"]
 [ext_resource type="Script" path="res://scripts/credits.gd" id="3_sqr74"]
+[ext_resource type="AudioStream" uid="uid://l6buww0ksvln" path="res://sfx/Music/Opening And Closing Credits Track.mp3" id="4_gpbaw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_iprp0"]
 font = ExtResource("2_eya0e")
@@ -38,3 +39,7 @@ Artists: docmolli15, AidanDaDev
 Music/SFX: Bmusedd"
 label_settings = SubResource("LabelSettings_iprp0")
 script = ExtResource("3_sqr74")
+
+[node name="MUSIC" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gpbaw")
+volume_db = -12.876
