@@ -6,3 +6,5 @@ func _ready() -> void:
 	if player is Hippo:
 		player.global_position = GlobalStuff.hippoPosition
 		player.currentCharges = GlobalStuff.hippoCharges
+	
+	GlobalStuff.brokenObjects = get_tree().get_nodes_in_group("Breakables")
