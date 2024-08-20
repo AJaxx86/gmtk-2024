@@ -30,7 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://40map13ew2ob" path="res://art/foliage/weepingWillow.png" id="21_wncdu"]
 [ext_resource type="AudioStream" uid="uid://cx2rngpnqm18r" path="res://sfx/Other SFX/Window Break 7.mp3" id="24_kbmpa"]
 [ext_resource type="PackedScene" uid="uid://cyl66qx666ffb" path="res://scenes/panda.tscn" id="26_eu7me"]
-[ext_resource type="PackedScene" path="res://scenes/PandaRock.tscn" id="29_tl12a"]
+[ext_resource type="PackedScene" uid="uid://dmxf1uwxj3lh2" path="res://scenes/PandaRock.tscn" id="29_tl12a"]
 [ext_resource type="Texture2D" uid="uid://cj1203la2hjse" path="res://art/foliage/bambooBush.png" id="31_baqh1"]
 [ext_resource type="AudioStream" uid="uid://iv6l0b2i0hjr" path="res://sfx/Music/Open Zoo Music.mp3" id="33_egoip"]
 

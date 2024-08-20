@@ -174,7 +174,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _on_interact_range_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Interactable"):
+		if target is Keypad:
+			target.keypadUI.hide()
 		target = null
+		
 		$InteractPrompt.hide()
 
 func scene_transition() -> void:
