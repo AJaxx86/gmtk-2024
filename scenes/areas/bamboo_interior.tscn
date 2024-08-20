@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bclfcjfuhbuop"]
+[gd_scene load_steps=14 format=3 uid="uid://bclfcjfuhbuop"]
 
 [ext_resource type="Texture2D" uid="uid://dxc6bqb7pn4ey" path="res://art/tiles/bambooBackground.png" id="1_aorp5"]
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_avafy"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/grub.gd" id="3_b1lng"]
 [ext_resource type="Texture2D" uid="uid://npd0c7r0godl" path="res://art/objects/UI.png" id="4_kq4p3"]
 [ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="5_pus2x"]
+[ext_resource type="AudioStream" uid="uid://dfedx41idf063" path="res://sfx/Music/Bamboo Level.mp3" id="8_jsm8p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fiu1s"]
 size = Vector2(62, 6)
@@ -132,5 +133,8 @@ script = ExtResource("5_pus2x")
 shape = SubResource("RectangleShape2D_7uexb")
 
 [node name="MUSIC" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_jsm8p")
+volume_db = -12.876
+autoplay = true
 
 [connection signal="CoughtGrub" from="Grub" to="." method="button_found"]
