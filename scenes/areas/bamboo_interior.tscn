@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bclfcjfuhbuop"]
+[gd_scene load_steps=15 format=3 uid="uid://bclfcjfuhbuop"]
 
 [ext_resource type="Texture2D" uid="uid://dxc6bqb7pn4ey" path="res://art/tiles/bambooBackground.png" id="1_aorp5"]
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_avafy"]
@@ -22,6 +22,9 @@ region = Rect2(57, 4, 18, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7uexb"]
 size = Vector2(78, 9)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_yj5vd"]
+polygon = PackedVector2Array(-95, -252, -77, -242, -54, -242, -33, -254)
 
 [node name="bambooInterior" type="Node2D"]
 
@@ -130,5 +133,36 @@ shape = SubResource("RectangleShape2D_7uexb")
 stream = ExtResource("8_jsm8p")
 volume_db = -12.876
 autoplay = true
+
+[node name="Lighting" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lighting"]
+skew = -0.58294
+color = Color(1, 1, 0.117647, 0.368627)
+shadow_enabled = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Lighting"]
+position = Vector2(4, 4)
+occluder = SubResource("OccluderPolygon2D_yj5vd")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Lighting"]
+position = Vector2(110, 95)
+occluder = SubResource("OccluderPolygon2D_yj5vd")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Lighting"]
+position = Vector2(71, 200)
+occluder = SubResource("OccluderPolygon2D_yj5vd")
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="Lighting"]
+position = Vector2(6, 301)
+occluder = SubResource("OccluderPolygon2D_yj5vd")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="Lighting"]
+position = Vector2(114, 394)
+occluder = SubResource("OccluderPolygon2D_yj5vd")
+
+[node name="LightOccluder2D6" type="LightOccluder2D" parent="Lighting"]
+position = Vector2(27, 485)
+occluder = SubResource("OccluderPolygon2D_yj5vd")
 
 [connection signal="CoughtGrub" from="Grub" to="." method="button_found"]
