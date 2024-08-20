@@ -32,6 +32,7 @@ func stream_sfx(soundFile: AudioStreamMP3) -> void:
 	if sfxStreamer:
 		if soundFile != previousSFX:
 			sfxStreamer.stream = soundFile
+			previousSFX = soundFile
 			sfxStreamer.play()
 		else:
 			if sfxStreamer.playing == false:

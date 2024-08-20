@@ -167,10 +167,12 @@ func stream_sfx(soundFile: AudioStreamMP3) -> void:
 	if sfxStreamer:
 		if soundFile != previousSFX:
 			sfxStreamer.stream = soundFile
+			previousSFX = soundFile
 			sfxStreamer.play()
 		else:
 			if sfxStreamer.playing == false:
 				sfxStreamer.play()
+		push_warning("Playing SFX: " + str(soundFile))
 	
 	else:
 		push_error("This node doesn't have a SFX Streamer.")

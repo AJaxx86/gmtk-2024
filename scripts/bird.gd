@@ -41,17 +41,20 @@ func _physics_process(delta: float) -> void:
 
 		if velocity.x != 0:
 			birdSprite.play("run")
+			stream_sfx(sfxFootsteps)
 		else:
 			birdSprite.play("idle")
 
 		if Input.is_action_just_pressed("jump"):
 			birdSprite.play("jump")
 			velocity.y = -jumpForce
+			stream_sfx(sfxJump)
 	else:
 		if Input.is_action_just_pressed("jump") and jumpBoostUsed == false:
 			velocity.y = -boostJumpForce
 			birdSprite.play("doubleJump")
 			jumpBoostUsed = true
+			stream_sfx(sfxJump)
 
 		velocity.y += gravity * delta
 
@@ -87,6 +90,7 @@ func stream_sfx(soundFile: AudioStreamMP3) -> void:
 	if sfxStreamer:
 		if soundFile != previousSFX:
 			sfxStreamer.stream = soundFile
+			previousSFX = soundFile
 			sfxStreamer.play()
 		else:
 			if sfxStreamer.playing == false:

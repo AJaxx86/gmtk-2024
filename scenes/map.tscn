@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://dn7k6rw16fb4s"]
+[gd_scene load_steps=101 format=4 uid="uid://dn7k6rw16fb4s"]
 
 [ext_resource type="Script" path="res://scripts/zoo.gd" id="1_bao47"]
 [ext_resource type="TileSet" uid="uid://b4rll3munr3h5" path="res://resources/map_tiles.tres" id="1_hojxk"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bn1r4du657c1f" path="res://art/foliage/thistle.png" id="5_4qhvn"]
 [ext_resource type="Texture2D" uid="uid://b1xmo2bkd5t0f" path="res://art/foliage/mugwort.png" id="6_2alah"]
 [ext_resource type="PackedScene" uid="uid://cu5xce2lc3mea" path="res://scenes/camera_trigger.tscn" id="6_n3jdj"]
-[ext_resource type="PackedScene" uid="uid://bb1135r5gbkvw" path="res://plate.tscn" id="7_7fler"]
 [ext_resource type="PackedScene" uid="uid://cdlrig1maaxbs" path="res://scenes/doorDouble.tscn" id="7_68ehx"]
 [ext_resource type="PackedScene" uid="uid://1kokyfy61hk8" path="res://scenes/hippo.tscn" id="7_pp858"]
 [ext_resource type="PackedScene" uid="uid://0rd2tjh1676u" path="res://scenes/ChargeableObject.tscn" id="8_dtkv5"]
@@ -348,6 +347,14 @@ animations = [{
 [sub_resource type="AtlasTexture" id="AtlasTexture_c6hwh"]
 atlas = ExtResource("15_qn120")
 region = Rect2(0, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r0em2"]
+atlas = ExtResource("15_qn120")
+region = Rect2(27, 0, 26, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpxaw"]
+atlas = ExtResource("15_qn120")
+region = Rect2(78, 0, 26, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hqfll"]
 size = Vector2(24.5, 22)
@@ -857,11 +864,12 @@ requiredCode = "6969"
 
 [node name="doubleDoor3" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1536, 1444)
-requiredCode = "0420"
+requiredCode = "1738"
 
 [node name="doubleDoor4" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(1138, 2176)
 rotation = 1.57079
+requiredCode = "0420"
 
 [node name="doubleDoor5" parent="doors" instance=ExtResource("7_68ehx")]
 position = Vector2(832, 2368)
@@ -871,15 +879,20 @@ position = Vector2(-137, 344)
 codeTexture = SubResource("AtlasTexture_c6hwh")
 connectedDoor = NodePath("../doubleDoor")
 
-[node name="pressurePlates" type="Node2D" parent="."]
+[node name="keypad2" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
+position = Vector2(1066, 866)
+codeTexture = SubResource("AtlasTexture_r0em2")
+connectedDoor = NodePath("../doubleDoor2")
 
-[node name="plate" parent="pressurePlates" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("7_7fler")]
-position = Vector2(677, 1873)
-connectedDoor = NodePath("../../doors/doubleDoor4")
+[node name="keypad3" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
+position = Vector2(1410, 1407)
+codeTexture = SubResource("AtlasTexture_wpxaw")
+connectedDoor = NodePath("../doubleDoor3")
 
-[node name="plate2" parent="pressurePlates" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("7_7fler")]
-position = Vector2(677, 2281)
-connectedDoor = NodePath("../../doors/doubleDoor5")
+[node name="keypad4" parent="doors" node_paths=PackedStringArray("connectedDoor") instance=ExtResource("14_jl3md")]
+position = Vector2(1153, 2029)
+connectedDoor = NodePath("../doubleDoor4")
+working = false
 
 [node name="pushables" type="Node2D" parent="."]
 
@@ -909,7 +922,7 @@ script = ExtResource("11_o1iem")
 greetingDialogue = Array[ExtResource("9_0rbk3")]([SubResource("Resource_eti2i"), SubResource("Resource_cwnf3"), SubResource("Resource_w81hr"), SubResource("Resource_pw56p"), SubResource("Resource_p42vb")])
 completedQuestDialogue = Array[ExtResource("9_0rbk3")]([SubResource("Resource_wsomc")])
 requiredItem = "zebra_unlocked"
-passcode = "0420"
+passcode = "1738"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zebra"]
 scale = Vector2(3, 3)

@@ -1,14 +1,21 @@
-[gd_scene load_steps=9 format=3 uid="uid://bclfcjfuhbuop"]
+[gd_scene load_steps=13 format=3 uid="uid://bclfcjfuhbuop"]
 
+[ext_resource type="Texture2D" uid="uid://dxc6bqb7pn4ey" path="res://art/tiles/bambooBackground.png" id="1_aorp5"]
 [ext_resource type="PackedScene" uid="uid://bmqxpwhjeidqy" path="res://scenes/bird.tscn" id="1_avafy"]
+[ext_resource type="Texture2D" uid="uid://b3flh6to8dwu2" path="res://art/tiles/bambooPlatforms.png" id="2_fsvrq"]
 [ext_resource type="Script" path="res://scripts/follow_camera.gd" id="2_t5mhv"]
 [ext_resource type="Script" path="res://scripts/grub.gd" id="3_b1lng"]
 [ext_resource type="Texture2D" uid="uid://npd0c7r0godl" path="res://art/objects/UI.png" id="4_kq4p3"]
 [ext_resource type="Script" path="res://scripts/scene_switcher.gd" id="5_pus2x"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s0124"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fiu1s"]
+size = Vector2(62, 6)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_glpss"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe2hw"]
 atlas = ExtResource("4_kq4p3")
-region = Rect2(106.321, 0, 23.6795, 25.5655)
+region = Rect2(57, 4, 18, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_67xpw"]
 
@@ -18,27 +25,107 @@ size = Vector2(78, 9)
 [node name="bambooInterior" type="Node2D"]
 
 [node name="background" type="Sprite2D" parent="."]
+texture = ExtResource("1_aorp5")
+
+[node name="platforms" type="Sprite2D" parent="."]
+texture = ExtResource("2_fsvrq")
+
+[node name="leaf" type="StaticBody2D" parent="platforms"]
+position = Vector2(-36, 228)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/leaf"]
+shape = SubResource("RectangleShape2D_fiu1s")
+one_way_collision = true
+
+[node name="leaf2" type="StaticBody2D" parent="platforms"]
+position = Vector2(46, 137)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/leaf2"]
+shape = SubResource("RectangleShape2D_fiu1s")
+one_way_collision = true
+
+[node name="leaf3" type="StaticBody2D" parent="platforms"]
+position = Vector2(-60, 44)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/leaf3"]
+shape = SubResource("RectangleShape2D_fiu1s")
+one_way_collision = true
+
+[node name="leaf4" type="StaticBody2D" parent="platforms"]
+position = Vector2(6, -57)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/leaf4"]
+shape = SubResource("RectangleShape2D_fiu1s")
+one_way_collision = true
+
+[node name="leaf5" type="StaticBody2D" parent="platforms"]
+position = Vector2(44, -162)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/leaf5"]
+shape = SubResource("RectangleShape2D_fiu1s")
+one_way_collision = true
+
+[node name="leaf6" type="StaticBody2D" parent="platforms"]
+position = Vector2(-60, -250)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platforms/leaf6"]
+shape = SubResource("RectangleShape2D_fiu1s")
+one_way_collision = true
+
+[node name="boundaries" type="Node2D" parent="."]
+
+[node name="side1" type="StaticBody2D" parent="boundaries"]
+position = Vector2(0, 320)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/side1"]
+shape = SubResource("WorldBoundaryShape2D_glpss")
+
+[node name="side2" type="StaticBody2D" parent="boundaries"]
+position = Vector2(0, -320)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/side2"]
+shape = SubResource("WorldBoundaryShape2D_glpss")
+
+[node name="side3" type="StaticBody2D" parent="boundaries"]
+position = Vector2(-124, 0)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/side3"]
+shape = SubResource("WorldBoundaryShape2D_glpss")
+
+[node name="side4" type="StaticBody2D" parent="boundaries"]
+position = Vector2(124, 0)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boundaries/side4"]
+shape = SubResource("WorldBoundaryShape2D_glpss")
 
 [node name="bird" parent="." instance=ExtResource("1_avafy")]
-position = Vector2(42, 101)
+position = Vector2(5, 291)
 
-[node name="FollowCamera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+[node name="FollowCamera2D" type="Camera2D" parent="." node_paths=PackedStringArray("target")]
+zoom = Vector2(5, 5)
+limit_left = -124
+limit_top = -320
+limit_right = 124
+limit_bottom = 320
 script = ExtResource("2_t5mhv")
+target = NodePath("../bird")
 
 [node name="Grub" type="CharacterBody2D" parent="."]
-position = Vector2(260, 92)
+position = Vector2(-78, -264)
 script = ExtResource("3_b1lng")
 itemToGive = "keypad button"
 
 [node name="Sprite2D" type="Sprite2D" parent="Grub"]
-texture = SubResource("AtlasTexture_s0124")
+texture = SubResource("AtlasTexture_fe2hw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grub"]
 shape = SubResource("RectangleShape2D_67xpw")
 
 [node name="SceneSwitch" type="StaticBody2D" parent="."]
-position = Vector2(37, 162)
+position = Vector2(5, 326)
 script = ExtResource("5_pus2x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneSwitch"]
