@@ -39,6 +39,7 @@ Player=""
 Interactable="can be interacted by the player"
 Doors=""
 Cameras=""
+Breakables=""
 
 [input]
 
